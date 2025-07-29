@@ -17,10 +17,9 @@
     <nav class="py-2 bg-dark border-bottom">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active"
-                        aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Pricing</a></li>
+                <li class="nav-item"><a href="" class="nav-link link-body-emphasis px-2">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link link-body-emphasis px-2">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link link-body-emphasis px-2">Projects</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link link-body-emphasis px-2">Contact</a></li>
             </ul>
@@ -38,40 +37,49 @@
                 <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
-                <span class="fs-4"><code>developer<code>jonas</code>
-                </code></span>
+                <span class="fs-4"><code><code>developer</span>jonas</code></span>
             </a>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
                 <input type="search" class="form-control bg-dark" placeholder="Search..." aria-label="Search">
             </form>
         </div>
     </header>
-    <header>
-        <h1>
-            Jonas
-        </h1>
-        <p>
-            CTO | Systems Builder | Startup Engineer
-        </p>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm Jonas, a startup-focused developer and technologist. I build scalable systems with purposeand vision,
-                cofounding ventureslike Kreatorly and more to coem </p>
+    <main class="container my-5">
+
+        <section id="about" class="mb-5">
+            <h2 class="text-info border-bottom pb-2">About Me</h2>
+            <p class="lead">
+                I'm Jonas, a startup-focused developer and technologist. I build scalable systems with purpose and
+                vision.
+                Currently co-founding ventures like <strong>Kreatorly</strong> and others to come.
+            </p>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Kreatorly</strong> - A platform for Kreators</li>
-            </ul>
+        <section id="projects" class="mb-5">
+            <h2 class="text-info border-bottom pb-2">Projects</h2>
+            <div class="list-group">
+                <a href="kreatorly.com" class="list-group-item list-group-item-action bg-dark text-light border-secondary">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Kreatorly</h5>
+                        <small>2025 – Present</small>
+                    </div>
+                    <p class="mb-1">A platform for digital creators to manage and monetize their creative work.</p>
+                    <small class="text-muted">CTO & Co-founder</small>
+                </a>
+                <!-- Add more projects as needed -->
+            </div>
         </section>
 
-        <section id="contact">
-
+        <section id="contact" class="mb-5">
+            <h2 class="text-info border-bottom pb-2">Contact</h2>
+            <p>
+                You can reach me at
+                <a href="mailto:jonas.kreatorly@gmail.com" class="link-info">jonas.kreatorly@gmail.com</a>
+            </p>
         </section>
+
     </main>
+
 </body>
 
 </html>
