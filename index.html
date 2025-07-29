@@ -13,53 +13,50 @@
 </head>
 
 <body class="bg-dark">
-    <nav class="py-2 bg-dark border-bottom">
-        <div class="container d-flex flex-wrap">
-            <ul id="nav-links" class="nav me-auto">
-                <!-- JS will inject main nav items here -->
-            </ul>
-
-            <ul id="auth-links" class="nav">
-                <!-- JS will inject auth links here -->
-            </ul>
-        </div>
-    </nav>
-
-    <header class="py-3 mb-4 border-bottom">
-        <div class="container d-flex flex-wrap justify-content-center">
+    <header class="py-3 mb-4 border-bottom bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between">
             <a href="/"
-                class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
                 <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
                 <span class="fs-4"><code>developerjonas</code></span>
             </a>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-                <input type="search" class="form-control bg-dark" placeholder="Search..." aria-label="Search">
-            </form>
+
+            <ul id="nav-links" class="nav nav-pills justify-content-end">
+                <!-- JS will inject main nav items here -->
+            </ul>
         </div>
     </header>
 
+
+
+
     <main class="container py-5">
-  <div class="text-center mb-5">
-    <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4" width="150" height="150">
-    
-    <h1 class="text-light">Jonas</h1>
-    <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
-    
-    <p class="lead text-light mt-3">
-      I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at scale.
-    </p>
-    
-    <p class="text-secondary">
-      From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems, real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a strong sense of *why* to every venture I co-found.
-    </p>
-    
-    <p class="text-light">
-      If you're building the future — let’s connect.
-    </p>
-  </div>
-</main>
+        <div class="text-center mb-5">
+            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
+                width="150" height="150">
+
+            <h1 class="text-light">Jonas</h1>
+            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
+
+            <p class="lead text-light mt-3">
+                I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at
+                <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
+                scale.
+            </p>
+
+            <p class="text-secondary">
+                From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
+                real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a
+                strong sense of *why* to every venture I co-found.
+            </p>
+
+            <p class="text-light">
+                If you're building the future — let’s connect.
+            </p>
+        </div>
+    </main>
 
 
 
@@ -71,7 +68,9 @@
         { label: 'Home', href: 'index.html' },
         { label: 'About', href: 'about.html' },
         { label: 'Projects', href: 'projects.html' },
-        { label: 'FAQs', href: '#' },
+        { label: 'Services', href: 'services.html' },
+        { label: 'Blog', href: '#' },
+        { label: 'Resume/CV', href: 'Jonas_Resume.pdf' },
         { label: 'Contact', href: 'contact.html' }
     ];
 
@@ -83,7 +82,7 @@
     function createNavLink({ label, href }) {
         const li = document.createElement('li');
         li.className = 'nav-item';
-        li.innerHTML = `<a href="${href}" class="nav-link link-body-emphasis px-2">${label}</a>`;
+        li.innerHTML = `<a href="${href}" class="nav-link text-light px-2">${label}</a>`;
         return li;
     }
 
