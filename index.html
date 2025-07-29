@@ -10,23 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-
 </head>
 
 <body class="bg-dark">
     <nav class="py-2 bg-dark border-bottom">
         <div class="container d-flex flex-wrap">
-            <!-- <ul class="nav me-auto">
-                <li class="nav-item"><a href="" class="nav-link link-body-emphasis px-2">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link link-body-emphasis px-2">About</a></li>
-                <li class="nav-item"><a href="projects.html" class="nav-link link-body-emphasis px-2">Projects</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link link-body-emphasis px-2">Contact</a></li>
-            </ul>
-            <ul class="nav">
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Sign up</a></li>
-            </ul> -->
             <ul id="nav-links" class="nav me-auto">
                 <!-- JS will inject main nav items here -->
             </ul>
@@ -44,80 +32,68 @@
                 <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
-                <span class="fs-4"><code><code>developer</span>jonas</code></span>
+                <span class="fs-4"><code>developerjonas</code></span>
             </a>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
                 <input type="search" class="form-control bg-dark" placeholder="Search..." aria-label="Search">
             </form>
         </div>
     </header>
-    <main class="container my-5">
 
-        <section id="about" class="mb-5">
-            <h2 class="text-info border-bottom pb-2">About Me</h2>
-            <p class="lead">
-                I'm Jonas, a startup-focused developer and technologist. I build scalable systems with purpose and
-                vision.
-                Currently co-founding ventures like <strong>Kreatorly</strong> and others to come.
-            </p>
-        </section>
+    <main class="container py-5">
+  <div class="text-center mb-5">
+    <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4" width="150" height="150">
+    
+    <h1 class="text-light">Jonas</h1>
+    <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
+    
+    <p class="lead text-light mt-3">
+      I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at scale.
+    </p>
+    
+    <p class="text-secondary">
+      From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems, real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a strong sense of *why* to every venture I co-found.
+    </p>
+    
+    <p class="text-light">
+      If you're building the future — let’s connect.
+    </p>
+  </div>
+</main>
 
-        <section id="projects" class="mb-5">
-            <h2 class="text-info border-bottom pb-2">Projects</h2>
-            <div class="list-group">
-                <a href="https://www.kreatorly.com"
-                    class="list-group-item list-group-item-action bg-dark text-light border-secondary">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Kreatorly</h5>
-                        <small>2025 – Present</small>
-                    </div>
-                    <p class="mb-1">A platform for digital creators to manage and monetize their creative work.</p>
-                    <small class="text-muted">CTO & Co-founder</small>
-                </a>
-                <!-- Add more projects as needed -->
-            </div>
-        </section>
 
-        <section id="contact" class="mb-5">
-            <h2 class="text-info border-bottom pb-2">Contact</h2>
-            <p>
-                You can reach me at
-                <a href="mailto:jonas.kreatorly@gmail.com" class="link-info">jonas.kreatorly@gmail.com</a>
-            </p>
-        </section>
 
-    </main>
 
 </body>
 <script>
-  // Define navbar links
-  const mainNavItems = [
-    { label: 'Home', href: 'index.html' },
-    { label: 'About', href: 'about.html' },
-    { label: 'Projects', href: 'projects.html' },
-    { label: 'FAQs', href: '#' },
-    { label: 'Contact', href: 'contact.html' }
-  ];
+    // Define navbar links
+    const mainNavItems = [
+        { label: 'Home', href: 'index.html' },
+        { label: 'About', href: 'about.html' },
+        { label: 'Projects', href: 'projects.html' },
+        { label: 'FAQs', href: '#' },
+        { label: 'Contact', href: 'contact.html' }
+    ];
 
-  const authNavItems = [
-    { label: 'Login', href: '#' },
-    { label: 'Sign up', href: '#' }
-  ];
+    const authNavItems = [
+        { label: 'Login', href: '#' },
+        { label: 'Sign up', href: '#' }
+    ];
 
-  function createNavLink({ label, href }) {
-    const li = document.createElement('li');
-    li.className = 'nav-item';
-    li.innerHTML = `<a href="${href}" class="nav-link link-body-emphasis px-2">${label}</a>`;
-    return li;
-  }
+    function createNavLink({ label, href }) {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        li.innerHTML = `<a href="${href}" class="nav-link link-body-emphasis px-2">${label}</a>`;
+        return li;
+    }
 
-  // Populate main nav
-  const navLinks = document.getElementById('nav-links');
-  mainNavItems.forEach(item => navLinks.appendChild(createNavLink(item)));
+    // Populate main nav
+    const navLinks = document.getElementById('nav-links');
+    mainNavItems.forEach(item => navLinks.appendChild(createNavLink(item)));
 
-  // Populate auth nav
-  const authLinks = document.getElementById('auth-links');
-  authNavItems.forEach(item => authLinks.appendChild(createNavLink(item)));
+    // Populate auth nav
+    const authLinks = document.getElementById('auth-links');
+    authNavItems.forEach(item => authLinks.appendChild(createNavLink(item)));
 </script>
 
 
