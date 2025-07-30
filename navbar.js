@@ -1,18 +1,13 @@
 // navbar.js
 
 const mainNavItems = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: 'index.html' },
   { label: 'About', href: 'about.html' },
   { label: 'Projects', href: 'projects.html' },
   { label: 'Services', href: 'services.html' },
   { label: 'Blog', href: '#' },
   { label: 'Resume/CV', href: 'resume.html' },
   { label: 'Contact', href: 'contact.html' }
-];
-
-const authNavItems = [
-  { label: 'Login', href: '#' },
-  { label: 'Sign up', href: '#' }
 ];
 
 function createNavLink({ label, href }) {
