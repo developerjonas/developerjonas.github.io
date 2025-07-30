@@ -2,42 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonas | Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | developerjonas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-        <script src="navbar.js"></script>
-
+    <script src="navbar.js"></script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark text-light">
     <header class="py-3 mb-4 border-bottom bg-dark">
         <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="/"
-                class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
                 <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
                 <span class="fs-4"><code>developerjonas</code></span>
             </a>
-
-            <!-- Desktop nav: visible on md+ -->
             <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
-                <!-- JS injects links here -->
+                <!-- JS injects nav links -->
             </ul>
-
-            <!-- Mobile hamburger button: visible below md -->
             <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </header>
-    <!-- Offcanvas drawer sliding from right -->
+
     <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
         aria-labelledby="mobileNavLabel">
         <div class="offcanvas-header border-bottom border-secondary">
@@ -47,33 +41,103 @@
         </div>
         <div class="offcanvas-body">
             <ul id="mobile-nav-links" class="nav flex-column">
-                <!-- JS will inject mobile links here -->
+                <!-- JS injects mobile nav -->
             </ul>
         </div>
     </div>
+
     <main class="container py-5">
         <div class="text-center mb-5">
-            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
-                width="150" height="150">
-
-            <h1 class="text-light">Jonas</h1>
-            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
-
-            <p class="lead text-light mt-3">
-                I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at
-                <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
-                scale.
+            <h1 class="text-light">Services I Offer</h1>
+            <p class="lead text-secondary">
+                I help startups, NGOs, and purpose-driven teams build smart systems, fast prototypes, and lasting impact.
             </p>
+        </div>
 
-            <p class="text-secondary">
-                From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
-                real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a
-                strong sense of *why* to every venture I co-found.
-            </p>
+        <div class="row g-4">
+            <!-- Service 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>🛠️ Full-Stack Development</h4>
+                    <p>From UI to backend systems — I build modern, secure, and scalable applications tailored to your mission.</p>
+                    <ul class="list-unstyled small">
+                        <li>• React, Next.js, Node.js, Tailwind</li>
+                        <li>• PostgreSQL, MongoDB, Supabase</li>
+                        <li>• GitHub CI, containerized deploys</li>
+                    </ul>
+                </div>
+            </div>
 
-            <p class="text-light">
-                If you're building the future — let’s connect.
-            </p>
+            <!-- Service 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>📦 Systems Architecture</h4>
+                    <p>I design modular digital architectures that are easy to scale, maintain, and replicate across projects.</p>
+                    <ul class="list-unstyled small">
+                        <li>• Monorepos, BaaS, and microservices</li>
+                        <li>• Version control for data & diagrams</li>
+                        <li>• Role-based access systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>🌐 NGO & Civic Tech Platforms</h4>
+                    <p>Custom-built operating systems for education, youth safety, and community programs.</p>
+                    <ul class="list-unstyled small">
+                        <li>• YouthOS, CogniCare, Dojo Systems</li>
+                        <li>• Offline-first & low-bandwidth options</li>
+                        <li>• Ethical and consent-driven design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>🚀 MVP & Prototype Builds</h4>
+                    <p>I help you move from idea to working product — fast. Ideal for startups, pilots, and grant-based tools.</p>
+                    <ul class="list-unstyled small">
+                        <li>• Clickable prototypes to live demo</li>
+                        <li>• Focused on iteration & feedback</li>
+                        <li>• Pre-funding & lean delivery ready</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>🎯 Tech Strategy & Mentorship</h4>
+                    <p>Get expert guidance for your early-stage tech decisions, product roadmaps, or core team formation.</p>
+                    <ul class="list-unstyled small">
+                        <li>• Architecture & hiring consultations</li>
+                        <li>• Code review & system audits</li>
+                        <li>• CTO-level advisory support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
+                    <h4>🔐 Safety & Emergency Systems</h4>
+                    <p>I build digital safety layers that protect users — from alert buttons to real-time reporting APIs.</p>
+                    <ul class="list-unstyled small">
+                        <li>• SCEP: SparkCircuit Emergency Protocol</li>
+                        <li>• Geo-tagging, consent-first design</li>
+                        <li>• Trusted escalation tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h3 class="text-light">Let’s Collaborate</h3>
+            <p class="text-secondary fs-5">I work with aligned individuals, NGOs, and ventures who are building responsibly for the future.</p>
+            <a href="mailto:thejonasavasti@gmail.com" class="btn btn-outline-light btn-lg">Book a Discovery Call</a>
         </div>
     </main>
 </body>

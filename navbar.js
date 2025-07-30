@@ -1,7 +1,7 @@
 // navbar.js
 
 const mainNavItems = [
-  { label: 'Home', href: '' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: 'about.html' },
   { label: 'Projects', href: 'projects.html' },
   { label: 'Services', href: 'services.html' },

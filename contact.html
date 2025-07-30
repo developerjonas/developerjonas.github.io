@@ -2,80 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonas | Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-        <script src="navbar.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Jonas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+  <script src="navbar.js"></script>
 </head>
 
-<body class="bg-dark">
-    <header class="py-3 mb-4 border-bottom bg-dark">
-        <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="/"
-                class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
-                <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4"><code>developerjonas</code></span>
-            </a>
+<body class="bg-dark text-light">
+  <!-- Header -->
+  <header class="py-3 mb-4 border-bottom bg-dark">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+      <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4"><code>developerjonas</code></span>
+      </a>
 
-            <!-- Desktop nav: visible on md+ -->
-            <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
-                <!-- JS injects links here -->
-            </ul>
+      <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
+        <!-- JS injects links -->
+      </ul>
 
-            <!-- Mobile hamburger button: visible below md -->
-            <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </header>
-    <!-- Offcanvas drawer sliding from right -->
-    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
-        aria-labelledby="mobileNavLabel">
-        <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title" id="mobileNavLabel">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul id="mobile-nav-links" class="nav flex-column">
-                <!-- JS will inject mobile links here -->
-            </ul>
-        </div>
+      <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
-                width="150" height="150">
+  </header>
 
-            <h1 class="text-light">Jonas</h1>
-            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
+  <!-- Mobile Nav -->
+  <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+    <div class="offcanvas-header border-bottom border-secondary">
+      <h5 class="offcanvas-title" id="mobileNavLabel">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul id="mobile-nav-links" class="nav flex-column">
+        <!-- JS injects mobile links -->
+      </ul>
+    </div>
+  </div>
 
-            <p class="lead text-light mt-3">
-                I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at
-                <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
-                scale.
-            </p>
+  <!-- Main Contact Section -->
+  <main class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="text-light">Let’s Get in Touch</h1>
+      <p class="lead text-secondary">
+        Whether you're seeking collaboration, mentorship, or want to build something meaningful — I’d love to hear from you.
+      </p>
+    </div>
 
-            <p class="text-secondary">
-                From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
-                real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a
-                strong sense of *why* to every venture I co-found.
-            </p>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="bg-secondary bg-opacity-10 p-4 rounded-4 shadow">
+          <div class="mb-3">
+            <label for="name" class="form-label text-light">Name</label>
+            <input type="text" class="form-control bg-dark text-light border-secondary" id="name" name="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-light">Email</label>
+            <input type="email" class="form-control bg-dark text-light border-secondary" id="email" name="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label text-light">Message</label>
+            <textarea class="form-control bg-dark text-light border-secondary" id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-light w-100">Send Message</button>
+        </form>
 
-            <p class="text-light">
-                If you're building the future — let’s connect.
-            </p>
+        <div class="text-center mt-4">
+          <p class="text-muted small">Or connect with me directly:</p>
+          <a href="mailto:developerjonas@gmail.com" class="text-info d-block mb-2">developerjonas@gmail.com</a>
+          <a href="https://github.com/developerjonas" class="text-light me-3" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/developerjonas" class="text-light" target="_blank">LinkedIn</a>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
