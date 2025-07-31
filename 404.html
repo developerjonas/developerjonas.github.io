@@ -2,42 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonas | Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Page Not Found</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-        <script src="navbar.js"></script>
-
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="navbar.js"></script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark text-light">
     <header class="py-3 mb-4 border-bottom bg-dark">
         <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="/"
-                class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 text-light text-decoration-none">
                 <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
                 <span class="fs-4"><code>developerjonas</code></span>
             </a>
 
-            <!-- Desktop nav: visible on md+ -->
             <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
                 <!-- JS injects links here -->
             </ul>
 
-            <!-- Mobile hamburger button: visible below md -->
             <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </header>
-    <!-- Offcanvas drawer sliding from right -->
+
     <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
         aria-labelledby="mobileNavLabel">
         <div class="offcanvas-header border-bottom border-secondary">
@@ -51,32 +46,20 @@
             </ul>
         </div>
     </div>
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
-                width="150" height="150">
 
-            <h1 class="text-light">Jonas</h1>
-            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
+    <main class="container text-center py-5">
+        <h1 class="display-1 fw-bold text-danger">404</h1>
+        <p class="lead text-light mb-4">Uh-oh. This page doesn’t exist.</p>
+        <p class="text-secondary mb-5">Looks like you’ve wandered off the path — or maybe followed a broken link.</p>
 
-            <p class="lead text-light mt-3">
-                I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at
-                <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
-                scale.
-            </p>
+        <a href="/" class="btn btn-outline-light px-4 py-2">
+            ⬅️ Back to Home
+        </a>
 
-            <p class="text-secondary">
-                From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
-                real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a
-                strong sense of *why* to every venture I co-found.
-            </p>
-
-            <p class="text-light">
-                If you're building the future — let’s connect.
-            </p>
-        </div>
+        <p class="mt-5 text-muted" style="font-style: italic;">
+            P.S. This isn’t where Jonas lives. Try knocking on a real door.
+        </p>
     </main>
 </body>
 
-</html>hello this jonas and u should not come here 
-go backto where u came from 
+</html>
