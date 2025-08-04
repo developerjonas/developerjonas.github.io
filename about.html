@@ -2,19 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Jonas | developerjonas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-    <script src="navbar.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Jonas | developerjonas</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="navbar.js"></script>
 </head>
 
-<body class="bg-dark text-light">
-    <header class="py-3 mb-4 border-bottom bg-dark">
+<body class="bg-black text-light">
+
+  <!-- Navbar assumed identical to your universal navbar -->
+   <header class="py-3 mb-4 border-bottom bg-dark">
         <div class="container d-flex flex-wrap align-items-center justify-content-between">
             <a href="/"
                 class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
@@ -23,16 +26,20 @@
                 </svg>
                 <span class="fs-4"><code>developerjonas</code></span>
             </a>
+
+            <!-- Desktop nav: visible on md+ -->
             <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
-                <!-- JS injects nav links -->
+                <!-- JS injects links here -->
             </ul>
+
+            <!-- Mobile hamburger button: visible below md -->
             <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </header>
-
+    <!-- Offcanvas drawer sliding from right -->
     <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
         aria-labelledby="mobileNavLabel">
         <div class="offcanvas-header border-bottom border-secondary">
@@ -42,77 +49,112 @@
         </div>
         <div class="offcanvas-body">
             <ul id="mobile-nav-links" class="nav flex-column">
-                <!-- JS injects mobile nav -->
+                <!-- JS will inject mobile links here -->
             </ul>
         </div>
     </div>
 
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
-                width="150" height="150">
-            <h1 class="text-light">Jonas Avasti</h1>
-            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
-        </div>
+  <main class="container py-5">
 
-        <section class="mb-5">
-            <h2 class="text-light mb-3">Who I Am</h2>
-            <p class="text-secondary fs-5">
-                I’m a systems thinker and technologist on a mission to architect platforms that solve real problems —
-                from youth empowerment to civic technology, safety systems to creator infrastructure.
-                <br><br>
-                Currently serving as the CTO at <strong>Kreatorly</strong>, I specialize in building high-trust,
-                scalable systems with deep ethical roots. Whether prototyping new solutions or leading engineering teams,
-                I bring a sharp technical mindset, grounded purpose, and relentless curiosity to every project I touch.
+    <!-- Profile Intro -->
+    <div class="text-center mb-5">
+      <img src="assets/images/jonas.jpg" alt="Jonas profile picture"
+        class="rounded-circle shadow-lg mb-4 border border-info" width="160" height="160" style="object-fit: cover" />
+      <h1 class="display-4 fw-bold text-info">Jonas Avasti</h1>
+      <h5 class="text-white-50 fst-italic">CTO • Systems Architect • Builder of Meaningful Tech</h5>
+    </div>
+
+    <!-- Who I Am -->
+    <section class="mb-5">
+      <h2 class="fw-semibold text-info mb-4 border-bottom border-info pb-2">Who I Am</h2>
+      <p class="fs-5 text-white-50" style="line-height: 1.6;">
+        I’m a systems thinker and technologist on a mission to architect platforms that solve real problems — from youth
+        empowerment to civic technology, safety systems to creator infrastructure.
+      </p>
+      <p class="fs-5 text-white-50" style="line-height: 1.6;">
+        Currently serving as the CTO at <strong class="text-info">Kreatorly</strong>, I specialize in building
+        high-trust, scalable systems with deep ethical roots. Whether prototyping new solutions or leading engineering
+        teams, I bring a sharp technical mindset, grounded purpose, and relentless curiosity to every project I touch.
+      </p>
+    </section>
+
+    <!-- What I Value -->
+    <section class="mb-5">
+      <h2 class="fw-semibold text-info mb-4 border-bottom border-info pb-2">What I Value</h2>
+      <ul class="list-unstyled fs-5 text-white-50" style="line-height: 1.6;">
+        <li>🧭 <strong>Purpose over trend</strong> – I build what matters, not what’s popular.</li>
+        <li>🔐 <strong>Trust by design</strong> – Data privacy and user agency are foundational.</li>
+        <li>🧠 <strong>Deep over wide</strong> – Mastery and structural clarity drive all my builds.</li>
+        <li>🌍 <strong>Tech for community</strong> – Systems must serve real human needs.</li>
+      </ul>
+    </section>
+
+    <!-- What I Do -->
+    <section class="mb-5">
+      <h2 class="fw-semibold text-info mb-4 border-bottom border-info pb-2">What I Do</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div
+            class="h-100 p-4 rounded-4 border border-info bg-gradient"
+            style="background: linear-gradient(135deg, #001f3f 0%, #004080 100%)"
+          >
+            <h5 class="text-info mb-3">🧠 Systems Architecture</h5>
+            <p class="text-white-50">
+              I design modular, scalable infrastructure for startups and social ventures — from component libraries to full
+              operating systems.
             </p>
-        </section>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="h-100 p-4 rounded-4 border border-info bg-gradient"
+            style="background: linear-gradient(135deg, #001f3f 0%, #004080 100%)"
+          >
+            <h5 class="text-info mb-3">🚀 Venture Tech Leadership</h5>
+            <p class="text-white-50">
+              As a founding CTO, I lead product and engineering teams that prioritize long-term impact over short-term flash.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="h-100 p-4 rounded-4 border border-info bg-gradient"
+            style="background: linear-gradient(135deg, #001f3f 0%, #004080 100%)"
+          >
+            <h5 class="text-info mb-3">🛠️ Full-Stack Product Building</h5>
+            <p class="text-white-50">
+              From frontend UX to backend data logic, I build working systems that can ship early, adapt fast, and scale
+              responsibly.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="h-100 p-4 rounded-4 border border-info bg-gradient"
+            style="background: linear-gradient(135deg, #001f3f 0%, #004080 100%)"
+          >
+            <h5 class="text-info mb-3">🌱 Youth & Community Platforms</h5>
+            <p class="text-white-50">
+              I collaborate with NGOs and education-focused teams to digitize systems, improve safety, and build tech with
+              empathy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="mb-5">
-            <h2 class="text-light mb-3">What I Value</h2>
-            <ul class="list-unstyled text-secondary fs-5">
-                <li>🧭 <strong>Purpose over trend</strong> – I build what matters, not what’s popular.</li>
-                <li>🔐 <strong>Trust by design</strong> – Data privacy and user agency are foundational.</li>
-                <li>🧠 <strong>Deep over wide</strong> – Mastery and structural clarity drive all my builds.</li>
-                <li>🌍 <strong>Tech for community</strong> – Systems must serve real human needs.</li>
-            </ul>
-        </section>
+    <!-- Contact Call to Action -->
+    <section class="text-center">
+      <h2 class="fw-semibold text-info mb-4 border-bottom border-info pb-2">Let’s Build What Matters</h2>
+      <p class="fs-5 text-white-50 mb-4">
+        I’m open to collaborations, meaningful partnerships, and impactful builds — especially those rooted in ethics,
+        education, or empowerment.
+      </p>
+      <a href="mailto:thejonasavasti@gmail.com" class="btn btn-outline-info btn-lg px-5">Contact Me</a>
+    </section>
 
-        <section class="mb-5">
-            <h2 class="text-light mb-3">What I Do</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="border rounded-4 p-4 h-100 bg-secondary text-light">
-                        <h5>🧠 Systems Architecture</h5>
-                        <p>I design modular, scalable infrastructure for startups and social ventures — from component libraries to full operating systems.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="border rounded-4 p-4 h-100 bg-secondary text-light">
-                        <h5>🚀 Venture Tech Leadership</h5>
-                        <p>As a founding CTO, I lead product and engineering teams that prioritize long-term impact over short-term flash.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="border rounded-4 p-4 h-100 bg-secondary text-light">
-                        <h5>🛠️ Full-Stack Product Building</h5>
-                        <p>From frontend UX to backend data logic, I build working systems that can ship early, adapt fast, and scale responsibly.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="border rounded-4 p-4 h-100 bg-secondary text-light">
-                        <h5>🌱 Youth & Community Platforms</h5>
-                        <p>I collaborate with NGOs and education-focused teams to digitize systems, improve safety, and build tech with empathy.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  </main>
 
-        <section class="text-center">
-            <h2 class="text-light mb-3">Let’s Build What Matters</h2>
-            <p class="text-secondary fs-5">I’m open to collaborations, meaningful partnerships, and impactful builds — especially those rooted in ethics, education, or empowerment.</p>
-            <a href="mailto:thejonasavasti@gmail.com" class="btn btn-outline-light btn-lg mt-3">Contact Me</a>
-        </section>
-    </main>
 </body>
 
 </html>
