@@ -1,145 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services | developerjonas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-    <script src="navbar.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
-<body class="bg-dark text-light">
-    <header class="py-3 mb-4 border-bottom bg-dark">
-        <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
-                <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4"><code>developerjonas</code></span>
-            </a>
-            <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
-                <!-- JS injects nav links -->
-            </ul>
-            <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </header>
+<body>
+    <div class="container py-5">
 
-    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
-        aria-labelledby="mobileNavLabel">
-        <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title" id="mobileNavLabel">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
+        <div class="text-start mb-4">
+            <h1 class="mb-1"><code>jonas@developerjonas.com</code></h1>
+            <p class="text-secondary mb-3"><code>~ personal terminal space — welcome</code></p>
+            <nav class="inline-nav mb-4">
+                <a href="/"><code>index</code></a>
+                <a href="/about.html"><code>about</code></a>
+                <a href="/projects.html"><code>projects</code></a>
+                <a href="/services.html"><code>services</code></a>
+                <a href="/contact.html"><code>contact</code></a>
+                <a href="https://labnotes.developerjonas.com"><code>labnotes</code></a>
+                <a href="https://mailbox.developerjonas.com"><code>mailbox</code></a>
+            </nav>
         </div>
-        <div class="offcanvas-body">
-            <ul id="mobile-nav-links" class="nav flex-column">
-                <!-- JS injects mobile nav -->
-            </ul>
-        </div>
-    </div>
 
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <h1 class="text-light">Services I Offer</h1>
-            <p class="lead text-secondary">
-                I help startups, NGOs, and purpose-driven teams build smart systems, fast prototypes, and lasting impact.
+        <div class="terminal-block d-flex align-items-center mb-4">
+            <img src="assets/images/jonas.jpg" alt="Jonas" class="profile-img me-3" />
+            <div>
+                <h2 class="mb-0">Jonas</h2>
+                <small class="text-secondary">CTO • Systems Architect • Builder of Tools</small>
+            </div>
+        </div>
+
+        <div class="terminal-block">
+            <h3>Professional Services</h3>
+            <p>
+                I specialize in creating scalable, mission-aligned tech solutions that empower businesses and
+                communities alike.
+                Leveraging deep expertise in systems architecture and agile development, I partner with clients to bring
+                their
+                most ambitious ideas to life with reliability and precision.
+            </p>
+
+            <hr />
+
+            <h4 class="service-title">Custom Software Development</h4>
+            <p class="service-desc">
+                Tailored applications built to fit your unique workflows — from backend APIs and cloud infrastructure to
+                front-end experiences with intuitive design.
+            </p>
+
+            <h4 class="service-title">Technical Architecture & Consulting</h4>
+            <p class="service-desc">
+                Strategic technology roadmaps, scalable system designs, and performance optimizations crafted for
+                long-term
+                success.
+            </p>
+
+            <h4 class="service-title">Team & Process Building</h4>
+            <p class="service-desc">
+                Creating high-trust engineering teams and streamlined workflows that foster innovation, productivity,
+                and quality.
+            </p>
+
+            <h4 class="service-title">Open Source & Community Projects</h4>
+            <p class="service-desc">
+                Development and leadership in open source tools and platforms that support creators, developers, and
+                civic engagement.
+            </p>
+
+            <hr />
+
+            <p>
+                Interested in collaborating? <a href="/contact.html"><code>Let’s connect</code></a> to explore how I can
+                help
+                your vision become reality.
             </p>
         </div>
 
-        <div class="row g-4">
-            <!-- Service 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>🛠️ Full-Stack Development</h4>
-                    <p>From UI to backend systems — I build modern, secure, and scalable applications tailored to your mission.</p>
-                    <ul class="list-unstyled small">
-                        <li>• React, Next.js, Node.js, Tailwind</li>
-                        <li>• PostgreSQL, MongoDB, Supabase</li>
-                        <li>• GitHub CI, containerized deploys</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>📦 Systems Architecture</h4>
-                    <p>I design modular digital architectures that are easy to scale, maintain, and replicate across projects.</p>
-                    <ul class="list-unstyled small">
-                        <li>• Monorepos, BaaS, and microservices</li>
-                        <li>• Version control for data & diagrams</li>
-                        <li>• Role-based access systems</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>🌐 NGO & Civic Tech Platforms</h4>
-                    <p>Custom-built operating systems for education, youth safety, and community programs.</p>
-                    <ul class="list-unstyled small">
-                        <li>• YouthOS, CogniCare, Dojo Systems</li>
-                        <li>• Offline-first & low-bandwidth options</li>
-                        <li>• Ethical and consent-driven design</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>🚀 MVP & Prototype Builds</h4>
-                    <p>I help you move from idea to working product — fast. Ideal for startups, pilots, and grant-based tools.</p>
-                    <ul class="list-unstyled small">
-                        <li>• Clickable prototypes to live demo</li>
-                        <li>• Focused on iteration & feedback</li>
-                        <li>• Pre-funding & lean delivery ready</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>🎯 Tech Strategy & Mentorship</h4>
-                    <p>Get expert guidance for your early-stage tech decisions, product roadmaps, or core team formation.</p>
-                    <ul class="list-unstyled small">
-                        <li>• Architecture & hiring consultations</li>
-                        <li>• Code review & system audits</li>
-                        <li>• CTO-level advisory support</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card bg-secondary text-light h-100 shadow rounded-4 p-4">
-                    <h4>🔐 Safety & Emergency Systems</h4>
-                    <p>I build digital safety layers that protect users — from alert buttons to real-time reporting APIs.</p>
-                    <ul class="list-unstyled small">
-                        <li>• SCEP: SparkCircuit Emergency Protocol</li>
-                        <li>• Geo-tagging, consent-first design</li>
-                        <li>• Trusted escalation tools</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-5">
-            <h3 class="text-light">Let’s Collaborate</h3>
-            <p class="text-secondary fs-5">I work with aligned individuals, NGOs, and ventures who are building responsibly for the future.</p>
-            <a href="mailto:thejonasavasti@gmail.com" class="btn btn-outline-light btn-lg">Book a Discovery Call</a>
-        </div>
-    </main>
+    </div>
 </body>
 
 </html>

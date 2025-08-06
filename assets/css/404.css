@@ -1,0 +1,61 @@
+body {
+    font-family: monospace;
+    background-color: #000;
+    color: #0ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 2rem;
+}
+
+main {
+    max-width: 600px;
+    text-align: center;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+    padding: 2rem;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 6rem;
+    color: #fa0;
+    /* amber for 404 highlight */
+    margin-bottom: 0.5rem;
+}
+
+p.lead {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #0ff;
+}
+
+p.text-secondary {
+    color: #066;
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* Terminal-style inline links */
+.inline-nav a {
+    text-decoration: none;
+    color: #0ff;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+.inline-nav a:hover {
+    color: #3ff;
+    text-decoration: underline;
+}
+
+/* Small footer text */
+.small {
+    font-size: 0.875rem;
+    color: #066;
+    margin-top: 2rem;
+}

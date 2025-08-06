@@ -1,81 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonas | Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-        <script src="navbar.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>developerjonas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-dark">
-    <header class="py-3 mb-4 border-bottom bg-dark">
-        <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="/"
-                class="d-flex align-items-center mb-3 mb-lg-0 link-body-emphasis text-decoration-none text-light">
-                <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4"><code>developerjonas</code></span>
-            </a>
+<body>
+    <div class="container py-5">
 
-            <!-- Desktop nav: visible on md+ -->
-            <ul id="nav-links" class="nav nav-pills d-none d-md-flex justify-content-end">
-                <!-- JS injects links here -->
-            </ul>
-
-            <!-- Mobile hamburger button: visible below md -->
-            <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="text-start mb-4">
+            <h1 class="mb-1"><code>jonas@developerjonas.com</code></h1>
+            <p class="text-secondary mb-3"><code>~ personal terminal space — welcome</code></p>
+            <nav class="inline-nav mb-4">
+                <a href="/"><code>index</code></a>
+                <a href="/about.html"><code>about</code></a>
+                <a href="/projects.html"><code>projects</code></a>
+                <a href="/services.html"><code>services</code></a>
+                <a href="/contact.html"><code>contact</code></a>
+                <a href="https://labnotes.developerjonas.com"><code>labnotes</code></a>
+                <a href="https://mailbox.developerjonas.com"><code>mailbox</code></a>
+            </nav>
         </div>
-    </header>
-    <!-- Offcanvas drawer sliding from right -->
-    <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="mobileNav"
-        aria-labelledby="mobileNavLabel">
-        <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title" id="mobileNavLabel">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul id="mobile-nav-links" class="nav flex-column">
-                <!-- JS will inject mobile links here -->
-            </ul>
-        </div>
-    </div>
-    <main class="container py-5">
-        <div class="text-center mb-5">
-            <img src="assets/images/jonas.jpg" alt="Jonas profile picture" class="rounded-circle shadow mb-4"
-                width="150" height="150">
 
-            <h1 class="text-light">Jonas</h1>
-            <h4 class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</h4>
+        <div class="terminal-block">
+            <div class="d-flex align-items-center mb-3">
+                <img src="assets/images/jonas.jpg" alt="Jonas" class="profile-img me-3" />
+                <div>
+                    <h2 class="mb-0">Jonas</h2>
+                    <small class="text-secondary">CTO • Systems Architect • Builder of Tools</small>
+                </div>
+            </div>
 
-            <p class="lead text-light mt-3">
-                I build purposeful systems and high-trust teams around ideas that matter. Currently leading the tech at
+            <p>
+                I build purposeful systems and high-trust teams around ideas that matter. Currently leading tech at
                 <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
                 scale.
             </p>
-
             <p class="text-secondary">
                 From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
-                real-time tools, and mission-aligned product architecture. I bring deep focus, hands-on execution, and a
-                strong sense of *why* to every venture I co-found.
+                real-time tools, and mission-aligned architecture.
             </p>
-
-            <p class="text-light">
-                If you're building the future — let’s connect.
+            <p>
+                If you're building the future — <a href="mailto:hi@developerjonas.com"><code>let’s connect</code></a>.
             </p>
         </div>
-    </main>
+
+        <div class="terminal-block">
+            <h4 class="mb-3"><code>~/links</code></h4>
+            <ul class="list-unstyled">
+                <li><a href="https://github.com/developerjonas" target="_blank"><code>GitHub</code></a></li>
+                <li><a href="https://linkedin.com/in/developerjonas" target="_blank"><code>LinkedIn</code></a></li>
+                <li><a href="https://youtube.com/@developerjonas" target="_blank"><code>YouTube</code></a></li>
+                <li><a href="https://labnotes.developerjonas.com" target="_blank"><code>Lab Notes</code></a></li>
+                <li><a href="mailto:hi@developerjonas.com"><code>Email</code></a></li>
+            </ul>
+        </div>
+
+    </div>
 </body>
 
 </html>
