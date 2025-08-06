@@ -5,7 +5,8 @@ const mainNavItems = [
   { label: 'About', href: 'about.html' },
   { label: 'Projects', href: 'projects.html' },
   { label: 'Services', href: 'services.html' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Lab-Notes', href: '/lab-notes' },
+  { label: 'Mailbox', href: '/' },
   { label: 'Resume/CV', href: 'resume.html' },
   { label: 'Contact', href: 'contact.html' }
 ];
