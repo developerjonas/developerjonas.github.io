@@ -138,6 +138,19 @@ form input[type="submit"]:hover {
 
 
 /* Responsive styles */
-html {
-  overflow-y: scroll;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: monospace;
+    background-color: #000;
+    color: #0ff;
+}
+
+.page-container {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 2rem 1rem;
 }
