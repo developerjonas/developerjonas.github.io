@@ -138,3 +138,6 @@ form input[type="submit"]:hover {
 
 
 /* Responsive styles */
+html {
+  overflow-y: scroll;
+}
