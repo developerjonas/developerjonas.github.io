@@ -1,83 +1,223 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beacon | developerjonas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beacon - Donate to Support Jonas</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  />
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #181818;
+      color: #e0e0e0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    nav {
+      background: #202020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+    }
+    .logo span {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #3DDC97;
+      cursor: default;
+      user-select: none;
+    }
+    .links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .links a {
+      text-decoration: none;
+      color: #bbbbbb;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .links a:hover,
+    .contact-btn a {
+      color: #8A2BE2;
+    }
+    .contact-btn a {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #3DDC97;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .hamburg {
+      display: none;
+      font-size: 1.8rem;
+      color: #3DDC97;
+      cursor: pointer;
+    }
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      background: #202020;
+      transform: translateY(-500px);
+      transition: transform 0.4s ease;
+      z-index: 999;
+    }
+    .dropdown .links {
+      flex-direction: column;
+      padding: 1rem 2rem;
+      gap: 1.2rem;
+      display: flex;
+    }
+    .dropdown .links a {
+      color: #e0e0e0;
+      font-size: 1.3rem;
+    }
+    .dropdown .cancel {
+      font-size: 2rem;
+      color: #3DDC97;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Beacon Section */
+    section#beacon {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      min-height: 60vh;
+      text-align: center;
+    }
+    section#beacon h1 {
+      font-size: 3.6rem;
+      color: #e0e0e0;
+      margin-bottom: 1rem;
+    }
+    section#beacon h1 span {
+      color: #3DDC97;
+    }
+    section#beacon p {
+      color: #bbbbbb;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .donate-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .donate-button {
+      background: #3DDC97;
+      color: #181818;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 12px #3ddc9788;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .donate-button:hover {
+      background: #8A2BE2;
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      section#beacon {
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hamburg {
+        display: block;
+      }
+      .links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container py-5">
-
-        <div class="text-start mb-4">
-            <h1 class="mb-1"><code>developerjonas.com</code></h1>
-            <p class="text-secondary mb-3"><code>~ funding the journey — thank you</code></p>
-            <nav class="inline-nav mb-4">
-                <a href="/"><code>index</code></a>
-                <a href="/about.html"><code>about</code></a>
-                <a href="/projects.html"><code>projects</code></a>
-                <a href="/services.html"><code>services</code></a>
-                <a href="/contact.html"><code>contact</code></a>
-                <a href="/beacon.html"><code>beacon</code></a>
-                <a href="https://labnotes.developerjonas.com"target="_blank"><code>labnotes</code></a>
-                <a href="https://mailbox.developerjonas.com"target="_blank"><code>mailbox</code></a>
-            </nav>
-        </div>
-
-        <div class="terminal-block d-flex align-items-center mb-4">
-            <img src="assets/images/jonas.jpg" alt="Jonas" class="profile-img me-3" />
-            <div>
-                <h2 class="mb-0">Support Jonas</h2>
-                <small class="text-secondary">CTO • Systems Architect • Builder of Tools</small>
-            </div>
-        </div>
-
-        <div class="terminal-block">
-            <h3>Fund My Vision</h3>
-            <p>
-                Your support fuels my journey to build open tools, empower communities, and design resilient systems.
-                I work independently — not as a startup, not as a company — but as a creator dedicated to long-term value.
-            </p>
-
-            <hr />
-
-            <h4 class="mt-4">Where Your Support Goes</h4>
-            <ul>
-                <li><code>🛠️</code> Building open source tools (e.g. OpenWare, Lumoria, SCEP)</li>
-                <li><code>📚</code> Research and writing on education, systems, and ethics</li>
-                <li><code>🌱</code> Mentoring young developers and girls in tech</li>
-                <li><code>📦</code> Hosting, domain, infrastructure & uptime coverage</li>
-            </ul>
-
-            <h4 class="mt-4">Ways to Contribute</h4>
-            <p>
-                <strong>Direct Support:</strong> You can support me via:
-            </p>
-
-            <ul>
-                <li><code>🇳🇵 eSewa:</code> <strong>9841XXXXXX</strong> (Name: Jonas)</li>
-                <li><code>🔗 Khalti:</code> <strong>developerjonas@khalti</strong></li>
-                <li><code>🌍 Crypto (optional):</code> <em>Let me know via email</em></li>
-            </ul>
-
-            <p class="mt-4">
-                <code>💌</code> If you choose to support, feel free to email me at
-                <a href="mailto:developerjonas@gmail.com"><code>developerjonas@gmail.com</code></a> — I'd love to say thank you personally.
-            </p>
-
-            <hr />
-
-            <p class="mt-3">
-                Every bit helps. Together, we can create tools that matter.
-                <br /><code>— Jonas</code>
-            </p>
-        </div>
-
+  <nav>
+    <div class="nav-container">
+      <div class="logo"><span>Jonas</span></div>
+      <div class="links">
+        <div class="link"><a href="/">Home</a></div>
+        <div class="link"><a href="about.html">About</a></div>
+        <div class="link"><a href="projects.html">Projects</a></div>
+        <div class="link"><a href="services.html">Services</a></div>
+        <div class="link"><a href="beacon.html" aria-current="page">Beacon</a></div>
+        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
+        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     </div>
-</body>
+    <div class="dropdown">
+      <div class="links">
+        <a href="/" onclick="cancel()">Home</a>
+        <a href="about.html" onclick="cancel()">About</a>
+        <a href="projects.html" onclick="cancel()">Projects</a>
+        <a href="services.html" onclick="cancel()">Services</a>
+        <a href="beacon.html" onclick="cancel()">Beacon</a>
+        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
+        <a href="contact.html" onclick="cancel()">Contact</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
 
+  <section id="beacon">
+    <h1>Support <span>Jonas</span></h1>
+    <p>If you appreciate my work, please consider supporting me through a donation. Your contribution fuels innovation and continuous growth.</p>
+
+    <div class="donate-buttons">
+      <a href="https://paypal.me/yourpaypal" target="_blank" rel="noopener" class="donate-button">
+        <i class="fa-brands fa-paypal"></i> PayPal
+      </a>
+      <a href="https://www.patreon.com/yourpatreon" target="_blank" rel="noopener" class="donate-button">
+        <i class="fa-brands fa-patreon"></i> Patreon
+      </a>
+      <a href="bitcoin:yourbitcoinaddress" target="_blank" rel="noopener" class="donate-button">
+        <i class="fa-brands fa-bitcoin"></i> Bitcoin
+      </a>
+      <!-- Add other payment/donation options as needed -->
+    </div>
+  </section>
+
+  <script>
+    function hamburg() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(0)";
+    }
+    function cancel() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(-500px)";
+    }
+  </script>
+</body>
 </html>

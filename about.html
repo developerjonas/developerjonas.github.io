@@ -1,80 +1,281 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Jonas | developerjonas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Jonas Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  />
+  <style>
+    /* Dark gray background similar to YouTube Dark */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #181818;
+      color: #e0e0e0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #202020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+    }
+
+    .logo span {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #3DDC97;
+      cursor: default;
+      user-select: none;
+    }
+
+    .links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #bbbbbb;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .links a:hover,
+    .contact-btn a {
+      color: #8A2BE2;
+    }
+
+    .contact-btn a {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #3DDC97;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .hamburg {
+      display: none;
+      font-size: 1.8rem;
+      color: #3DDC97;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      background: #202020;
+      transform: translateY(-500px);
+      transition: transform 0.4s ease;
+      z-index: 999;
+    }
+
+    .dropdown .links {
+      flex-direction: column;
+      padding: 1rem 2rem;
+      gap: 1.2rem;
+      display: flex;
+    }
+
+    .dropdown .links a {
+      color: #e0e0e0;
+      font-size: 1.3rem;
+    }
+
+    .dropdown .cancel {
+      font-size: 2rem;
+      color: #3DDC97;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    /* About Section Layout */
+    section#about {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      min-height: 70vh;
+    }
+
+    .image {
+      flex: 2 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image img {
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 0 32px #3ddc9788;
+      user-select: none;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+    }
+
+    .content {
+      flex: 3 1 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+
+    .content h1 {
+      font-size: 3.6rem;
+      margin: 0;
+      color: #e0e0e0;
+    }
+
+    .content h1 span {
+      color: #3DDC97;
+    }
+
+    .content p {
+      color: #bbbbbb;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
+    .content ul {
+      color: #bbbbbb;
+      font-size: 1.25rem;
+      max-width: 700px;
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .content ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .image,
+      .content {
+        flex: 1 1 100%;
+      }
+
+      .hamburg {
+        display: block;
+      }
+
+      .links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="container py-5">
-
-    <div class="text-start mb-4">
-      <h1 class="mb-1"><code>developerjonas.com</code></h1>
-      <p class="text-secondary mb-3"><code>~ personal terminal space — welcome</code></p>
-      <nav class="inline-nav mb-4">
-        <a href="/"><code>index</code></a>
-        <a href="/about.html"><code>about</code></a>
-        <a href="/projects.html"><code>projects</code></a>
-        <a href="/services.html"><code>services</code></a>
-        <a href="/contact.html"><code>contact</code></a>
-        <a href="/beacon.html"><code>beacon</code></a>
-        <a href="https://labnotes.developerjonas.com"target="_blank"><code>labnotes</code></a>
-        <a href="https://mailbox.developerjonas.com"target="_blank"><code>mailbox</code></a>
-      </nav>
-    </div>
-
-    <div class="terminal-block">
-      <div class="d-flex align-items-center mb-3">
-        <img src="assets/images/jonas.jpg" alt="Jonas" class="profile-img me-3" />
-        <div>
-          <h2 class="mb-0">Jonas</h2>
-          <small class="text-secondary">CTO • Systems Architect • Builder of Meaningful Tech</small>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <span>Jonas</span>
+      </div>
+      <div class="links">
+        <div class="link">
+          <a href="/">Home</a>
+        </div>
+        <div class="link">
+          <a href="about.html" aria-current="page">About</a>
+        </div>
+        <div class="link">
+          <a href="projects.html">Projects</a>
+        </div>
+        <div class="link">
+          <a href="services.html">Services</a>
+        </div>
+        <div class="link">
+          <a href="beacon.html">Beacon</a>
+        </div>
+        <div class="link">
+          <a href="https://labnotes.developerjonas.com">LabNotes</a>
+        </div>
+        <div class="link contact-btn">
+          <a href="contact.html">Contact</a>
         </div>
       </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+    <div class="dropdown">
+      <div class="links">
+        <a href="/" onclick="cancel()">Home</a>
+        <a href="about.html" onclick="cancel()">About</a>
+        <a href="projects.html" onclick="cancel()">Projects</a>
+        <a href="services.html" onclick="cancel()">Services</a>
+        <a href="beacon.html" onclick="cancel()">Beacon</a>
+        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
+        <a href="contact.html" onclick="cancel()">Contact</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
 
+  <section id="about">
+    <div class="image">
+      <img
+        src="assets/images/jonas-about.jpg"
+        alt="Jonas"
+        loading="lazy"
+        width="400"
+        height="480"
+      />
+    </div>
+    <div class="content">
+      <h1>
+        About <span>Jonas</span>
+      </h1>
       <p>
-        I’m a systems thinker and technologist on a mission to architect platforms that solve real problems — from youth
-        empowerment
-        to civic technology, safety systems to creator infrastructure.
+        With a strong foundation in mathematics, physics, and software development, I strive to bridge theory and practice. My passion lies in solving complex problems through elegant code and innovative technology.
       </p>
-      <p class="text-secondary">
-        Currently serving as the CTO at <strong>Kreatorly</strong>, I specialize in building high-trust, scalable
-        systems with deep ethical roots.
-        Whether prototyping new solutions or leading engineering teams, I bring a sharp technical mindset, grounded
-        purpose, and relentless curiosity to every project I touch.
+      <p>
+        Here are some highlights of my skills and interests:
       </p>
-    </div>
-
-    <div class="terminal-block">
-      <h4 class="mb-3"><code>~/values</code></h4>
-      <ul class="list-unstyled">
-        <li>🧭 <strong>Purpose over trend</strong> – I build what matters, not what’s popular.</li>
-        <li>🔐 <strong>Trust by design</strong> – Data privacy and user agency are foundational.</li>
-        <li>🧠 <strong>Deep over wide</strong> – Mastery and structural clarity drive all my builds.</li>
-        <li>🌍 <strong>Tech for community</strong> – Systems must serve real human needs.</li>
+      <ul>
+        <li>Advanced knowledge in Mathematics and Theoretical Physics</li>
+        <li>Expertise in multiple programming languages including Python, JavaScript, and C++</li>
+        <li>Experience in full-stack development and algorithm design</li>
+        <li>Passionate about teaching and sharing knowledge through projects and writing</li>
+        <li>Committed to continuous learning and innovation</li>
       </ul>
     </div>
+  </section>
 
-    <div class="terminal-block">
-      <h4 class="mb-3"><code>~/work</code></h4>
-      <ul class="list-unstyled">
-        <li>🧠 <strong>Systems Architecture</strong> — Designing modular, scalable infrastructure for startups and
-          social ventures.</li>
-        <li>🚀 <strong>Venture Tech Leadership</strong> — Leading engineering teams with a focus on long-term impact.
-        </li>
-        <li>🛠️ <strong>Full-Stack Product Building</strong> — From frontend UX to backend logic, shipping early and
-          scaling responsibly.</li>
-        <li>🌱 <strong>Youth & Community Platforms</strong> — Collaborating with NGOs to digitize and improve systems
-          with empathy.</li>
-      </ul>
-    </div>
-
-  </div>
+  <script>
+    function hamburg() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(0)";
+    }
+    function cancel() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(-500px)";
+    }
+  </script>
 </body>
-
 </html>

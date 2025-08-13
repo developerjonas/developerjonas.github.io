@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonas Portfolio | Mathematics, Physics, Coding</title>
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a23;
+      color: #00ffff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #00b8b8;
+    }
+
+    /* Navbar */
+    nav {
+      background: rgba(0, 15, 25, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-menu li {
+      cursor: pointer;
+    }
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #00ffff;
+      font-size: 1.5rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #00ffff;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    p {
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      color: #a0ffff;
+    }
+
+    /* Hero */
+    #hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    #hero .btn-primary {
+      background-color: #00ffff;
+      color: #000;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    #hero .btn-primary:hover {
+      background-color: #00b8b8;
+    }
+
+    /* Skills grid */
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-item {
+      background: #002b2b;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 0 8px #00ffff88;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .skill-item:hover {
+      box-shadow: 0 0 15px #00ffffcc;
+    }
+
+    /* Projects */
+    .project-card {
+      background: #002b2b;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px #00ffff66;
+      transition: box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      box-shadow: 0 0 20px #00ffffcc;
+    }
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+    }
+    .project-card a {
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.8rem;
+    }
+
+    /* Contact form */
+    form {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      background: #001f1f;
+      border: 1.5px solid #00ffff;
+      border-radius: 6px;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      color: #00ffff;
+      resize: none;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #00b8b8;
+    }
+    button[type="submit"] {
+      background: #00ffff;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    button[type="submit"]:hover {
+      background: #00b8b8;
+    }
+    .form-status {
+      color: #0f0;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #005555;
+      border-top: 1px solid #003333;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: #001f1f;
+        height: calc(100% - 60px);
+        width: 200px;
+        flex-direction: column;
+        padding: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .nav-menu.open {
+        transform: translateX(0);
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-brand" onclick="scrollToSection('hero')">Jonas</div>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <h1>Jonas — <span style="color:#00ffff;">Mathematics | Physics | Coding</span></h1>
+    <p>
+      Passionate about transforming complex scientific concepts into elegant technology solutions.
+    </p>
+    <button class="btn-primary" onclick="scrollToSection('projects')">Explore Projects</button>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I combine deep knowledge in mathematics and physics with advanced coding skills to develop scalable, innovative solutions. Driven by curiosity and precision, I aim to bridge theory and practice to create impactful technologies.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item">JavaScript &amp; React.js</div>
+      <div class="skill-item">Python &amp; Data Science</div>
+      <div class="skill-item">Mathematical Modeling</div>
+      <div class="skill-item">Physics Simulations</div>
+      <div class="skill-item">Backend Development (Node.js)</div>
+      <div class="skill-item">Version Control (Git)</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>SparkCircuit</h3>
+      <p>A collaborative circuit design platform with real-time simulation capabilities.</p>
+      <a href="https://sparkcircuit.example.com" target="_blank" rel="noopener">Visit Project</a>
+    </div>
+    <div class="project-card">
+      <h3>LokMarg</h3>
+      <p>Tourism structuring platform optimizing travel experiences in Nepal.</p>
+      <a href="https://lokmarg.example.com" target="_blank" rel="noopener">Visit Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Kreatorly</h3>
+      <p>Creative content platform empowering artists with monetization tools.</p>
+      <a href="https://kreatorly.example.com" target="_blank" rel="noopener">Visit Project</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form" onsubmit="handleSubmit(event)">
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="off" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="off" />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="form-status" id="form-status"></p>
+    </form>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Jonas Portfolio. All rights reserved.
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    const navMenu = document.getElementById('nav-menu');
+    const navToggleBtn = document.querySelector('.nav-toggle');
+
+    function toggleMenu() {
+      navMenu.classList.toggle('open');
+    }
+    function closeMenu() {
+      navMenu.classList.remove('open');
+    }
+
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      closeMenu();
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Contact form submission (mock)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = '';
+      const form = e.target;
+      // Basic validation already by 'required' attributes
+
+      // Simulate async submission
+      setTimeout(() => {
+        status.textContent = 'Thank you for reaching out! I will get back to you soon.';
+        form.reset();
+      }, 700);
+    }
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

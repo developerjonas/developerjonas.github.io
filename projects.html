@@ -1,75 +1,218 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>developerjonas | Projects</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects - Jonas Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  />
+  <style>
+    /* Reuse your base styles here */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #181818;
+      color: #e0e0e0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    nav {
+      background: #202020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+    }
+    .logo span {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #3DDC97;
+      cursor: default;
+      user-select: none;
+    }
+    .links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .links a {
+      text-decoration: none;
+      color: #bbbbbb;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .links a:hover,
+    .contact-btn a {
+      color: #8A2BE2;
+    }
+    .contact-btn a {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #3DDC97;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .hamburg {
+      display: none;
+      font-size: 1.8rem;
+      color: #3DDC97;
+      cursor: pointer;
+    }
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      background: #202020;
+      transform: translateY(-500px);
+      transition: transform 0.4s ease;
+      z-index: 999;
+    }
+    .dropdown .links {
+      flex-direction: column;
+      padding: 1rem 2rem;
+      gap: 1.2rem;
+      display: flex;
+    }
+    .dropdown .links a {
+      color: #e0e0e0;
+      font-size: 1.3rem;
+    }
+    .dropdown .cancel {
+      font-size: 2rem;
+      color: #3DDC97;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Projects Section */
+    section#projects {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      min-height: 70vh;
+    }
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #252525;
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 0 24px #3ddc9788;
+      transition: box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      box-shadow: 0 0 40px #8A2BE2cc;
+    }
+    .project-card h2 {
+      margin-top: 0;
+      color: #3DDC97;
+      font-size: 1.8rem;
+    }
+    .project-card p {
+      color: #bbbbbb;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .project-links a {
+      color: #8A2BE2;
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 1.2rem;
+      font-size: 1.1rem;
+    }
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hamburg {
+        display: block;
+      }
+      .links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container py-5">
-
-        <div class="text-start mb-4">
-            <h1 class="mb-1"><code>developerjonas.com</code></h1>
-            <p class="text-secondary mb-3"><code>~ personal terminal space — welcome</code></p>
-            <nav class="inline-nav mb-4">
-                <a href="/"><code>index</code></a>
-                <a href="/about.html"><code>about</code></a>
-                <a href="/projects.html"><code>projects</code></a>
-                <a href="/services.html"><code>services</code></a>
-                <a href="/contact.html"><code>contact</code></a>
-                <a href="/beacon.html"><code>beacon</code></a>
-                <a href="https://labnotes.developerjonas.com" target="_blank"><code>labnotes</code></a>
-                <a href="https://mailbox.developerjonas.com"target="_blank"><code>mailbox</code></a>
-            </nav>
-        </div>
-
-        <!-- Project 1 -->
-        <div class="terminal-block">
-            <h3><code>Kreatorly</code></h3>
-            <p>
-                Empowering creators with funding, infrastructure, and community — currently live in alpha stage.
-            </p>
-            <span class="badge-terminal">VENTURE</span>
-            <div class="project-links mt-3">
-                <a href="https://kreatorly.com" target="_blank"><code>Website</code></a>
-                <a href="https://github.com/kreatorly" target="_blank"><code>GitHub</code></a>
-                <a href="https://developerjonas.com/case-study/kreatorly" target="_blank"><code>Case Study</code></a>
-            </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="terminal-block">
-            <h3><code>YouthOS</code></h3>
-            <p>
-                Modular digital OS for youth centers with volunteer tracking, safety, and mental health tools.
-            </p>
-            <span class="badge-terminal" style="background-color:#0a0; color:#efe;">CLIENT PROJECT</span>
-            <div class="project-links mt-3">
-                <a href="https://github.com/developerjonas/youthos" target="_blank"><code>GitHub</code></a>
-                <a href="https://developerjonas.com/projects/youthos/demo" target="_blank"><code>Live Demo</code></a>
-                <a href="https://developerjonas.com/case-study/youthos" target="_blank"><code>Case Study</code></a>
-            </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="terminal-block">
-            <h3><code>SkillSpot</code></h3>
-            <p>
-                One-stop hiring solution connecting skill-based youth with real opportunities across Nepal.
-            </p>
-            <span class="badge-terminal" style="background-color:#cc0; color:#331;">SIDE PROJECT</span>
-            <div class="project-links mt-3">
-                <a href="https://github.com/developerjonas/skillspot" target="_blank"><code>GitHub</code></a>
-                <a href="https://developerjonas.com/case-study/skillspot" target="_blank"><code>Case Study</code></a>
-            </div>
-        </div>
-
+  <nav>
+    <div class="nav-container">
+      <div class="logo"><span>Jonas</span></div>
+      <div class="links">
+        <div class="link"><a href="/">Home</a></div>
+        <div class="link"><a href="about.html">About</a></div>
+        <div class="link"><a href="projects.html" aria-current="page">Projects</a></div>
+        <div class="link"><a href="services.html">Services</a></div>
+        <div class="link"><a href="beacon.html">Beacon</a></div>
+        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
+        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     </div>
-</body>
+    <div class="dropdown">
+      <div class="links">
+        <a href="/" onclick="cancel()">Home</a>
+        <a href="about.html" onclick="cancel()">About</a>
+        <a href="projects.html" onclick="cancel()">Projects</a>
+        <a href="services.html" onclick="cancel()">Services</a>
+        <a href="beacon.html" onclick="cancel()">Beacon</a>
+        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
+        <a href="contact.html" onclick="cancel()">Contact</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
 
+  <section id="projects">
+    <h1>My <span>Projects</span></h1>
+    <div class="projects-list">
+      <article class="project-card">
+        <h2>Project One</h2>
+        <p>A brief description of Project One, highlighting the technologies and the impact.</p>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+      <article class="project-card">
+        <h2>Project Two</h2>
+        <p>Summary and tech stack used in Project Two with key achievements.</p>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+      <!-- Add more project cards as needed -->
+    </div>
+  </section>
+
+  <script>
+    function hamburg() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(0)";
+    }
+    function cancel() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(-500px)";
+    }
+  </script>
+</body>
 </html>

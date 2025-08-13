@@ -1,68 +1,319 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>developerjonas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonas Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  />
+  <style>
+    /* Dark gray background similar to YouTube Dark */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #181818;
+      color: #e0e0e0;
+      font-size: 18px; /* increased base font size */
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #202020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+    }
+
+    .logo span {
+      font-weight: 800;
+      font-size: 2.2rem; /* bigger logo */
+      color: #3DDC97; /* emerald teal accent */
+      cursor: default;
+      user-select: none;
+    }
+
+    .links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #bbbbbb;
+      font-weight: 600;
+      font-size: 1.2rem; /* bigger nav links */
+      transition: color 0.3s;
+    }
+
+    .links a:hover,
+    .contact-btn a {
+      color: #8A2BE2; /* violet on hover */
+    }
+
+    .contact-btn a {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #3DDC97;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .hamburg {
+      display: none;
+      font-size: 1.8rem;
+      color: #3DDC97;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      background: #202020;
+      transform: translateY(-500px);
+      transition: transform 0.4s ease;
+      z-index: 999;
+    }
+
+    .dropdown .links {
+      flex-direction: column;
+      padding: 1rem 2rem;
+      gap: 1.2rem;
+      display: flex;
+    }
+
+    .dropdown .links a {
+      color: #e0e0e0;
+      font-size: 1.3rem;
+    }
+
+    .dropdown .cancel {
+      font-size: 2rem;
+      color: #3DDC97;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Main Section Flexbox Layout: 5 columns total */
+    section#home {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      min-height: 70vh; /* more vertical space */
+    }
+
+    .image {
+      flex: 2 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image img {
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 0 32px #3ddc9788; /* emerald teal glow */
+      user-select: none;
+      height: auto;
+      max-height: 480px; /* bigger image */
+      object-fit: contain;
+    }
+
+    .content {
+      flex: 3 1 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+
+    .content h1 {
+      font-size: 3.6rem; /* bigger heading */
+      margin: 0;
+      color: #e0e0e0;
+    }
+
+    .content h1 span {
+      color: #3DDC97;
+    }
+
+    /* Removed typewriter animation styles */
+
+    .content p {
+      color: #bbbbbb;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 2.4rem;
+      color: #bbbbbb;
+    }
+
+    .social-links a {
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #8A2BE2; /* violet hover */
+    }
+
+    .btn button {
+      background: transparent;
+      border: 3px solid #3DDC97;
+      padding: 0.75rem 2.4rem;
+      color: #3DDC97;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      max-width: 220px;
+      font-size: 1.3rem;
+      user-select: none;
+      align-self: flex-start;
+      letter-spacing: 0.05em;
+    }
+
+    .btn button:hover {
+      background-color: #3DDC97;
+      color: #181818;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .image,
+      .content {
+        flex: 1 1 100%;
+      }
+
+      .hamburg {
+        display: block;
+      }
+
+      .links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container py-5">
-
-        <div class="text-start mb-4">
-            <h1 class="mb-1"><code>developerjonas.com</code></h1>
-            <p class="text-secondary mb-3"><code>~ personal terminal space — welcome</code></p>
-            <nav class="inline-nav mb-4">
-                <a href="/"><code>index</code></a>
-                <a href="/about.html"><code>about</code></a>
-                <a href="/projects.html"><code>projects</code></a>
-                <a href="/services.html"><code>services</code></a>
-                <a href="/contact.html"><code>contact</code></a>
-                <a href="/beacon.html"><code>beacon</code></a>
-                <a href="https://labnotes.developerjonas.com"target="_blank"><code>labnotes</code></a>
-                <a href="https://mailbox.developerjonas.com"target="_blank"><code>mailbox</code></a>
-            </nav>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <span>Jonas</span>
+      </div>
+      <div class="links">
+        <div class="link">
+          <a href="/">Home</a>
         </div>
-
-        <div class="terminal-block">
-            <div class="d-flex align-items-center mb-3">
-                <img src="assets/images/jonas.jpg" alt="Jonas" class="profile-img me-3" />
-                <div>
-                    <h2 class="mb-0">Jonas</h2>
-                    <small class="text-secondary">CTO • Systems Architect • Builder of Tools</small>
-                </div>
-            </div>
-
-            <p>
-                I build purposeful systems and high-trust teams around ideas that matter. Currently leading tech at
-                <strong>Kreatorly</strong>, crafting digital infrastructure to empower creators and communities at
-                scale.
-            </p>
-            <p class="text-secondary">
-                From grassroots startups in Nepal to scalable civic platforms, my work spans hardware-software systems,
-                real-time tools, and mission-aligned architecture.
-            </p>
-            <p>
-                If you're building the future — <a href="mailto:hi@developerjonas.com"><code>let’s connect</code></a>.
-            </p>
+        <div class="link">
+          <a href="about.html">About</a>
         </div>
-
-        <div class="terminal-block">
-            <h4 class="mb-3"><code>~/links</code></h4>
-            <ul class="list-unstyled">
-                <li><a href="https://github.com/developerjonas" target="_blank"><code>GitHub</code></a></li>
-                <li><a href="https://linkedin.com/in/developerjonas" target="_blank"><code>LinkedIn</code></a></li>
-                <li><a href="https://youtube.com/@developerjonas" target="_blank"><code>YouTube</code></a></li>
-                <li><a href="https://labnotes.developerjonas.com" target="_blank"><code>Lab Notes</code></a></li>
-                <li><a href="mailto:hi@developerjonas.com"><code>Email</code></a></li>
-            </ul>
+        <div class="link">
+          <a href="projects.html">Projects</a>
         </div>
-
+        <div class="link">
+          <a href="services.html">Services</a>
+        </div>
+        <div class="link">
+          <a href="beacon.html">Beacon</a>
+        </div>
+        <div class="link">
+          <a href="https://labnotes.developerjonas.com">LabNotes</a>
+        </div>
+        <div class="link contact-btn">
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     </div>
-</body>
+    <div class="dropdown">
+      <div class="links">
+        <a href="#home" onclick="cancel()">Home</a>
+        <a href="#about" onclick="cancel()">About</a>
+        <a href="#skills" onclick="cancel()">Skills</a>
+        <a href="#services" onclick="cancel()">Services</a>
+        <a href="#blogs" onclick="cancel()">Blogs</a>
+        <a href="#contact" onclick="cancel()">Contact</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
 
+  <section id="home">
+    <div class="image">
+      <img
+        src="assets/images/jonas.jpg"
+        alt="Jonas"
+        loading="lazy"
+        width="400"
+        height="480"
+      />
+    </div>
+    <div class="content">
+      <h1>
+        Hey, I'm <span>Jonas</span>
+      </h1>
+      <div>
+        I'm a <span style="color: #3DDC97; font-weight: 800;">Mathematics, Physics & Coding Enthusiast</span>
+      </div>
+      <p>
+        I combine deep mathematical insight with practical coding skills to
+        solve complex problems and build innovative solutions. Passionate
+        about physics and technology, I strive to create impact through
+        elegant, efficient software.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="https://twitter.com/yourtwitter" target="_blank" aria-label="Twitter"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="mailto:youremail@example.com" aria-label="Email"
+          ><i class="fa-solid fa-envelope"></i
+        ></a>
+      </div>
+      <div class="btn">
+        <button onclick="window.open('Jonas_CV.pdf')">Download CV</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function hamburg() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(0)";
+    }
+    function cancel() {
+      const navbar = document.querySelector(".dropdown");
+      navbar.style.transform = "translateY(-500px)";
+    }
+  </script>
+</body>
 </html>
