@@ -216,6 +216,17 @@
         display: none;
       }
     }
+
+    .image img {
+  width: 200px;          /* fixed width and height for a circle */
+  height: 200px;
+  border-radius: 50%;    /* makes the image circular */
+  object-fit: cover;     /* ensures the image covers the circle without distortion */
+  display: block;        /* removes inline gap */
+  box-shadow: 0 0 15px #3DDC97AA; /* optional subtle glow for style */
+  user-select: none;
+}
+
   </style>
 </head>
 <body>
