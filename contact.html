@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Jonas Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
   <style>
     /* Base styles */
     body {
@@ -18,13 +16,15 @@
       font-size: 18px;
       line-height: 1.6;
     }
+
     nav {
       background: #202020;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     }
+
     .nav-container {
       max-width: 1200px;
       margin: auto;
@@ -33,18 +33,21 @@
       justify-content: space-between;
       padding: 1.25rem 2rem;
     }
+
     .logo span {
       font-weight: 800;
       font-size: 2.2rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: default;
       user-select: none;
     }
+
     .links {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .links a {
       text-decoration: none;
       color: #bbbbbb;
@@ -52,23 +55,27 @@
       font-size: 1.2rem;
       transition: color 0.3s;
     }
+
     .links a:hover,
     .contact-btn a {
-      color: #8A2BE2;
+      color: #00BFA6;
     }
+
     .contact-btn a {
       padding: 0.6rem 1.5rem;
-      border: 2px solid #3DDC97;
+      border: 2px solid #00BFA6;
       border-radius: 6px;
       font-weight: 700;
       font-size: 1.2rem;
     }
+
     .hamburg {
       display: none;
       font-size: 1.8rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: pointer;
     }
+
     .dropdown {
       position: absolute;
       top: 60px;
@@ -79,19 +86,22 @@
       transition: transform 0.4s ease;
       z-index: 999;
     }
+
     .dropdown .links {
       flex-direction: column;
       padding: 1rem 2rem;
       gap: 1.2rem;
       display: flex;
     }
+
     .dropdown .links a {
       color: #e0e0e0;
       font-size: 1.3rem;
     }
+
     .dropdown .cancel {
       font-size: 2rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: pointer;
       align-self: flex-end;
       margin-bottom: 0.75rem;
@@ -107,27 +117,33 @@
       flex-direction: column;
       gap: 2rem;
     }
+
     section#contact h1 {
       font-size: 3.6rem;
       color: #e0e0e0;
       margin: 0;
       text-align: center;
     }
+
     section#contact h1 span {
-      color: #3DDC97;
+      color: #00BFA6;
     }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
+
     label {
       font-weight: 700;
       font-size: 1.1rem;
       margin-bottom: 0.3rem;
       color: #bbbbbb;
     }
-    input, textarea {
+
+    input,
+    textarea {
       padding: 0.8rem 1rem;
       border-radius: 8px;
       border: none;
@@ -135,13 +151,16 @@
       resize: vertical;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    input:focus, textarea:focus {
-      outline: 2px solid #3DDC97;
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #00BFA6;
       background-color: #222;
       color: #e0e0e0;
     }
+
     button {
-      background-color: #3DDC97;
+      background-color: #00BFA6;
       color: #181818;
       border: none;
       padding: 1rem 2rem;
@@ -153,8 +172,9 @@
       align-self: center;
       max-width: 200px;
     }
+
     button:hover {
-      background-color: #8A2BE2;
+      background-color: #00BFA6;
       color: #fff;
     }
 
@@ -169,42 +189,51 @@
       .hamburg {
         display: block;
       }
+
       .links {
         display: none;
       }
     }
 
-    input, textarea {
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-  resize: vertical;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    input,
+    textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  background-color: #222;     /* Dark background */
-  color: #e0e0e0;            /* Light text */
-  box-shadow: inset 0 0 5px #00000088; /* subtle inset shadow for depth */
-}
+      background-color: #222;
+      /* Dark background */
+      color: #e0e0e0;
+      /* Light text */
+      box-shadow: inset 0 0 5px #00000088;
+      /* subtle inset shadow for depth */
+    }
 
-input::placeholder,
-textarea::placeholder {
-  color: #888;               /* lighter placeholder text */
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #888;
+      /* lighter placeholder text */
+    }
 
-input:focus, textarea:focus {
-  outline: 2px solid #3DDC97;
-  background-color: #333;
-  color: #e0e0e0;
-}
-
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #00BFA6;
+      background-color: #333;
+      color: #e0e0e0;
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-container">
- <div class="logo">        <a href="/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span>Jonas</span></a>
-</div>      <div class="links">
+      <div class="logo"> <a href="/" target="_blank" rel="noopener noreferrer"
+          style="text-decoration: none;"><span>Jonas</span></a>
+      </div>
+      <div class="links">
         <div class="link"><a href="/">Home</a></div>
         <div class="link"><a href="about.html">About</a></div>
         <div class="link"><a href="projects.html">Projects</a></div>
@@ -231,16 +260,16 @@ input:focus, textarea:focus {
 
   <section id="contact">
     <h1>Contact <span>Me</span></h1>
-    <form action="mailto:youremail@example.com" method="post" enctype="text/plain" novalidate>
+    <form action="mailto:hi@developerjonas.com" method="post" enctype="text/plain" novalidate>
       <label for="name">Name</label>
       <input type="text" id="name" name="Name" required placeholder="Your full name" />
-      
+
       <label for="email">Email</label>
       <input type="email" id="email" name="Email" required placeholder="you@example.com" />
-      
+
       <label for="message">Message</label>
       <textarea id="message" name="Message" rows="6" placeholder="Write your message here..." required></textarea>
-      
+
       <button type="submit">Send</button>
     </form>
   </section>
@@ -265,61 +294,61 @@ input:focus, textarea:focus {
     </div>
   </footer>
 
-<style>
-  footer {
-    background-color: #202020;
-    color: #bbbbbb;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 4rem;
-    box-shadow: inset 0 1px 0 #3ddc9788;
-  }
+  <style>
+    footer {
+      background-color: #202020;
+      color: #bbbbbb;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 4rem;
+      box-shadow: inset 0 1px 0 #00BFA6;
+    }
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-container p {
-    margin: 0;
-    flex: 1 1 200px;
-  }
-
-  .footer-social-links {
-    flex: 1 1 200px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .footer-social-links a {
-    color: #bbbbbb;
-    transition: color 0.3s ease;
-  }
-
-  .footer-social-links a:hover {
-    color: #3DDC97;
-  }
-
-  @media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      gap: 0.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .footer-container p,
-    .footer-social-links {
-      flex: unset;
+    .footer-container p {
+      margin: 0;
+      flex: 1 1 200px;
     }
-  }
-</style>
+
+    .footer-social-links {
+      flex: 1 1 200px;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-social-links a {
+      color: #bbbbbb;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-links a:hover {
+      color: #00BFA6;
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-container p,
+      .footer-social-links {
+        flex: unset;
+      }
+    }
+  </style>
 
 
   <script>
@@ -333,4 +362,5 @@ input:focus, textarea:focus {
     }
   </script>
 </body>
+
 </html>

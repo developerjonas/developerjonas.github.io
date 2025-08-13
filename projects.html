@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects - Jonas Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
   <style>
     /* Reuse your base styles here */
     body {
@@ -18,13 +16,15 @@
       font-size: 18px;
       line-height: 1.6;
     }
+
     nav {
       background: #202020;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     }
+
     .nav-container {
       max-width: 1200px;
       margin: auto;
@@ -33,18 +33,21 @@
       justify-content: space-between;
       padding: 1.25rem 2rem;
     }
+
     .logo span {
       font-weight: 800;
       font-size: 2.2rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: default;
       user-select: none;
     }
+
     .links {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     .links a {
       text-decoration: none;
       color: #bbbbbb;
@@ -52,23 +55,27 @@
       font-size: 1.2rem;
       transition: color 0.3s;
     }
+
     .links a:hover,
     .contact-btn a {
-      color: #8A2BE2;
+      color: #00BFA6;
     }
+
     .contact-btn a {
       padding: 0.6rem 1.5rem;
-      border: 2px solid #3DDC97;
+      border: 2px solid #00BFA6;
       border-radius: 6px;
       font-weight: 700;
       font-size: 1.2rem;
     }
+
     .hamburg {
       display: none;
       font-size: 1.8rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: pointer;
     }
+
     .dropdown {
       position: absolute;
       top: 60px;
@@ -79,19 +86,22 @@
       transition: transform 0.4s ease;
       z-index: 999;
     }
+
     .dropdown .links {
       flex-direction: column;
       padding: 1rem 2rem;
       gap: 1.2rem;
       display: flex;
     }
+
     .dropdown .links a {
       color: #e0e0e0;
       font-size: 1.3rem;
     }
+
     .dropdown .cancel {
       font-size: 2rem;
-      color: #3DDC97;
+      color: #00BFA6;
       cursor: pointer;
       align-self: flex-end;
       margin-bottom: 0.75rem;
@@ -104,39 +114,46 @@
       padding: 0 2rem;
       min-height: 70vh;
     }
+
     .projects-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
+
     .project-card {
       background: #252525;
       border-radius: 14px;
       padding: 1.8rem 2rem;
-      box-shadow: 0 0 24px #3ddc9788;
+      box-shadow: 0 0 6px #00BFA6;
       transition: box-shadow 0.3s ease;
     }
+
     .project-card:hover {
-      box-shadow: 0 0 40px #8A2BE2cc;
+      box-shadow: 0 0 12px #00BFA6;
     }
+
     .project-card h2 {
       margin-top: 0;
-      color: #3DDC97;
+      color: #00BFA6;
       font-size: 1.8rem;
     }
+
     .project-card p {
       color: #bbbbbb;
       font-size: 1.15rem;
       line-height: 1.5;
       margin-bottom: 1rem;
     }
+
     .project-links a {
-      color: #8A2BE2;
+      color: #00BFA6;
       text-decoration: none;
       font-weight: 700;
       margin-right: 1.2rem;
       font-size: 1.1rem;
     }
+
     .project-links a:hover {
       text-decoration: underline;
     }
@@ -146,17 +163,20 @@
       .hamburg {
         display: block;
       }
+
       .links {
         display: none;
       }
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo">        <a href="/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span>Jonas</span></a>
-</div>
+      <div class="logo"> <a href="/" target="_blank" rel="noopener noreferrer"
+          style="text-decoration: none;"><span>Jonas</span></a>
+      </div>
       <div class="links">
         <div class="link"><a href="/">Home</a></div>
         <div class="link"><a href="about.html">About</a></div>
@@ -225,61 +245,61 @@
     </div>
   </footer>
 
-<style>
-  footer {
-    background-color: #202020;
-    color: #bbbbbb;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 4rem;
-    box-shadow: inset 0 1px 0 #3ddc9788;
-  }
+  <style>
+    footer {
+      background-color: #202020;
+      color: #bbbbbb;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 4rem;
+      box-shadow: inset 0 1px 0 #00BFA6;
+    }
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-container p {
-    margin: 0;
-    flex: 1 1 200px;
-  }
-
-  .footer-social-links {
-    flex: 1 1 200px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .footer-social-links a {
-    color: #bbbbbb;
-    transition: color 0.3s ease;
-  }
-
-  .footer-social-links a:hover {
-    color: #3DDC97;
-  }
-
-  @media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      gap: 0.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .footer-container p,
-    .footer-social-links {
-      flex: unset;
+    .footer-container p {
+      margin: 0;
+      flex: 1 1 200px;
     }
-  }
-</style>
+
+    .footer-social-links {
+      flex: 1 1 200px;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-social-links a {
+      color: #bbbbbb;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-links a:hover {
+      color: #00BFA6;
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-container p,
+      .footer-social-links {
+        flex: unset;
+      }
+    }
+  </style>
 
 
   <script>
@@ -293,4 +313,5 @@
     }
   </script>
 </body>
+
 </html>
