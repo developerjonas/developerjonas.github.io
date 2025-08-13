@@ -108,7 +108,7 @@
       margin-bottom: 0.75rem;
     }
 
-    /* Main Section Flexbox Layout: 5 columns total */
+    /* Main Section Flexbox Layout */
     section#home {
       max-width: 1200px;
       margin: 4rem auto;
@@ -116,25 +116,26 @@
 
       display: flex;
       gap: 3rem;
-      flex-wrap: wrap;
-      min-height: 70vh; /* more vertical space */
+      flex-wrap: nowrap; /* NO wrap on desktop */
+      min-height: 70vh;
     }
 
     .image {
-      flex: 2 1 45%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 32px #3DDC9788;
+      flex-shrink: 0;
+      max-width: 45%;
+      width: auto;
+      height: auto;
     }
 
     .image img {
-      max-width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 0 32px #3ddc9788; /* emerald teal glow */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       user-select: none;
-      height: auto;
-      max-height: 480px; /* bigger image */
-      object-fit: contain;
     }
 
     .content {
@@ -146,7 +147,7 @@
     }
 
     .content h1 {
-      font-size: 3.6rem; /* bigger heading */
+      font-size: 3.6rem;
       margin: 0;
       color: #e0e0e0;
     }
@@ -154,8 +155,6 @@
     .content h1 span {
       color: #3DDC97;
     }
-
-    /* Removed typewriter animation styles */
 
     .content p {
       color: #bbbbbb;
@@ -177,7 +176,7 @@
     }
 
     .social-links a:hover {
-      color: #8A2BE2; /* violet hover */
+      color: #8A2BE2;
     }
 
     .btn button {
@@ -203,9 +202,15 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .image,
+      section#home {
+        flex-wrap: wrap; /* allow wrap on smaller screens */
+      }
+      .image{
+        display: none;
+      }
       .content {
         flex: 1 1 100%;
+        max-width: 100% !important;
       }
 
       .hamburg {
@@ -216,17 +221,6 @@
         display: none;
       }
     }
-
-    .image img {
-  width: 200px;          /* fixed width and height for a circle */
-  height: 200px;
-  border-radius: 50%;    /* makes the image circular */
-  object-fit: cover;     /* ensures the image covers the circle without distortion */
-  display: block;        /* removes inline gap */
-  box-shadow: 0 0 15px #3DDC97AA; /* optional subtle glow for style */
-  user-select: none;
-}
-
   </style>
 </head>
 <body>
@@ -236,38 +230,25 @@
         <span>Jonas</span>
       </div>
       <div class="links">
-        <div class="link">
-          <a href="/">Home</a>
-        </div>
-        <div class="link">
-          <a href="about.html">About</a>
-        </div>
-        <div class="link">
-          <a href="projects.html">Projects</a>
-        </div>
-        <div class="link">
-          <a href="services.html">Services</a>
-        </div>
-        <div class="link">
-          <a href="beacon.html">Beacon</a>
-        </div>
-        <div class="link">
-          <a href="https://labnotes.developerjonas.com">LabNotes</a>
-        </div>
-        <div class="link contact-btn">
-          <a href="contact.html">Contact</a>
-        </div>
+        <div class="link"><a href="/">Home</a></div>
+        <div class="link"><a href="about.html">About</a></div>
+        <div class="link"><a href="projects.html">Projects</a></div>
+        <div class="link"><a href="services.html">Services</a></div>
+        <div class="link"><a href="beacon.html">Beacon</a></div>
+        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
+        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
       </div>
       <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     </div>
     <div class="dropdown">
       <div class="links">
-        <a href="#home" onclick="cancel()">Home</a>
-        <a href="#about" onclick="cancel()">About</a>
-        <a href="#skills" onclick="cancel()">Skills</a>
-        <a href="#services" onclick="cancel()">Services</a>
-        <a href="#blogs" onclick="cancel()">Blogs</a>
-        <a href="#contact" onclick="cancel()">Contact</a>
+        <a href="/" onclick="cancel()">Home</a>
+        <a href="about.html" onclick="cancel()">About</a>
+        <a href="projects.html" onclick="cancel()">Projects</a>
+        <a href="services.html" onclick="cancel()">Services</a>
+        <a href="beacon.html" onclick="cancel()">Beacon</a>
+        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
+        <a href="contact.html" onclick="cancel()">Contact</a>
         <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
       </div>
     </div>
@@ -279,8 +260,6 @@
         src="https://avatars.githubusercontent.com/u/180626211?v=4"
         alt="Jonas"
         loading="lazy"
-        width="400"
-        height="480"
       />
     </div>
     <div class="content">
@@ -325,6 +304,25 @@
       const navbar = document.querySelector(".dropdown");
       navbar.style.transform = "translateY(-500px)";
     }
+
+    function adjustImageSize() {
+      const content = document.querySelector('.content');
+      const image = document.querySelector('.image');
+      const container = document.querySelector('#home');
+      if (content && image && container) {
+        const contentHeight = content.offsetHeight;
+        const containerWidth = container.clientWidth;
+        const maxImageWidth = containerWidth * 0.45; // max 45% width
+
+        const size = Math.min(contentHeight, maxImageWidth);
+
+        image.style.width = size + 'px';
+        image.style.height = size + 'px';
+      }
+    }
+
+    window.addEventListener('load', adjustImageSize);
+    window.addEventListener('resize', adjustImageSize);
   </script>
 </body>
 </html>
