@@ -130,12 +130,12 @@
 
     .image img {
       max-width: 100%;
-      border-radius: 18px;
+      border-radius: 50%; /* Made circular */
       box-shadow: 0 0 32px #3ddc9788;
       user-select: none;
       height: auto;
       max-height: 480px;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .content {
@@ -180,6 +180,11 @@
       .image,
       .content {
         flex: 1 1 100%;
+      }
+
+      /* Hide image on small screens */
+      .image {
+        display: none !important;
       }
 
       .hamburg {
@@ -240,7 +245,7 @@
   <section id="about">
     <div class="image">
       <img
-        src="assets/images/jonas-about.jpg"
+        src="https://avatars.githubusercontent.com/u/180626211?v=4"
         alt="Jonas"
         loading="lazy"
         width="400"
@@ -266,6 +271,83 @@
       </ul>
     </div>
   </section>
+
+  <footer>
+  <div class="footer-container">
+    <p>© 2025 Jonas. All rights reserved.</p>
+    <div class="footer-social-links">
+      <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/yourtwitter" target="_blank" aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="mailto:youremail@example.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #202020;
+    color: #bbbbbb;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 4rem;
+    box-shadow: inset 0 1px 0 #3ddc9788;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-container p {
+    margin: 0;
+    flex: 1 1 200px;
+  }
+
+  .footer-social-links {
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .footer-social-links a {
+    color: #bbbbbb;
+    transition: color 0.3s ease;
+  }
+
+  .footer-social-links a:hover {
+    color: #3DDC97;
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-container p,
+    .footer-social-links {
+      flex: unset;
+    }
+  }
+</style>
+
 
   <script>
     function hamburg() {

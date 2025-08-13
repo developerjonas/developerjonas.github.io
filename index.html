@@ -295,6 +295,83 @@
     </div>
   </section>
 
+  <footer>
+  <div class="footer-container">
+    <p>© 2025 Jonas. All rights reserved.</p>
+    <div class="footer-social-links">
+      <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/yourtwitter" target="_blank" aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="mailto:youremail@example.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #202020;
+    color: #bbbbbb;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 4rem;
+    box-shadow: inset 0 1px 0 #3ddc9788;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-container p {
+    margin: 0;
+    flex: 1 1 200px;
+  }
+
+  .footer-social-links {
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .footer-social-links a {
+    color: #bbbbbb;
+    transition: color 0.3s ease;
+  }
+
+  .footer-social-links a:hover {
+    color: #3DDC97;
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-container p,
+    .footer-social-links {
+      flex: unset;
+    }
+  }
+</style>
+
+
   <script>
     function hamburg() {
       const navbar = document.querySelector(".dropdown");
