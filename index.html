@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jonas Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
   <style>
     /* Dark gray background similar to YouTube Dark */
     body {
@@ -15,7 +13,8 @@
       margin: 0;
       background: #181818;
       color: #e0e0e0;
-      font-size: 18px; /* increased base font size */
+      font-size: 18px;
+      /* increased base font size */
       line-height: 1.6;
     }
 
@@ -38,8 +37,10 @@
 
     .logo span {
       font-weight: 800;
-      font-size: 2.2rem; /* bigger logo */
-      color: #3DDC97; /* emerald teal accent */
+      font-size: 2.2rem;
+      /* bigger logo */
+      color: #3DDC97;
+      /* emerald teal accent */
       cursor: default;
       user-select: none;
     }
@@ -53,13 +54,15 @@
       text-decoration: none;
       color: #bbbbbb;
       font-weight: 600;
-      font-size: 1.2rem; /* bigger nav links */
+      font-size: 1.2rem;
+      /* bigger nav links */
       transition: color 0.3s;
     }
 
     .links a:hover,
     .contact-btn a {
-      color: #8A2BE2; /* violet on hover */
+      color: #8A2BE2;
+      /* violet on hover */
     }
 
     .contact-btn a {
@@ -116,7 +119,8 @@
 
       display: flex;
       gap: 3rem;
-      flex-wrap: nowrap; /* NO wrap on desktop */
+      flex-wrap: nowrap;
+      /* NO wrap on desktop */
       min-height: 70vh;
     }
 
@@ -203,11 +207,14 @@
     /* Responsive */
     @media (max-width: 900px) {
       section#home {
-        flex-wrap: wrap; /* allow wrap on smaller screens */
+        flex-wrap: wrap;
+        /* allow wrap on smaller screens */
       }
-      .image{
+
+      .image {
         display: none;
       }
+
       .content {
         flex: 1 1 100%;
         max-width: 100% !important;
@@ -223,6 +230,7 @@
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-container">
@@ -256,11 +264,7 @@
 
   <section id="home">
     <div class="image">
-      <img
-        src="https://avatars.githubusercontent.com/u/180626211?v=4"
-        alt="Jonas"
-        loading="lazy"
-      />
+      <img src="https://avatars.githubusercontent.com/u/180626211?v=4" alt="Jonas" loading="lazy" />
     </div>
     <div class="content">
       <h1>
@@ -276,18 +280,13 @@
         elegant, efficient software.
       </p>
       <div class="social-links">
-        <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
-        <a href="https://twitter.com/yourtwitter" target="_blank" aria-label="Twitter"
-          ><i class="fa-brands fa-twitter"></i
-        ></a>
-        <a href="mailto:youremail@example.com" aria-label="Email"
-          ><i class="fa-solid fa-envelope"></i
-        ></a>
+        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
+        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="Twitter"><i
+            class="fa-brands fa-twitter"></i></a>
+        <a href="mailto:hi@developerjonas.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
       <div class="btn">
         <button onclick="window.open('Jonas_CV.pdf')">Download CV</button>
@@ -296,80 +295,80 @@
   </section>
 
   <footer>
-  <div class="footer-container">
-    <p>© 2025 Jonas. All rights reserved.</p>
-    <div class="footer-social-links">
-      <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank" aria-label="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://twitter.com/yourtwitter" target="_blank" aria-label="Twitter">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-      <a href="mailto:youremail@example.com" aria-label="Email">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
+    <div class="footer-container">
+      <p>© 2025 Jonas. All rights reserved.</p>
+      <div class="footer-social-links">
+        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="mailto:hi@developerjonas.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<style>
-  footer {
-    background-color: #202020;
-    color: #bbbbbb;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 4rem;
-    box-shadow: inset 0 1px 0 #3ddc9788;
-  }
+  <style>
+    footer {
+      background-color: #202020;
+      color: #bbbbbb;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 4rem;
+      box-shadow: inset 0 1px 0 #3ddc9788;
+    }
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-container p {
-    margin: 0;
-    flex: 1 1 200px;
-  }
-
-  .footer-social-links {
-    flex: 1 1 200px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .footer-social-links a {
-    color: #bbbbbb;
-    transition: color 0.3s ease;
-  }
-
-  .footer-social-links a:hover {
-    color: #3DDC97;
-  }
-
-  @media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      gap: 0.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .footer-container p,
-    .footer-social-links {
-      flex: unset;
+    .footer-container p {
+      margin: 0;
+      flex: 1 1 200px;
     }
-  }
-</style>
+
+    .footer-social-links {
+      flex: 1 1 200px;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-social-links a {
+      color: #bbbbbb;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-links a:hover {
+      color: #3DDC97;
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-container p,
+      .footer-social-links {
+        flex: unset;
+      }
+    }
+  </style>
 
 
   <script>
@@ -402,4 +401,5 @@
     window.addEventListener('resize', adjustImageSize);
   </script>
 </body>
+
 </html>
