@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 Not Found - Jonas Portfolio</title>
+  <title>Case Studies - Jonas Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
   <style>
-    /* Base styling */
+    /* Reuse your base styles */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -15,12 +15,8 @@
       color: #e0e0e0;
       font-size: 18px;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
-    /* Navigation */
     nav {
       background: #202020;
       position: sticky;
@@ -49,6 +45,7 @@
     .links {
       display: flex;
       gap: 2rem;
+      flex-wrap: wrap;
     }
 
     .links a {
@@ -110,74 +107,73 @@
       margin-bottom: 0.75rem;
     }
 
-    /* 404 Main Content */
-    main {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* Case Studies Section */
+    section#case-studies {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      min-height: 70vh;
+    }
+
+    section#case-studies h1 {
+      font-size: 3rem;
       text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    main h1 {
-      font-size: 8rem;
-      margin: 0;
       color: #00BFA6;
-      font-weight: 900;
-      user-select: none;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 10px #3ddc9788;
+      margin-bottom: 2rem;
     }
 
-    main h2 {
-      font-size: 2.8rem;
-      margin: 0.5rem 0 1rem;
-      color: #bbbbbb;
-      font-weight: 600;
+    .case-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
-    main p {
-      max-width: 440px;
-      margin: 0 auto 2.5rem;
-      color: #bbbbbb;
-      font-size: 1.25rem;
-      line-height: 1.6;
+    .case-card {
+      background: #252525;
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 0 6px #00BFA6;
+      transition: box-shadow 0.3s ease;
+      text-align: center;
     }
 
-    main a.button {
-      display: inline-block;
-      padding: 0.85rem 3rem;
-      border: 3px solid #00BFA6;
-      border-radius: 8px;
+    .case-card:hover {
+      box-shadow: 0 0 12px #00BFA6;
+    }
+
+    .case-card h2 {
+      margin-top: 0;
       color: #00BFA6;
-      font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
+    }
+
+    .case-card p {
+      color: #bbbbbb;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .case-card a {
+      color: #00BFA6;
       text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-      letter-spacing: 0.05em;
-      box-shadow: 0 0 15px #00BFA6;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
-    main a.button:hover {
-      background-color: #00BFA6;
-      color: #181818;
-      box-shadow: 0 0 30px #00BFA6;
+    .case-card a:hover {
+      text-decoration: underline;
     }
 
-    /* Footer */
+    /* Footer styles reused */
     footer {
       background-color: #202020;
       color: #bbbbbb;
       padding: 1.5rem 2rem;
       text-align: center;
       font-size: 1rem;
-      margin-top: auto;
+      margin-top: 4rem;
       box-shadow: inset 0 1px 0 #00BFA6;
-      user-select: none;
     }
 
     .footer-container {
@@ -190,13 +186,7 @@
       gap: 1rem;
     }
 
-    .footer-container p {
-      margin: 0;
-      flex: 1 1 200px;
-    }
-
     .footer-social-links {
-      flex: 1 1 200px;
       display: flex;
       justify-content: center;
       gap: 1.5rem;
@@ -222,96 +212,81 @@
         display: none;
       }
     }
-
-    @media (max-width: 600px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .footer-container p,
-      .footer-social-links {
-        flex: unset;
-      }
-    }
   </style>
 </head>
 
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo"> <a href="/" target="_blank" rel="noopener noreferrer"
-          style="text-decoration: none;"><span>Jonas</span></a>
-      </div>
+      <div class="logo"><a href="/" style="text-decoration: none;"><span>Jonas</span></a></div>
       <div class="links">
         <div class="link"><a href="/">Home</a></div>
-        <div class="link"><a href="about.html">About</a></div>
-        <div class="link"><a href="projects.html">Projects</a></div>
-        <div class="link"> <a href="/case_study/" onclick="cancel()">Case Studies</a>
-        </div>
-        <div class="link"><a href="beacon.html">Beacon</a></div>
+        <div class="link"><a href="../about.html">About</a></div>
+        <div class="link"><a href="../projects.html">Projects</a></div>
+        <div class="link"><a href="../services.html">Services</a></div>
+        <div class="link"><a href="../beacon.html">Beacon</a></div>
         <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
-        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
+        <div class="link contact-btn"><a href="../contact.html">Contact</a></div>
       </div>
       <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
     </div>
     <div class="dropdown">
       <div class="links">
         <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="services.html" onclick="cancel()">Services</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
+        <a href="../about.html" onclick="cancel()">About</a>
+        <a href="../projects.html" onclick="cancel()">Projects</a>
+        <a href="case_study/" onclick="cancel()">Case Studies</a>
+        <a href="../beacon.html" onclick="cancel()">Beacon</a>
         <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
+        <a href="../contact.html" onclick="cancel()">Contact</a>
         <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
       </div>
     </div>
   </nav>
 
-  <main role="main" aria-labelledby="error-title">
-    <h1 id="error-title">404</h1>
-    <h2>Page Not Found</h2>
-    <p>
-      Oops! The page you are looking for does not exist or has been moved.
-      Maybe check out my LabNotes for some interesting content or go back home.
-    </p>
-    <a href="https://labnotes.developerjonas.com" class="button" target="_blank" rel="noopener"
-      aria-label="Visit LabNotes">
-      Explore LabNotes
-    </a>
-    <br /><br />
-    <a href="/" class="button" aria-label="Go back home">Go Back Home</a>
-  </main>
+  <section id="case-studies">
+    <h1>Case Studies</h1>
+    <div class="case-list">
+      <div class="case-card">
+        <h2>Kreatorly</h2>
+        <p>Empowering Nepali creators with global monetization pools, analytics, and seamless subscription tools.</p>
+        <a href="kreatorly.html">Read Case Study</a>
+      </div>
+      <div class="case-card">
+        <h2>YouthOS</h2>
+        <p>Streamlining youth center management, replacing Excel chaos with dashboards and role-based access control.</p>
+        <a href="youthos.html">Read Case Study</a>
+      </div>
+      <div class="case-card">
+        <h2>Water Scheme Management System</h2>
+        <p>Centralizing rural and urban water management in a single Laravel platform with dynamic CRUD operations.</p>
+        <a href="water_scheme.html">Read Case Study</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-container">
       <p>© 2025 Jonas. All rights reserved.</p>
       <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
+        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
+        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube"><i
+            class="fa-brands fa-youtube"></i></a>
+        <a href="mailto:hi@developerjonas.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
     function hamburg() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
+      document.querySelector(".dropdown").style.transform = "translateY(0)";
     }
+
     function cancel() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
+      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
     }
   </script>
 </body>

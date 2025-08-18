@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About - Jonas Portfolio</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
   <style>
     /* Dark gray background similar to YouTube Dark */
     body {
@@ -130,7 +128,8 @@
 
     .image img {
       max-width: 100%;
-      border-radius: 50%; /* Made circular */
+      border-radius: 50%;
+      /* Made circular */
       box-shadow: 0 0 32px #00BFA6;
       user-select: none;
       height: auto;
@@ -177,6 +176,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
+
       .image,
       .content {
         flex: 1 1 100%;
@@ -197,12 +197,13 @@
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-container">
-       <div class="logo">        
-         <a href="/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span>Jonas</span></a>
-       </div>
+      <div class="logo">
+        <a href="/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span>Jonas</span></a>
+      </div>
       <div class="links">
         <div class="link">
           <a href="/">Home</a>
@@ -214,7 +215,8 @@
           <a href="projects.html">Projects</a>
         </div>
         <div class="link">
-          <a href="services.html">Services</a>
+          <a href="/case_study/" onclick="cancel()">Case Studies</a>
+
         </div>
         <div class="link">
           <a href="beacon.html">Beacon</a>
@@ -244,20 +246,16 @@
 
   <section id="about">
     <div class="image">
-      <img
-        src="https://avatars.githubusercontent.com/u/180626211?v=4"
-        alt="Jonas"
-        loading="lazy"
-        width="400"
-        height="480"
-      />
+      <img src="https://avatars.githubusercontent.com/u/180626211?v=4" alt="Jonas" loading="lazy" width="400"
+        height="480" />
     </div>
     <div class="content">
       <h1>
         About <span>Jonas</span>
       </h1>
       <p>
-        With a strong foundation in mathematics, physics, and software development, I strive to bridge theory and practice. My passion lies in solving complex problems through elegant code and innovative technology.
+        With a strong foundation in mathematics, physics, and software development, I strive to bridge theory and
+        practice. My passion lies in solving complex problems through elegant code and innovative technology.
       </p>
       <p>
         Here are some highlights of my skills and interests:
@@ -292,61 +290,61 @@
     </div>
   </footer>
 
-<style>
-  footer {
-    background-color: #202020;
-    color: #bbbbbb;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 4rem;
-    box-shadow: inset 0 1px 0 #00bfa688;
-  }
+  <style>
+    footer {
+      background-color: #202020;
+      color: #bbbbbb;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 4rem;
+      box-shadow: inset 0 1px 0 #00bfa688;
+    }
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-container p {
-    margin: 0;
-    flex: 1 1 200px;
-  }
-
-  .footer-social-links {
-    flex: 1 1 200px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-
-  .footer-social-links a {
-    color: #bbbbbb;
-    transition: color 0.3s ease;
-  }
-
-  .footer-social-links a:hover {
-    color: #00BFA6;
-  }
-
-  @media (max-width: 600px) {
     .footer-container {
-      flex-direction: column;
-      gap: 0.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .footer-container p,
-    .footer-social-links {
-      flex: unset;
+    .footer-container p {
+      margin: 0;
+      flex: 1 1 200px;
     }
-  }
-</style>
+
+    .footer-social-links {
+      flex: 1 1 200px;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-social-links a {
+      color: #bbbbbb;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-links a:hover {
+      color: #00BFA6;
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-container p,
+      .footer-social-links {
+        flex: unset;
+      }
+    }
+  </style>
 
 
   <script>
@@ -360,4 +358,5 @@
     }
   </script>
 </body>
+
 </html>
