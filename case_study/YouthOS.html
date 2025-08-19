@@ -2,281 +2,310 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case Study - YouthOS Management System</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Study - YouthOS Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #181818;
+            color: #e0e0e0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
 
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
+        nav {
+            background: #202020;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+        }
 
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: #00BFA6;
-      cursor: default;
-      user-select: none;
-    }
+        .logo span {
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: #00BFA6;
+            cursor: default;
+            user-select: none;
+        }
 
-    .links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+        .links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
+        .links a {
+            text-decoration: none;
+            color: #bbbbbb;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
 
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-    }
+        .links a:hover,
+        .contact-btn a {
+            color: #00BFA6;
+        }
 
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+        .contact-btn a {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid #00BFA6;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
 
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
+        .hamburg {
+            display: none;
+            font-size: 1.8rem;
+            color: #00BFA6;
+            cursor: pointer;
+        }
 
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
+        .dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            background: #202020;
+            transform: translateY(-500px);
+            transition: transform 0.4s ease;
+            z-index: 999;
+        }
 
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
+        .dropdown .links {
+            flex-direction: column;
+            padding: 1rem 2rem;
+            gap: 1.2rem;
+            display: flex;
+        }
 
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
+        .dropdown .links a {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+        }
 
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
+        .dropdown .cancel {
+            font-size: 2rem;
+            color: #00BFA6;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 0.75rem;
+        }
 
-    section#case-study {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
+        section#case-study {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
 
-    #case-study h1 {
-      font-size: 3rem;
-      text-align: center;
-      color: #00BFA6;
-      margin-bottom: 2rem;
-    }
+        #case-study h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #00BFA6;
+            margin-bottom: 2rem;
+        }
 
-    .case-intro {
-      background: #252525;
-      padding: 2rem;
-      border-radius: 14px;
-      box-shadow: 0 0 6px #00BFA6;
-      margin-bottom: 3rem;
-    }
+        .case-intro {
+            background: #252525;
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 0 6px #00BFA6;
+            margin-bottom: 3rem;
+        }
 
-    .case-intro p {
-      color: #bbbbbb;
-      font-size: 1.2rem;
-      line-height: 1.7;
-    }
+        .case-intro p {
+            color: #bbbbbb;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
 
-    .case-content h2 {
-      color: #00BFA6;
-      font-size: 2rem;
-      margin-top: 2rem;
-    }
+        .case-content h2 {
+            color: #00BFA6;
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
 
-    .case-content p {
-      font-size: 1.15rem;
-      color: #d0d0d0;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
+        .case-content p {
+            font-size: 1.15rem;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
 
-    .highlight {
-      color: #00BFA6;
-      font-weight: bold;
-    }
+        .highlight {
+            color: #00BFA6;
+            font-weight: bold;
+        }
 
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      box-shadow: inset 0 1px 0 #00BFA6;
-    }
+        footer {
+            background-color: #202020;
+            color: #bbbbbb;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 4rem;
+            box-shadow: inset 0 1px 0 #00BFA6;
+        }
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
 
-    .footer-social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+        }
 
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
+        .footer-social-links a {
+            color: #bbbbbb;
+            transition: color 0.3s ease;
+        }
 
-    .footer-social-links a:hover {
-      color: #00BFA6;
-    }
+        .footer-social-links a:hover {
+            color: #00BFA6;
+        }
 
-    @media (max-width: 900px) {
-      .hamburg {
-        display: block;
-      }
+        @media (max-width: 900px) {
+            .hamburg {
+                display: block;
+            }
 
-      .links {
-        display: none;
-      }
-    }
-  </style>
+            .links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo"> <a href="/" style="text-decoration: none;"><span>Jonas</span></a>
-      </div>
-      <div class="links">
-        <div class="link"><a href="/">Home</a></div>
-        <div class="link"><a href="about.html">About</a></div>
-        <div class="link"><a href="projects.html">Projects</a></div>
-        <div class="link"><a href="services.html">Services</a></div>
-        <div class="link"><a href="beacon.html">Beacon</a></div>
-        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
-        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="services.html" onclick="cancel()">Services</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
-        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" target="_blank" rel="noopener noreferrer"
+                    style="text-decoration: none;"><span>Jonas</span></a>
+            </div>
+            <div class="links">
+                <div class="link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="link">
+                    <a href="../about.html" aria-current="page">About</a>
+                </div>
+                <div class="link">
+                    <a href="../projects.html">Projects</a>
+                </div>
+                <div class="link">
+                    <a href="" onclick="cancel()">Case Studies</a>
 
-  <section id="case-study">
-    <h1>YouthOS Management System</h1>
-    <div class="case-intro">
-      <p>YouthOS is a <span class="highlight">Laravel-powered platform</span> crafted to transform how youth centers
-        manage programs, events, and membership data. Previously, organizations depended on <span class="highlight">Excel juggling and manual logs</span>, making
-        collaboration difficult and growth stagnant.
-      </p>
-      <p>With <span class="highlight">a centralized digital solution</span>, everything from activity scheduling to
-        attendance tracking is streamlined, ensuring efficiency and a better experience for youth engagement.</p>
-    </div>
+                </div>
+                <div class="link">
+                    <a href="../beacon.html">Beacon</a>
+                </div>
+                <div class="link">
+                    <a href="https://labnotes.developerjonas.com">LabNotes</a>
+                </div>
+                <div class="link contact-btn">
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="/" onclick="cancel()">Home</a>
+                <a href="../about.html" onclick="cancel()">About</a>
+                <a href="../projects.html" onclick="cancel()">Projects</a>
+                <a href="" onclick="cancel()">Case Studies</a>
+                <a href="../beacon.html" onclick="cancel()">Beacon</a>
+                <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
+                <a href="../contact.html" onclick="cancel()">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
 
-    <div class="case-content">
-      <h2>Challenges Before</h2>
-      <p>Youth centers struggled with <span class="highlight">scattered spreadsheets, duplicated records, and outdated member information</span>. Event planning lacked real-time visibility, and reporting was slow and inaccurate.</p>
+    <section id="case-study">
+        <h1>YouthOS Management System</h1>
+        <div class="case-intro">
+            <p>YouthOS is a <span class="highlight">Laravel-powered platform</span> crafted to transform how youth
+                centers
+                manage programs, events, and membership data. Previously, organizations depended on <span
+                    class="highlight">Excel juggling and manual logs</span>, making
+                collaboration difficult and growth stagnant.
+            </p>
+            <p>With <span class="highlight">a centralized digital solution</span>, everything from activity scheduling
+                to
+                attendance tracking is streamlined, ensuring efficiency and a better experience for youth engagement.
+            </p>
+        </div>
 
-      <h2>The Solution</h2>
-      <p>We implemented a feature-rich <span class="highlight">Laravel-based application</span> to automate youth center operations. Core features included:</p>
-      <ul>
-        <li><span class="highlight">Dynamic CRUD</span> for members, programs, and activities.</li>
-        <li><span class="highlight">Role-Based Access Control (RBAC)</span> for admins, staff, and volunteers.</li>
-        <li><span class="highlight">Data-Driven Dashboards</span> for attendance, engagement analytics, and funding insights.</li>
-      </ul>
+        <div class="case-content">
+            <h2>Challenges Before</h2>
+            <p>Youth centers struggled with <span class="highlight">scattered spreadsheets, duplicated records, and
+                    outdated member information</span>. Event planning lacked real-time visibility, and reporting was
+                slow and inaccurate.</p>
 
-      <h2>Impact</h2>
-      <p>YouthOS replaced the complexity of manual processes with a single, smart platform. Now, youth centers enjoy <span class="highlight">real-time data visibility</span>, better decision-making, and simplified collaboration—no more Excel chaos.</p>
-    </div>
-  </section>
+            <h2>The Solution</h2>
+            <p>We implemented a feature-rich <span class="highlight">Laravel-based application</span> to automate youth
+                center operations. Core features included:</p>
+            <ul>
+                <li><span class="highlight">Dynamic CRUD</span> for members, programs, and activities.</li>
+                <li><span class="highlight">Role-Based Access Control (RBAC)</span> for admins, staff, and volunteers.
+                </li>
+                <li><span class="highlight">Data-Driven Dashboards</span> for attendance, engagement analytics, and
+                    funding insights.</li>
+            </ul>
 
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:hi@developerjonas.com"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
-  </footer>
+            <h2>Impact</h2>
+            <p>YouthOS replaced the complexity of manual processes with a single, smart platform. Now, youth centers
+                enjoy <span class="highlight">real-time data visibility</span>, better decision-making, and simplified
+                collaboration—no more Excel chaos.</p>
+        </div>
+    </section>
 
-  <script>
-    function hamburg() {
-      document.querySelector(".dropdown").style.transform = "translateY(0)";
-    }
-    function cancel() {
-      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-    }
-  </script>
+    <footer>
+        <div class="footer-container">
+            <p>© 2025 Jonas. All rights reserved.</p>
+            <div class="footer-social-links">
+                <a href="https://github.com/developerjonas" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/developerjonas" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://youtube.com/@DeveloperJonas" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="mailto:hi@developerjonas.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hamburg() {
+            document.querySelector(".dropdown").style.transform = "translateY(0)";
+        }
+        function cancel() {
+            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+        }
+    </script>
 </body>
 
 </html>
