@@ -76,9 +76,10 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+   <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
                 <a href="/" class="group flex items-center gap-2">
                     <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-laravel-red/20">
                         <span class="text-white font-bold text-xl">J</span>
@@ -86,15 +87,19 @@
                     <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
                 </a>
                 
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="nav-link">Home</a>
-                    <a href="about.html" class="nav-link text-laravel-red">About</a>
+                    <a href="/" class="nav-link text-laravel-red">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="beacon.html" class="nav-link">Beacon</a>
-                    <a href="https://labnotes.developerjonas.com" class="nav-link">LabNotes</a>
-                    <a href="contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red">Let's Talk</a>
+                    <a href="library.html" class="nav-link">Library</a>
+                    <a href="contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red hover:shadow-lg hover:shadow-laravel-red/20">
+                        Let's Talk
+                    </a>
                 </div>
 
+                <!-- Mobile menu button -->
                 <button onclick="toggleMenu()" class="md:hidden text-laravel-text hover:text-laravel-red focus:outline-none p-2">
                     <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
                 </button>
@@ -104,10 +109,11 @@
         <!-- Mobile Menu -->
         <div class="hidden md:hidden glass-panel border-t border-white/5" id="mobile-menu">
             <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
-                <a href="/" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Home</a>
-                <a href="about.html" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">About</a>
+                <a href="/" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">Home</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">About</a>
                 <a href="projects.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Projects</a>
                 <a href="beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
+                <a href="library.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Library</a>
                 <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
             </div>
         </div>
