@@ -1,328 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 Not Found - Jonas Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    /* Base styling */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Reality Breach</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        laravel: {
+                            base: '#0f172a',
+                            card: '#1e293b',
+                            red: '#FF2D20',
+                            text: '#f8fafc',
+                            muted: '#94a3b8',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    /* Navigation */
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
-
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: #00BFA6;
-      cursor: default;
-      user-select: none;
-    }
-
-    .links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-    }
-
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
-
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
-
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
-
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
-
-    /* 404 Main Content */
-    main {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    main h1 {
-      font-size: 8rem;
-      margin: 0;
-      color: #00BFA6;
-      font-weight: 900;
-      user-select: none;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 10px #3ddc9788;
-    }
-
-    main h2 {
-      font-size: 2.8rem;
-      margin: 0.5rem 0 1rem;
-      color: #bbbbbb;
-      font-weight: 600;
-    }
-
-    main p {
-      max-width: 440px;
-      margin: 0 auto 2.5rem;
-      color: #bbbbbb;
-      font-size: 1.25rem;
-      line-height: 1.6;
-    }
-
-    main a.button {
-      display: inline-block;
-      padding: 0.85rem 3rem;
-      border: 3px solid #00BFA6;
-      border-radius: 8px;
-      color: #00BFA6;
-      font-weight: 700;
-      font-size: 1.4rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-      letter-spacing: 0.05em;
-      box-shadow: 0 0 15px #00BFA6;
-    }
-
-    main a.button:hover {
-      background-color: #00BFA6;
-      color: #181818;
-      box-shadow: 0 0 30px #00BFA6;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: auto;
-      box-shadow: inset 0 1px 0 #00BFA6;
-      user-select: none;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-container p {
-      margin: 0;
-      flex: 1 1 200px;
-    }
-
-    .footer-social-links {
-      flex: 1 1 200px;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
-
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social-links a:hover {
-      color: #00BFA6;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hamburg {
-        display: block;
-      }
-
-      .links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .footer-container p,
-      .footer-social-links {
-        flex: unset;
-      }
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
+            }
+            .nav-link {
+                @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
+            }
+            .btn-primary {
+                @apply px-8 py-3 bg-laravel-red hover:bg-red-600 text-white font-bold rounded-xl shadow-lg shadow-laravel-red/20 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2;
+            }
+            .btn-secondary {
+                @apply px-8 py-3 bg-laravel-card hover:bg-white/5 text-white font-bold rounded-xl border border-white/10 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2;
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <a href="/"  style="text-decoration: none;"><span>Jonas</span></a>
-      </div>
-      <div class="links">
-        <div class="link">
-          <a href="/">Home</a>
-        </div>
-        <div class="link">
-          <a href="about.html" aria-current="page">About</a>
-        </div>
-        <div class="link">
-          <a href="projects.html">Projects</a>
-        </div>
-        <div class="link">
-          <a href="beacon.html">Beacon</a>
-        </div>
-        <div class="link">
-          <a href="https://labnotes.developerjonas.com">LabNotes</a>
-        </div>
-        <div class="link contact-btn">
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
-        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-hidden flex flex-col selection:bg-laravel-red selection:text-white">
 
-  <main role="main" aria-labelledby="error-title">
-    <h1 id="error-title">404</h1>
-    <h2>Page Not Found</h2>
-    <p>
-      Oops! The page you are looking for does not exist or has been moved.
-      Maybe check out my LabNotes for some interesting content or go back home.
-    </p>
-    <a href="https://labnotes.developerjonas.com" class="button" target="_blank" rel="noopener"
-      aria-label="Visit LabNotes">
-      Explore LabNotes
-    </a>
-    <br /><br />
-    <a href="/" class="button" aria-label="Go back home">Go Back Home</a>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-      </div>
+    <!-- Background Chaos (Floating Debris) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- A Black Hole / Void Effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-black rounded-full border border-white/5 shadow-[0_0_100px_rgba(255,45,32,0.1)]"></div>
+        
+        <!-- Floating Elements -->
+        <i class="fa-solid fa-triangle-exclamation absolute top-[20%] left-[20%] text-laravel-red/20 text-6xl animate-float"></i>
+        <i class="fa-solid fa-question absolute bottom-[25%] right-[20%] text-laravel-muted/10 text-8xl animate-float-delayed"></i>
+        <i class="fa-solid fa-link-slash absolute top-[30%] right-[10%] text-laravel-red/10 text-5xl animate-spin-slow"></i>
+        <i class="fa-solid fa-compass absolute bottom-[15%] left-[10%] text-white/5 text-7xl animate-float"></i>
     </div>
-  </footer>
 
-  <script>
-    function hamburg() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
-    }
-    function cancel() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
-    }
-  </script>
+    <!-- Navigation (Simplified for Safety) -->
+    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
+                </a>
+                <a href="/" class="text-sm font-bold text-laravel-muted hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Emergency Exit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow flex items-center justify-center px-4">
+        <div class="text-center max-w-3xl mx-auto">
+            
+            <!-- Glitchy 404 Title -->
+            <h1 class="text-[10rem] md:text-[12rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-laravel-muted/20 to-transparent select-none relative">
+                404
+                <span class="absolute inset-0 text-laravel-red/10 blur-sm animate-pulse-slow">404</span>
+            </h1>
+
+            <div class="relative -mt-12 mb-10 glass-panel p-8 rounded-3xl border border-laravel-red/30 shadow-2xl shadow-laravel-red/10">
+                <div class="inline-block px-4 py-1 rounded-full bg-laravel-red/10 text-laravel-red text-xs font-bold uppercase tracking-widest border border-laravel-red/20 mb-4">
+                    Error Code: Null Reference
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Coordinates Not Found
+                </h2>
+                
+                <p class="text-lg text-laravel-muted mb-8 leading-relaxed">
+                    It seems you've drifted into a sector of the universe that hasn't been architected yet. 
+                    This could be a <span class="text-laravel-red">broken link</span>, a <span class="text-laravel-red">typo</span>, or a glitch in the simulation.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/" class="btn-primary w-full sm:w-auto">
+                        <i class="fa-solid fa-house"></i>
+                        Return to Base
+                    </a>
+                    <a href="https://labnotes.developerjonas.com" target="_blank" class="btn-secondary w-full sm:w-auto">
+                        <i class="fa-solid fa-book-open"></i>
+                        Read LabNotes instead
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-6">
+        <div class="text-center text-laravel-muted text-sm">
+            <p>&copy; 2025 Jonas. Even architects get lost sometimes.</p>
+        </div>
+    </footer>
+
 </body>
-
 </html>
