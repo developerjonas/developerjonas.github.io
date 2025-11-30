@@ -54,15 +54,40 @@
             .nav-link {
                 @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
             }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-laravel-red transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
             .section-header {
-                @apply text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/5 pb-2;
+                @apply text-xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/5 pb-2;
             }
+            
+            /* FIXED: Expanded the glass-panel utilities directly here */
             .link-card {
-                @apply glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-laravel-amber/50 hover:bg-laravel-card transition-all duration-300 group;
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-laravel-red/50 hover:bg-laravel-card transition-all duration-300 group;
             }
+            
             .book-card {
                 @apply relative aspect-[2/3] bg-laravel-card rounded-lg overflow-hidden border border-white/10 hover:border-laravel-amber transition-all duration-300 shadow-lg group;
             }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF2D20; 
         }
     </style>
 </head>
