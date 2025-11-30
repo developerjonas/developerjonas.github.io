@@ -25,17 +25,25 @@
                             red: '#FF2D20',     // Laravel Red
                             text: '#f8fafc',    // Slate 50
                             muted: '#94a3b8',   // Slate 400
-                            amber: '#f59e0b',   // Library Accent
+                            amber: '#f59e0b',   // Secondary Accent
                         }
                     },
                     animation: {
                         'float-slow': 'float 8s ease-in-out infinite',
                         'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -45,12 +53,9 @@
 
     <style type="text/tailwindcss">
         @layer utilities {
-            /* 1. Base Glass Class */
             .glass-panel {
                 @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
             }
-
-            /* 2. Navigation Links */
             .nav-link {
                 @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
             }
@@ -61,20 +66,8 @@
             .nav-link:hover::after {
                 @apply w-full;
             }
-
-            /* 3. Section Headers */
             .section-header {
                 @apply text-xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/5 pb-2;
-            }
-            
-            /* 4. Interactive Cards (Fixed: Expanded utilities to avoid @apply error) */
-            .link-card {
-                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-laravel-amber/50 hover:bg-laravel-card transition-all duration-300 group cursor-pointer;
-            }
-            
-            /* 5. Book Cards */
-            .book-card {
-                @apply relative aspect-[2/3] bg-laravel-card rounded-lg overflow-hidden border border-white/10 hover:border-laravel-amber transition-all duration-300 shadow-lg group;
             }
         }
         
@@ -90,20 +83,22 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f59e0b; /* Amber on hover for this page */
+            background: #FF2D20; 
         }
     </style>
 </head>
 
-<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden flex flex-col selection:bg-laravel-amber selection:text-white">
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden selection:bg-laravel-red selection:text-white flex flex-col">
 
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-laravel-amber/5 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px]"></div>
-        
-        <i class="fa-solid fa-book-open absolute top-[15%] left-[5%] text-laravel-amber/5 text-8xl animate-float-slow"></i>
-        <i class="fa-solid fa-bookmark absolute bottom-[15%] right-[10%] text-white/5 text-6xl animate-float-medium"></i>
-        <i class="fa-solid fa-glasses absolute top-[40%] right-[20%] text-laravel-muted/5 text-7xl animate-float-slow" style="animation-delay: 2s;"></i>
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-laravel-red/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+
+        <i class="fa-solid fa-book-open absolute top-1/4 left-[10%] text-laravel-muted/10 text-6xl animate-float-slow"></i>
+        <i class="fa-solid fa-pen-nib absolute bottom-1/3 right-[5%] text-laravel-red/10 text-7xl animate-float-medium"></i>
+        <i class="fa-solid fa-glasses absolute top-[15%] right-[20%] text-blue-500/10 text-8xl animate-float-slow"></i>
+        <i class="fa-solid fa-bookmark absolute bottom-[10%] left-[15%] text-laravel-muted/10 text-5xl animate-float-fast"></i>
     </div>
 
     <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
@@ -121,7 +116,7 @@
                     <a href="about.html" class="nav-link">About</a>
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="beacon.html" class="nav-link">Beacon</a>
-                    <a href="library.html" class="nav-link text-laravel-amber before:w-full">Library</a>
+                    <a href="library.html" class="nav-link text-laravel-red">Library</a>
                     <a href="contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red hover:shadow-lg hover:shadow-laravel-red/20">
                         Let's Talk
                     </a>
@@ -139,51 +134,57 @@
                 <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">About</a>
                 <a href="projects.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Projects</a>
                 <a href="beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
-                <a href="library.html" class="block px-4 py-3 rounded-lg bg-laravel-amber/10 text-laravel-amber font-bold">Library</a>
-                <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Let's Talk</a>
+                <a href="library.html" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">Library</a>
+                <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
             </div>
         </div>
     </nav>
 
     <main class="relative z-10 flex-grow pt-32 pb-20 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             
-            <div class="text-center mb-16 animate-float-slow">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-laravel-amber/10 text-laravel-amber text-3xl mb-4 shadow-lg shadow-laravel-amber/20 border border-laravel-amber/20">
-                    <i class="fa-solid fa-layer-group"></i>
+            <div class="text-center mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-laravel-card border border-white/10 shadow-lg animate-float-slow">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-laravel-red opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-laravel-red"></span>
+                    </span>
+                    <span class="text-sm font-semibold text-laravel-muted">Central Archive</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">
-                    The <span class="text-transparent bg-clip-text bg-gradient-to-r from-laravel-amber to-orange-500">Library</span>
+                
+                <h1 class="text-5xl lg:text-7xl font-black tracking-tight leading-tight">
+                    The <span class="text-transparent bg-clip-text bg-gradient-to-r from-laravel-red to-orange-500">Library</span>
                 </h1>
-                <p class="text-laravel-muted text-lg max-w-2xl mx-auto">
-                    A complete index of my digital footprint. Communication channels, content hubs, and my current reading list.
+                
+                <p class="text-lg text-laravel-muted max-w-2xl mx-auto">
+                    A complete index of my digital footprint. Direct lines, content channels, and my current reading list.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
                 
                 <div class="space-y-12">
-                    
                     <div>
                         <h2 class="section-header">
-                            <i class="fa-solid fa-address-book text-laravel-amber"></i> Direct Lines
+                            <i class="fa-solid fa-address-book text-laravel-red"></i> Direct Lines
                         </h2>
                         <div class="space-y-4">
-                            <a href="mailto:hi@developerjonas.com" class="link-card">
-                                <div class="w-10 h-10 rounded-lg bg-laravel-red/10 text-laravel-red flex items-center justify-center border border-laravel-red/10">
+                            <a href="mailto:hi@developerjonas.com" class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-laravel-red/50 hover:bg-laravel-card transition-all duration-300 group">
+                                <div class="w-10 h-10 rounded-lg bg-laravel-red/10 text-laravel-red flex items-center justify-center">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white group-hover:text-laravel-amber transition-colors">General Inquiry</div>
+                                    <div class="font-bold text-white">General Inquiry</div>
                                     <div class="text-sm text-laravel-muted">hi@developerjonas.com</div>
                                 </div>
                             </a>
-                            <a href="mailto:business@developerjonas.com" class="link-card">
-                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/10">
+                            
+                            <a href="mailto:business@developerjonas.com" class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-blue-500/50 hover:bg-laravel-card transition-all duration-300 group">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
                                     <i class="fa-solid fa-briefcase"></i>
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white group-hover:text-laravel-amber transition-colors">Business / Hiring</div>
+                                    <div class="font-bold text-white">Business / Hiring</div>
                                     <div class="text-sm text-laravel-muted">business@developerjonas.com</div>
                                 </div>
                             </a>
@@ -192,101 +193,90 @@
 
                     <div>
                         <h2 class="section-header">
-                            <i class="fa-solid fa-share-nodes text-laravel-amber"></i> Social Network
+                            <i class="fa-solid fa-share-nodes text-laravel-red"></i> Social Network
                         </h2>
                         <div class="grid grid-cols-2 gap-4">
-                            <a href="https://linkedin.com/in/developerjonas" target="_blank" class="link-card justify-center flex-col text-center p-6">
-                                <i class="fa-brands fa-linkedin text-3xl text-blue-500 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-sm font-bold group-hover:text-white transition-colors">LinkedIn</span>
+                            <a href="https://linkedin.com/in/developerjonas" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-blue-500/50 hover:bg-laravel-card transition-all duration-300 group">
+                                <i class="fa-brands fa-linkedin text-3xl text-blue-500 group-hover:scale-110 transition-transform mb-2"></i>
+                                <span class="text-sm font-bold text-white">LinkedIn</span>
                             </a>
-                            <a href="https://twitter.com/developerjonas" target="_blank" class="link-card justify-center flex-col text-center p-6">
-                                <i class="fa-brands fa-x-twitter text-3xl text-white group-hover:scale-110 transition-transform"></i>
-                                <span class="text-sm font-bold group-hover:text-white transition-colors">X / Twitter</span>
+                            <a href="https://twitter.com/developerjonas" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-white/50 hover:bg-laravel-card transition-all duration-300 group">
+                                <i class="fa-brands fa-x-twitter text-3xl text-white group-hover:scale-110 transition-transform mb-2"></i>
+                                <span class="text-sm font-bold text-white">X / Twitter</span>
                             </a>
-                            <a href="https://github.com/developerjonas" target="_blank" class="link-card justify-center flex-col text-center p-6">
-                                <i class="fa-brands fa-github text-3xl text-laravel-muted group-hover:text-white group-hover:scale-110 transition-transform"></i>
-                                <span class="text-sm font-bold group-hover:text-white transition-colors">GitHub</span>
+                            <a href="https://github.com/developerjonas" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-laravel-muted hover:bg-laravel-card transition-all duration-300 group">
+                                <i class="fa-brands fa-github text-3xl text-laravel-muted group-hover:text-white group-hover:scale-110 transition-transform mb-2"></i>
+                                <span class="text-sm font-bold text-white">GitHub</span>
                             </a>
-                            <a href="https://instagram.com" target="_blank" class="link-card justify-center flex-col text-center p-6">
-                                <i class="fa-brands fa-instagram text-3xl text-pink-500 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-sm font-bold group-hover:text-white transition-colors">Instagram</span>
+                            <a href="https://instagram.com" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-pink-500/50 hover:bg-laravel-card transition-all duration-300 group">
+                                <i class="fa-brands fa-instagram text-3xl text-pink-500 group-hover:scale-110 transition-transform mb-2"></i>
+                                <span class="text-sm font-bold text-white">Instagram</span>
                             </a>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="space-y-12">
-                    
                     <div>
                         <h2 class="section-header">
-                            <i class="fa-brands fa-youtube text-laravel-amber"></i> Broadcasts
+                            <i class="fa-brands fa-youtube text-laravel-red"></i> Broadcasts
                         </h2>
                         <div class="space-y-4">
-                            <a href="https://youtube.com/@DeveloperJonas" target="_blank" class="link-card">
+                            <a href="https://youtube.com/@DeveloperJonas" target="_blank" class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-laravel-red/50 hover:bg-laravel-card transition-all duration-300 group">
                                 <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shadow-lg">
                                     <img src="https://avatars.githubusercontent.com/u/180626211?v=4" alt="Jonas" class="w-full h-full object-cover">
                                 </div>
                                 <div class="flex-1">
-                                    <div class="font-bold text-white group-hover:text-laravel-red transition-colors">Developer Jonas</div>
+                                    <div class="font-bold text-white">Developer Jonas</div>
                                     <div class="text-xs text-laravel-muted">Coding Tutorials & Vlogs</div>
                                 </div>
-                                <div class="px-2 py-1 bg-red-600 rounded text-[10px] font-bold text-white tracking-widest">SUB</div>
+                                <div class="px-3 py-1 bg-red-600 rounded-full text-[10px] font-bold text-white tracking-wider">SUBSCRIBE</div>
                             </a>
-                            <a href="#" target="_blank" class="link-card opacity-60 cursor-not-allowed">
+                            
+                            <div class="glass-panel p-4 rounded-xl flex items-center gap-4 opacity-60 cursor-not-allowed">
                                 <div class="w-12 h-12 rounded-full bg-laravel-card flex items-center justify-center border border-white/10">
-                                    <i class="fa-solid fa-flask text-laravel-amber"></i>
+                                    <i class="fa-solid fa-flask text-laravel-muted"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="font-bold text-laravel-muted">Jonas Labs</div>
                                     <div class="text-xs text-laravel-muted">Experiments (Coming Soon)</div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
 
                     <div>
                         <h2 class="section-header">
-                            <i class="fa-solid fa-pen-nib text-laravel-amber"></i> Writings
+                            <i class="fa-solid fa-pen-nib text-laravel-red"></i> Writings
                         </h2>
                         <div class="space-y-4">
-                            <a href="https://labnotes.developerjonas.com" target="_blank" class="link-card bg-laravel-amber/5 border-laravel-amber/20 hover:bg-laravel-amber/10">
-                                <div class="w-10 h-10 rounded-lg bg-laravel-amber/20 text-laravel-amber flex items-center justify-center border border-laravel-amber/20">
+                            <a href="https://labnotes.developerjonas.com" target="_blank" class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-laravel-red/50 bg-laravel-red/5 transition-all duration-300 group">
+                                <div class="w-10 h-10 rounded-lg bg-laravel-red/20 text-laravel-red flex items-center justify-center border border-laravel-red/20">
                                     <i class="fa-solid fa-seedling"></i>
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white group-hover:text-laravel-amber transition-colors">LabNotes</div>
+                                    <div class="font-bold text-white">LabNotes</div>
                                     <div class="text-sm text-laravel-muted">My Personal Digital Garden</div>
                                 </div>
                             </a>
-                            <a href="#" target="_blank" class="link-card">
+                            
+                            <a href="#" target="_blank" class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:border-white/50 hover:bg-laravel-card transition-all duration-300 group">
                                 <div class="w-10 h-10 rounded-lg bg-white text-black flex items-center justify-center font-serif font-bold text-xl">
                                     M
                                 </div>
                                 <div>
-                                    <div class="font-bold text-white group-hover:text-laravel-amber transition-colors">Medium</div>
+                                    <div class="font-bold text-white">Medium</div>
                                     <div class="text-sm text-laravel-muted">Long-form Articles</div>
-                                </div>
-                            </a>
-                            <a href="#" target="_blank" class="link-card">
-                                <div class="w-10 h-10 rounded-lg bg-black border border-white/20 flex items-center justify-center font-bold text-xl text-white">
-                                    DEV
-                                </div>
-                                <div>
-                                    <div class="font-bold text-white group-hover:text-laravel-amber transition-colors">Dev.to</div>
-                                    <div class="text-sm text-laravel-muted">Quick Tips & Tutorials</div>
                                 </div>
                             </a>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="space-y-12">
-                    
                     <div>
                         <h2 class="section-header">
-                            <i class="fa-solid fa-book text-laravel-amber"></i> The Bookshelf
+                            <i class="fa-solid fa-book text-laravel-red"></i> The Bookshelf
                         </h2>
                         
                         <div class="mb-8">
@@ -294,11 +284,12 @@
                                 <span class="w-2 h-2 rounded-full bg-laravel-amber animate-pulse"></span>
                                 Currently Reading
                             </div>
-                            <div class="flex gap-4 p-4 rounded-xl bg-laravel-card border border-white/5">
-                                <div class="book-card w-24 flex-shrink-0 bg-gray-800 flex items-center justify-center text-center p-2 shadow-inner">
-                                    <div class="text-center">
+                            
+                            <div class="glass-panel p-4 rounded-xl flex gap-4 border border-laravel-amber/20 bg-laravel-card">
+                                <div class="w-24 flex-shrink-0 aspect-[2/3] bg-gray-800 rounded border border-white/10 flex items-center justify-center shadow-lg">
+                                    <div class="text-center p-2">
                                         <i class="fa-solid fa-code text-3xl text-gray-600 mb-2"></i>
-                                        <span class="text-[0.6rem] text-gray-400 block leading-tight">CLEAN<br>ARCH</span>
+                                        <span class="text-[0.6rem] text-gray-400 block leading-tight font-bold">CLEAN<br>ARCH</span>
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center w-full">
@@ -319,39 +310,37 @@
                         <div>
                             <div class="text-xs font-bold text-laravel-muted uppercase tracking-widest mb-4">Next Up</div>
                             <div class="space-y-3">
-                                <div class="flex items-center gap-3 p-3 glass-panel rounded-lg hover:bg-laravel-card/80 transition-colors cursor-pointer group">
-                                    <div class="w-10 h-14 bg-gray-800 rounded border border-white/5 flex items-center justify-center text-xs text-gray-500 group-hover:border-laravel-amber/30 transition-colors">
+                                <div class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-laravel-card hover:border-laravel-amber/30 transition-all duration-300 cursor-pointer group">
+                                    <div class="w-10 h-14 bg-gray-800 rounded border border-white/5 flex items-center justify-center text-xs text-gray-500 group-hover:text-laravel-amber transition-colors">
                                         <i class="fa-solid fa-database"></i>
                                     </div>
                                     <div>
-                                        <div class="text-sm font-bold text-white group-hover:text-laravel-amber transition-colors">Designing Data-Intensive Apps</div>
+                                        <div class="text-sm font-bold text-white group-hover:text-laravel-amber transition-colors">Data-Intensive Apps</div>
                                         <div class="text-xs text-laravel-muted">Martin Kleppmann</div>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-3 p-3 glass-panel rounded-lg hover:bg-laravel-card/80 transition-colors cursor-pointer group">
-                                    <div class="w-10 h-14 bg-gray-800 rounded border border-white/5 flex items-center justify-center text-xs text-gray-500 group-hover:border-laravel-amber/30 transition-colors">
+                                <div class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-laravel-card hover:border-laravel-amber/30 transition-all duration-300 cursor-pointer group">
+                                    <div class="w-10 h-14 bg-gray-800 rounded border border-white/5 flex items-center justify-center text-xs text-gray-500 group-hover:text-laravel-amber transition-colors">
                                         <i class="fa-solid fa-atom"></i>
                                     </div>
                                     <div>
-                                        <div class="text-sm font-bold text-white group-hover:text-laravel-amber transition-colors">The Feynman Lectures Vol 1</div>
+                                        <div class="text-sm font-bold text-white group-hover:text-laravel-amber transition-colors">Feynman Lectures Vol 1</div>
                                         <div class="text-xs text-laravel-muted">Richard P. Feynman</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
-
         </div>
     </main>
 
     <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-8 mt-auto">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="text-laravel-muted text-sm">
-                &copy; 2025 Jonas. All rights reserved. Built with <span class="text-laravel-red"><i class="fa-solid fa-heart"></i></span>.
+                &copy; 2025 Jonas. Built with <span class="text-laravel-red"><i class="fa-solid fa-heart"></i></span> and Physics.
             </p>
         </div>
     </footer>
