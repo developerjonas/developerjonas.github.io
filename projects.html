@@ -1,345 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects - Jonas Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    /* Reuse your base styles here */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Jonas</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        laravel: {
+                            base: '#0f172a',
+                            card: '#1e293b',
+                            red: '#FF2D20',
+                            text: '#f8fafc',
+                            muted: '#94a3b8',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
-
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: #00BFA6;
-      cursor: default;
-      user-select: none;
-    }
-
-    .links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-    }
-
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
-
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
-
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
-
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Projects Section */
-    section#projects {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      min-height: 70vh;
-    }
-
-    .projects-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: #252525;
-      border-radius: 14px;
-      padding: 1.8rem 2rem;
-      box-shadow: 0 0 6px #00BFA6;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-      box-shadow: 0 0 12px #00BFA6;
-    }
-
-    .project-card h2 {
-      margin-top: 0;
-      color: #00BFA6;
-      font-size: 1.8rem;
-    }
-
-    .project-card p {
-      color: #bbbbbb;
-      font-size: 1.15rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-
-    .project-links a {
-      color: #00BFA6;
-      text-decoration: none;
-      font-weight: 700;
-      margin-right: 1.2rem;
-      font-size: 1.1rem;
-    }
-
-    .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hamburg {
-        display: block;
-      }
-
-      .links {
-        display: none;
-      }
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
+            }
+            .nav-link {
+                @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-laravel-red transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+            .project-card {
+                @apply bg-laravel-card border border-white/5 rounded-2xl p-8 hover:border-laravel-red/50 transition-all duration-300 hover:shadow-2xl hover:shadow-laravel-red/10 hover:-translate-y-2 flex flex-col justify-between h-full;
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <a href="/" style="text-decoration: none;"><span>Jonas</span></a>
-      </div>
-      <div class="links">
-        <div class="link">
-          <a href="/">Home</a>
-        </div>
-        <div class="link">
-          <a href="about.html" aria-current="page">About</a>
-        </div>
-        <div class="link">
-          <a href="projects.html">Projects</a>
-        </div>
-        <div class="link">
-          <a href="beacon.html">Beacon</a>
-        </div>
-        <div class="link">
-          <a href="https://labnotes.developerjonas.com">LabNotes</a>
-        </div>
-        <div class="link contact-btn">
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden flex flex-col selection:bg-laravel-red selection:text-white">
+
+    <!-- Playful Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-0 -left-4 w-96 h-96 bg-laravel-red/5 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute bottom-0 -right-4 w-96 h-96 bg-purple-500/5 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
     </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
-        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
 
-  <section id="projects">
-    <h1>My <span>Projects</span></h1>
-    <div class="projects-list">
-      <article class="project-card">
-        <h2>Kreatorly</h2>
-        <p>A modern platform empowering creators to monetize and grow their communities. Built with
-          <strong>Next.js</strong>,
-          <strong>Tailwind CSS</strong>, and <strong>TypeORM</strong>, it offers subscription-based support, analytics,
-          and
-          seamless user experience to help creators turn passion into sustainable income.
-        </p>
-        <div class="project-links">
-          <a href="/case_study/Kreatorly.html">Case Study</a>
-          <a href="https://kreatorly.com" target="_blank" rel="noopener">Live Demo</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-laravel-red/20">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link text-laravel-red">Projects</a>
+                    <a href="beacon.html" class="nav-link">Beacon</a>
+                    <a href="https://labnotes.developerjonas.com" class="nav-link">LabNotes</a>
+                    <a href="contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red">Let's Talk</a>
+                </div>
+
+                <button onclick="toggleMenu()" class="md:hidden text-laravel-text hover:text-laravel-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
-      </article>
 
-      <article class="project-card">
-        <h2>YouthOS</h2>
-        <p>An admin dashboard system for youth centers to manage core operations efficiently. Built with Laravel,
-          featuring CRUD modules, data-driven reporting, and role-based access control (RBAC) to streamline
-          administrative tasks and improve decision-making.</p>
-        <div class="project-links">
-          <a href="/case_study/YouthOS.html">Case Study</a>
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-panel border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="/" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Home</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">About</a>
+                <a href="projects.html" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">Projects</a>
+                <a href="beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
+                <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
+            </div>
         </div>
-      </article>
-      <article class="project-card">
-        <h2>Water Scheme Management System</h2>
-        <p>A Laravel-based platform for managing rural and urban water distribution schemes. Features include dynamic
-          CRUD operations, data-driven reporting, and role-based access control, streamlining administration and
-          improving resource allocation.</p>
-        <div class="project-links">
-          <a href="/case_study/Water_Scheme_Management_System.html">Case Study</a>
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow pt-32 pb-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-16 space-y-4">
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight">
+                    My <span class="text-laravel-red">Work</span>
+                </h1>
+                <p class="text-laravel-muted text-lg max-w-2xl mx-auto">
+                    A selection of platforms and tools I've engineered to solve real-world problems.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <article class="project-card group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-laravel-red/10 flex items-center justify-center text-laravel-red text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-laravel-muted border border-white/10 rounded-full">SaaS Platform</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-laravel-red transition-colors">Kreatorly</h2>
+                        <p class="text-laravel-muted leading-relaxed mb-6">
+                            A modern platform empowering creators to monetize and grow their communities. Built with <strong class="text-white">Next.js</strong>, <strong class="text-white">Tailwind CSS</strong>, and TypeORM.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <a href="/case_study/Kreatorly.html" class="text-sm font-bold text-white hover:text-laravel-red flex items-center gap-2 transition-colors">
+                            Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="https://kreatorly.com" target="_blank" class="ml-auto text-laravel-muted hover:text-white transition-colors" title="View Live">
+                            <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-building-user"></i>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-laravel-muted border border-white/10 rounded-full">Dashboard</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-laravel-red transition-colors">YouthOS</h2>
+                        <p class="text-laravel-muted leading-relaxed mb-6">
+                            An admin dashboard system for youth centers. Features CRUD modules, data-driven reporting, and RBAC to streamline administrative tasks.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <a href="/case_study/YouthOS.html" class="text-sm font-bold text-white hover:text-laravel-red flex items-center gap-2 transition-colors">
+                            Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#" class="ml-auto text-laravel-muted hover:text-white transition-colors" title="View Live">
+                            <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-faucet-drip"></i>
+                            </div>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-laravel-muted border border-white/10 rounded-full">Infrastructure</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-laravel-red transition-colors">Water Scheme System</h2>
+                        <p class="text-laravel-muted leading-relaxed mb-6">
+                            A Laravel-based platform for managing rural and urban water distribution. Includes dynamic CRUD operations and resource allocation tracking.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <a href="/case_study/Water_Scheme_Management_System.html" class="text-sm font-bold text-white hover:text-laravel-red flex items-center gap-2 transition-colors">
+                            Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#" class="ml-auto text-laravel-muted hover:text-white transition-colors" title="View Live">
+                            <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
         </div>
-      </article>
+    </main>
 
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-laravel-muted text-sm">
+                &copy; 2025 Jonas. All rights reserved.
+            </p>
+            <div class="flex gap-6 text-xl">
+                <a href="https://github.com/developerjonas" class="text-laravel-muted hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/developerjonas" class="text-laravel-muted hover:text-blue-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://youtube.com/@DeveloperJonas" class="text-laravel-muted hover:text-laravel-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
 
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <style>
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      box-shadow: inset 0 1px 0 #00BFA6;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-container p {
-      margin: 0;
-      flex: 1 1 200px;
-    }
-
-    .footer-social-links {
-      flex: 1 1 200px;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
-
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social-links a:hover {
-      color: #00BFA6;
-    }
-
-    @media (max-width: 600px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .footer-container p,
-      .footer-social-links {
-        flex: unset;
-      }
-    }
-  </style>
-
-
-  <script>
-    function hamburg() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
-    }
-    function cancel() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
-    }
-  </script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        }
+    </script>
 </body>
-
 </html>
