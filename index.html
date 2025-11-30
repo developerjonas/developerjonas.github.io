@@ -1,412 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jonas Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    /* Dark gray background similar to YouTube Dark */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      /* increased base font size */
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jonas | Logic & Motion</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <!-- Google Fonts: Nunito is the default Laravel font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'], // Laravel's signature font
+                    },
+                    colors: {
+                        laravel: {
+                            base: '#0f172a',    // Slate 900 (Common Laravel Dark Background)
+                            card: '#1e293b',    // Slate 800
+                            red: '#FF2D20',     // Official Laravel Red
+                            text: '#f8fafc',    // Slate 50
+                            muted: '#94a3b8',   // Slate 400
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
-
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      /* bigger logo */
-      color: #00BFA6;
-      /* emerald teal accent */
-      cursor: default;
-      user-select: none;
-    }
-
-    .links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      /* bigger nav links */
-      transition: color 0.3s;
-    }
-
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-      /* violet on hover */
-    }
-
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
-
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
-
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
-
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Main Section Flexbox Layout */
-    section#home {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-
-      display: flex;
-      gap: 3rem;
-      flex-wrap: nowrap;
-      /* NO wrap on desktop */
-      min-height: 70vh;
-    }
-
-    .image {
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 0 16px #00BFA6;
-      flex-shrink: 0;
-      max-width: 45%;
-      width: auto;
-      height: auto;
-    }
-
-    .image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      user-select: none;
-    }
-
-    .content {
-      flex: 3 1 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.8rem;
-    }
-
-    .content h1 {
-      font-size: 3.6rem;
-      margin: 0;
-      color: #e0e0e0;
-    }
-
-    .content h1 span {
-      color: #00BFA6;
-    }
-
-    .content p {
-      color: #bbbbbb;
-      font-size: 1.25rem;
-      line-height: 1.8;
-      max-width: 600px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1.8rem;
-      font-size: 2.4rem;
-      color: #bbbbbb;
-    }
-
-    .social-links a {
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #00BFA6;
-    }
-
-    .btn button {
-      background: transparent;
-      border: 3px solid #00BFA6;
-      padding: 0.75rem 2.4rem;
-      color: #00BFA6;
-      font-weight: 800;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      max-width: 220px;
-      font-size: 1.3rem;
-      user-select: none;
-      align-self: flex-start;
-      letter-spacing: 0.05em;
-    }
-
-    .btn button:hover {
-      background-color: #00BFA6;
-      color: #181818;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      section#home {
-        flex-wrap: wrap;
-        /* allow wrap on smaller screens */
-      }
-
-      .image {
-        display: none;
-      }
-
-      .content {
-        flex: 1 1 100%;
-        max-width: 100% !important;
-      }
-
-      .hamburg {
-        display: block;
-      }
-
-      .links {
-        display: none;
-      }
-    }
-
-    .short-bio {
-      font-weight: 800;
-      color: #00BFA6;
-      font-size: 1.4rem;
-      /* slightly larger */
-      margin-bottom: 0.5rem;
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
+            }
+            .nav-link {
+                @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-laravel-red transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF2D20; 
+        }
+    </style>
 </head>
 
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <div class="logo"> <a href="/" style="text-decoration: none;"><span>Jonas</span></a>
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden selection:bg-laravel-red selection:text-white">
+
+    <!-- Background Decoration (The "Playful" Part) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Colorful Blobs -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-laravel-red/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+
+        <!-- Floating Elements representing Math, Physics, Code -->
+        <!-- Math -->
+        <i class="fa-solid fa-square-root-variable absolute top-1/4 left-[10%] text-laravel-muted/10 text-6xl animate-float-slow"></i>
+        <i class="fa-solid fa-infinity absolute bottom-1/3 right-[5%] text-laravel-red/10 text-7xl animate-float-medium"></i>
+        <!-- Physics -->
+        <i class="fa-solid fa-atom absolute top-[15%] right-[20%] text-blue-500/10 text-8xl animate-float-slow"></i>
+        <i class="fa-solid fa-magnet absolute bottom-[10%] left-[15%] text-laravel-muted/10 text-5xl animate-float-fast"></i>
+        <!-- Coding -->
+        <i class="fa-solid fa-code absolute bottom-[20%] right-[30%] text-laravel-red/10 text-6xl animate-float-medium"></i>
+        <i class="fa-solid fa-terminal absolute top-[40%] left-[5%] text-laravel-muted/10 text-4xl animate-float-slow"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-laravel-red/20">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link text-laravel-red">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="beacon.html" class="nav-link">Beacon</a>
+                    <a href="https://labnotes.developerjonas.com" class="nav-link">LabNotes</a>
+                    <a href="contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red hover:shadow-lg hover:shadow-laravel-red/20">
+                        Let's Talk
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMenu()" class="md:hidden text-laravel-text hover:text-laravel-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="links">
-        <div class="link"><a href="/">Home</a></div>
-        <div class="link"><a href="about.html">About</a></div>
-        <div class="link"><a href="projects.html">Projects</a></div>
-        <div class="link"><a href="beacon.html">Beacon</a></div>
-        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
-        <div class="link contact-btn"><a href="contact.html">Contact</a></div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
-        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
 
-  <section id="home">
-    <div class="image">
-      <img src="https://avatars.githubusercontent.com/u/180626211?v=4" alt="Jonas" loading="lazy" />
-    </div>
-    <div class="content">
-      <h1>
-        Hey, I'm <span>Jonas</span>
-      </h1>
-      <div>
-        I'm a <span class="short-bio">Mathematics, Physics & Coding Enthusiast</span>
-      </div>
-      <p>
-        I combine deep mathematical insight with practical coding skills to
-        solve complex problems and build innovative solutions. Passionate
-        about physics and technology, I strive to create impact through
-        elegant, efficient software.
-      </p>
-      <div class="social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub"><i
-            class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn"><i
-            class="fa-brands fa-linkedin"></i></a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube"><i
-            class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-      <div class="btn">
-        <button onclick="window.open('https://labnotes.developerjonas.com')">LabNotes</button>
-      </div>
-    </div>
-  </section>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-panel border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="/" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">Home</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">About</a>
+                <a href="projects.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Projects</a>
+                <a href="beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
+                <a href="https://labnotes.developerjonas.com" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">LabNotes</a>
+                <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
 
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
+    <!-- Main Content -->
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-20 px-4 sm:px-6">
+        
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="order-2 lg:order-1 text-center lg:text-left space-y-8">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-laravel-card border border-white/10 shadow-lg animate-float-slow">
+                    <span class="flex h-3 w-3 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-laravel-red opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-laravel-red"></span>
+                    </span>
+                    <span class="text-sm font-semibold text-laravel-muted">Open to Collaboration</span>
+                </div>
 
-  <style>
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      box-shadow: inset 0 1px 0 #00BFA6;
-    }
+                <h1 class="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
+                    Code backed by <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-laravel-red to-orange-500">Universal Laws</span>
+                </h1>
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
+                <p class="text-lg lg:text-xl text-laravel-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Hello, I'm <strong class="text-laravel-text">Jonas</strong>. I build digital experiences where <span class="text-laravel-red">Mathematics</span> defines the logic, <span class="text-blue-400">Physics</span> governs the motion, and <span class="text-emerald-400">Code</span> brings it all to life.
+                </p>
 
-    .footer-container p {
-      margin: 0;
-      flex: 1 1 200px;
-    }
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="projects.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-laravel-red text-white font-bold text-lg shadow-lg shadow-laravel-red/30 hover:shadow-laravel-red/50 hover:-translate-y-1 transition-all duration-300 text-center">
+                        View My Work
+                    </a>
+                    <a href="https://labnotes.developerjonas.com" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-laravel-card border border-white/10 text-white font-bold text-lg hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center gap-2 group">
+                        Explore LabNotes
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
 
-    .footer-social-links {
-      flex: 1 1 200px;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
+                <!-- Social Stats -->
+                <div class="pt-8 flex items-center justify-center lg:justify-start gap-8 border-t border-white/5">
+                    <a href="https://github.com/developerjonas" class="group flex flex-col items-center lg:items-start">
+                        <i class="fa-brands fa-github text-2xl text-laravel-muted group-hover:text-white transition-colors mb-1"></i>
+                        <span class="text-xs font-bold text-laravel-muted uppercase tracking-wider">GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/developerjonas" class="group flex flex-col items-center lg:items-start">
+                        <i class="fa-brands fa-linkedin text-2xl text-laravel-muted group-hover:text-blue-400 transition-colors mb-1"></i>
+                        <span class="text-xs font-bold text-laravel-muted uppercase tracking-wider">LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@DeveloperJonas" class="group flex flex-col items-center lg:items-start">
+                        <i class="fa-brands fa-youtube text-2xl text-laravel-muted group-hover:text-laravel-red transition-colors mb-1"></i>
+                        <span class="text-xs font-bold text-laravel-muted uppercase tracking-wider">YouTube</span>
+                    </a>
+                </div>
+            </div>
 
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
+            <!-- Visual Content -->
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
+                <!-- The "Relaxing" Card Container -->
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                    <!-- Spinning Orbit Rings -->
+                    <div class="absolute inset-0 border border-laravel-red/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-4 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                    
+                    <!-- Profile Image with playful border radius -->
+                    <div class="absolute inset-8 bg-laravel-card rounded-[2rem] overflow-hidden shadow-2xl shadow-laravel-red/20 border-4 border-laravel-card transform hover:scale-105 transition-transform duration-500 z-20">
+                        <img src="https://avatars.githubusercontent.com/u/180626211?v=4" alt="Jonas" class="w-full h-full object-cover">
+                        
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-laravel-base/80 to-transparent"></div>
+                        
+                        <!-- Floating Code Tag inside image -->
+                        <div class="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-lg border border-white/20">
+                            <code class="text-xs text-laravel-red font-bold">&lt;Developer /&gt;</code>
+                        </div>
+                    </div>
 
-    .footer-social-links a:hover {
-      color: #DC3E83;
-    }
+                    <!-- Floating Badge Cards -->
+                    <!-- Physics Card -->
+                    <div class="absolute -right-4 top-10 bg-laravel-card p-3 rounded-xl shadow-xl border border-white/5 animate-float-medium z-30">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-laravel-muted">Physics</div>
+                                <div class="text-sm font-bold">Enthusiast</div>
+                            </div>
+                        </div>
+                    </div>
 
-    @media (max-width: 600px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+                    <!-- Math Card -->
+                    <div class="absolute -left-8 bottom-20 bg-laravel-card p-3 rounded-xl shadow-xl border border-white/5 animate-float-slow z-30">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400">
+                                <i class="fa-solid fa-square-root-variable"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-laravel-muted">Math</div>
+                                <div class="text-sm font-bold">Problem Solver</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      .footer-container p,
-      .footer-social-links {
-        flex: unset;
-      }
-    }
-  </style>
+    <!-- Minimal Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-laravel-muted text-sm">
+                &copy; 2025 Jonas. Built with <span class="text-laravel-red"><i class="fa-solid fa-heart"></i></span> and Physics.
+            </p>
+        </div>
+    </footer>
 
-
-  <script>
-    function hamburg() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
-    }
-    function cancel() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
-    }
-
-    function adjustImageSize() {
-      const content = document.querySelector('.content');
-      const image = document.querySelector('.image');
-      const container = document.querySelector('#home');
-      if (content && image && container) {
-        const contentHeight = content.offsetHeight;
-        const containerWidth = container.clientWidth;
-        const maxImageWidth = containerWidth * 0.45; // max 45% width
-
-        const size = Math.min(contentHeight, maxImageWidth);
-
-        image.style.width = size + 'px';
-        image.style.height = size + 'px';
-      }
-    }
-
-    window.addEventListener('load', adjustImageSize);
-    window.addEventListener('resize', adjustImageSize);
-  </script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        }
+    </script>
 </body>
-
 </html>
