@@ -1,302 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case Study - Water Scheme Management System</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study | Water Scheme System</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        laravel: {
+                            base: '#0f172a',
+                            card: '#1e293b',
+                            red: '#FF2D20',
+                            text: '#f8fafc',
+                            muted: '#94a3b8',
+                            water: '#0ea5e9', // Sky 500 for water accents
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'drip': 'drip 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        drip: {
+                            '0%': { transform: 'translateY(0)', opacity: '1' },
+                            '100%': { transform: 'translateY(20px)', opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
-
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: #00BFA6;
-      cursor: default;
-      user-select: none;
-    }
-
-    .links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-    }
-
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
-
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
-
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
-
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Case Study Section */
-    section#case-study {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-
-    #case-study h1 {
-      font-size: 3rem;
-      text-align: center;
-      color: #00BFA6;
-      margin-bottom: 2rem;
-    }
-
-    .case-intro {
-      background: #252525;
-      padding: 2rem;
-      border-radius: 14px;
-      box-shadow: 0 0 6px #00BFA6;
-      margin-bottom: 3rem;
-    }
-
-    .case-intro p {
-      color: #bbbbbb;
-      font-size: 1.2rem;
-      line-height: 1.7;
-    }
-
-    .case-content h2 {
-      color: #00BFA6;
-      font-size: 2rem;
-      margin-top: 2rem;
-    }
-
-    .case-content p {
-      font-size: 1.15rem;
-      color: #d0d0d0;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .highlight {
-      color: #00BFA6;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      box-shadow: inset 0 1px 0 #00BFA6;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
-
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social-links a:hover {
-      color: #00BFA6;
-    }
-
-    @media (max-width: 900px) {
-      .hamburg {
-        display: block;
-      }
-
-      .links {
-        display: none;
-      }
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
+            }
+            .nav-link {
+                @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-laravel-red transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+            .highlight {
+                @apply font-bold text-laravel-water;
+            }
+            .case-section-title {
+                @apply text-2xl font-bold text-white mb-4 flex items-center gap-3;
+            }
+            .case-section-title i {
+                @apply text-laravel-red;
+            }
+        }
+    </style>
 </head>
 
-<body>
-   <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="/" 
-                    style="text-decoration: none;"><span>Jonas</span></a>
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden flex flex-col selection:bg-laravel-red selection:text-white">
+
+    <!-- Background Elements (Water Theme) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Floating Water Drops & Icons -->
+        <i class="fa-solid fa-droplet absolute top-[15%] left-[10%] text-laravel-water/10 text-6xl animate-float"></i>
+        <i class="fa-solid fa-chart-pie absolute bottom-[20%] right-[15%] text-laravel-muted/5 text-8xl animate-float-delayed"></i>
+        <i class="fa-solid fa-server absolute top-[30%] right-[10%] text-laravel-red/5 text-5xl animate-float"></i>
+        <i class="fa-solid fa-faucet absolute bottom-[10%] left-[5%] text-laravel-water/10 text-7xl animate-float-delayed"></i>
+        
+        <!-- Gradient Glow -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-laravel-water/5 rounded-full blur-[100px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-laravel-red/20">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/projects.html" class="nav-link text-laravel-red">Projects</a>
+                    <a href="/beacon.html" class="nav-link">Beacon</a>
+                    <a href="https://labnotes.developerjonas.com" class="nav-link">LabNotes</a>
+                    <a href="/contact.html" class="bg-white/5 hover:bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold transition-all duration-300 border border-white/10 hover:border-laravel-red">Let's Talk</a>
+                </div>
+
+                <button onclick="toggleMenu()" class="md:hidden text-laravel-text hover:text-laravel-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
+                </button>
             </div>
-            <div class="links">
-                <div class="link">
-                    <a href="/">Home</a>
-                </div>
-                <div class="link">
-                    <a href="../about.html" aria-current="page">About</a>
-                </div>
-                <div class="link">
-                    <a href="../projects.html">Projects</a>
-                </div>
-                <div class="link">
-                    <a href="../beacon.html">Beacon</a>
-                </div>
-                <div class="link">
-                    <a href="https://labnotes.developerjonas.com">LabNotes</a>
-                </div>
-                <div class="link contact-btn">
-                    <a href="../contact.html">Contact</a>
-                </div>
-            </div>
-            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
-        <div class="dropdown">
-            <div class="links">
-                <a href="/" onclick="cancel()">Home</a>
-                <a href="../about.html" onclick="cancel()">About</a>
-                <a href="../projects.html" onclick="cancel()">Projects</a>
-                <a href="/case_study/" onclick="cancel()">Case Studies</a>
-                <a href="../beacon.html" onclick="cancel()">Beacon</a>
-                <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-                <a href="../contact.html" onclick="cancel()">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-panel border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="/" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Home</a>
+                <a href="/projects.html" class="block px-4 py-3 rounded-lg bg-laravel-red/10 text-laravel-red font-bold">Projects</a>
+                <a href="/beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
+                <a href="/contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
             </div>
         </div>
     </nav>
 
-  <section id="case-study">
-    <h1>Water Scheme Management System</h1>
-    <div class="case-intro">
-      <p>The Water Scheme Management System is a <span class="highlight">Laravel-based platform</span> designed to
-        revolutionize how rural and urban water projects manage resources. Before this system, organizations struggled
-        with <span class="highlight">Excel files, endless spreadsheets, and scattered reports</span>. Thousands of rows
-        and multiple files made decision-making slow and frustrating.
-      </p>
-      <p>Now, with a <span class="highlight">centralized, data-driven solution</span>, all information lives in one
-        place, enabling better planning, transparency, and resource allocation—all in the same hood!</p>
-    </div>
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow pt-32 pb-20 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Breadcrumb -->
+            <div class="mb-8 flex items-center gap-2 text-sm text-laravel-muted">
+                <a href="/projects.html" class="hover:text-white transition-colors">Projects</a>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+                <span class="text-laravel-red font-bold">Case Study</span>
+            </div>
 
-    <div class="case-content">
-      <h2>Challenges Before</h2>
-      <p>Managing multiple water schemes involved juggling <span class="highlight">Excel sheets, manual data entry, and
-          fragmented reporting</span>. Teams spent countless hours updating numbers, reconciling discrepancies, and
-        making decisions with incomplete or outdated data.</p>
+            <!-- Header -->
+            <div class="text-center mb-12 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-laravel-water/10 text-laravel-water text-3xl mb-4 shadow-lg shadow-laravel-water/20">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                    Water Scheme <br>
+                    <span class="text-laravel-water">Management System</span>
+                </h1>
+                <p class="text-lg text-laravel-muted max-w-2xl mx-auto">
+                    Bringing digital clarity to resource management.
+                </p>
+            </div>
 
-      <h2>The Solution</h2>
-      <p>We built a robust <span class="highlight">web application with Laravel</span> to handle all aspects of water
-        scheme management. The system introduced:</p>
-      <ul>
-        <li><span class="highlight">Dynamic CRUD Operations</span> for schemes, users, and resources.</li>
-        <li><span class="highlight">Role-Based Access Control (RBAC)</span> for secure data handling.</li>
-        <li><span class="highlight">Data-Driven Dashboards</span> for real-time insights and reports.</li>
-      </ul>
+            <!-- Case Study Content -->
+            <div class="space-y-8">
+                
+                <!-- Introduction Card -->
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-laravel-red"></div>
+                    <p class="text-xl text-laravel-text leading-relaxed">
+                        The Water Scheme Management System is a <span class="highlight">Laravel-based platform</span> designed to revolutionize how rural and urban water projects manage resources. 
+                        Before this system, organizations struggled with <span class="text-white font-bold underline decoration-laravel-red/50">Excel chaos</span>—thousands of rows, fragmented files, and data silos.
+                    </p>
+                    <div class="mt-6 p-4 bg-laravel-base/50 rounded-xl border border-white/5 flex items-start gap-3">
+                        <i class="fa-solid fa-check-circle text-laravel-water mt-1"></i>
+                        <p class="text-sm text-laravel-muted">
+                            Now, with a <span class="font-bold text-white">centralized solution</span>, all information lives in one place, enabling better planning, transparency, and resource allocation.
+                        </p>
+                    </div>
+                </div>
 
-      <h2>Impact</h2>
-      <p>The Water Scheme Management System replaced thousands of spreadsheets with a single, user-friendly platform.
-        Now, stakeholders have instant access to <span class="highlight">real-time data</span> for informed,
-        data-driven decision-making—no more Excel chaos.</p>
-    </div>
-  </section>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Challenges -->
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h2 class="case-section-title">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            The Challenge
+                        </h2>
+                        <p class="text-laravel-muted leading-relaxed mb-4">
+                            Managing multiple water schemes involved juggling fragmented spreadsheets. Teams spent countless hours:
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-laravel-muted">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Manual data entry errors
+                            </li>
+                            <li class="flex items-center gap-3 text-laravel-muted">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Reconciling discrepancies
+                            </li>
+                            <li class="flex items-center gap-3 text-laravel-muted">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Making decisions on outdated data
+                            </li>
+                        </ul>
+                    </div>
 
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:hi@developerjonas.com"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
-  </footer>
+                    <!-- Solution -->
+                    <div class="glass-panel p-8 rounded-2xl border-laravel-red/20 shadow-lg shadow-laravel-red/5">
+                        <h2 class="case-section-title">
+                            <i class="fa-solid fa-lightbulb text-yellow-400"></i>
+                            The Solution
+                        </h2>
+                        <p class="text-laravel-muted leading-relaxed mb-4">
+                            We engineered a robust web application using <strong class="text-white">Laravel</strong> to automate the entire lifecycle. Key features include:
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-laravel-text font-medium">
+                                <i class="fa-solid fa-database text-laravel-water"></i> Dynamic CRUD Operations
+                            </li>
+                            <li class="flex items-center gap-3 text-laravel-text font-medium">
+                                <i class="fa-solid fa-shield-halved text-laravel-water"></i> Role-Based Access Control (RBAC)
+                            </li>
+                            <li class="flex items-center gap-3 text-laravel-text font-medium">
+                                <i class="fa-solid fa-chart-line text-laravel-water"></i> Real-time Analytics Dashboard
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-  <script>
-    function hamburg() {
-      document.querySelector(".dropdown").style.transform = "translateY(0)";
-    }
-    function cancel() {
-      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-    }
-  </script>
+                <!-- Impact -->
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <h2 class="text-2xl font-bold text-white mb-4">The Impact</h2>
+                    <p class="text-laravel-muted text-lg max-w-2xl mx-auto leading-relaxed">
+                        The system replaced thousands of spreadsheets with a single, user-friendly platform. Stakeholders now have instant access to <span class="highlight">real-time data</span> for informed decision-making.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="mt-12 text-center">
+                <a href="/projects.html" class="inline-flex items-center gap-2 text-laravel-muted hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-laravel-muted text-sm">
+                &copy; 2025 Jonas. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        }
+    </script>
 </body>
-
 </html>
