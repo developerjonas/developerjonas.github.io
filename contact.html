@@ -1,364 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact - Jonas Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-  <style>
-    /* Base styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #181818;
-      color: #e0e0e0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Serious Inquiries Only</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        laravel: {
+                            base: '#0f172a',
+                            card: '#1e293b',
+                            red: '#FF2D20',
+                            text: '#f8fafc',
+                            muted: '#94a3b8',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav {
-      background: #202020;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2rem;
-    }
-
-    .logo span {
-      font-weight: 800;
-      font-size: 2.2rem;
-      color: #00BFA6;
-      cursor: default;
-      user-select: none;
-    }
-
-    .links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #bbbbbb;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-
-    .links a:hover,
-    .contact-btn a {
-      color: #00BFA6;
-    }
-
-    .contact-btn a {
-      padding: 0.6rem 1.5rem;
-      border: 2px solid #00BFA6;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .hamburg {
-      display: none;
-      font-size: 1.8rem;
-      color: #00BFA6;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: #202020;
-      transform: translateY(-500px);
-      transition: transform 0.4s ease;
-      z-index: 999;
-    }
-
-    .dropdown .links {
-      flex-direction: column;
-      padding: 1rem 2rem;
-      gap: 1.2rem;
-      display: flex;
-    }
-
-    .dropdown .links a {
-      color: #e0e0e0;
-      font-size: 1.3rem;
-    }
-
-    .dropdown .cancel {
-      font-size: 2rem;
-      color: #00BFA6;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Contact Section */
-    section#contact {
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    section#contact h1 {
-      font-size: 3.6rem;
-      color: #e0e0e0;
-      margin: 0;
-      text-align: center;
-    }
-
-    section#contact h1 span {
-      color: #00BFA6;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    label {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: #bbbbbb;
-    }
-
-    input,
-    textarea {
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 2px solid #00BFA6;
-      background-color: #222;
-      color: #e0e0e0;
-    }
-
-    button {
-      background-color: #00BFA6;
-      color: #181818;
-      border: none;
-      padding: 1rem 2rem;
-      font-weight: 800;
-      font-size: 1.3rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      align-self: center;
-      max-width: 200px;
-    }
-
-    button:hover {
-      background-color: #00BFA6;
-      color: #fff;
-    }
-
-    /* Responsive */
-    @media (max-width: 650px) {
-      section#contact {
-        padding: 0 1rem;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hamburg {
-        display: block;
-      }
-
-      .links {
-        display: none;
-      }
-    }
-
-    input,
-    textarea {
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-      background-color: #222;
-      /* Dark background */
-      color: #e0e0e0;
-      /* Light text */
-      box-shadow: inset 0 0 5px #00000088;
-      /* subtle inset shadow for depth */
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #888;
-      /* lighter placeholder text */
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 2px solid #00BFA6;
-      background-color: #333;
-      color: #e0e0e0;
-    }
-  </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-laravel-card/60 backdrop-blur-xl border border-white/5;
+            }
+            .nav-link {
+                @apply relative text-laravel-muted font-bold text-lg hover:text-laravel-red transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-laravel-red transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+            .input-field {
+                @apply w-full bg-laravel-base border border-white/10 rounded-xl px-4 py-3 text-laravel-text focus:outline-none focus:border-laravel-red focus:ring-1 focus:ring-laravel-red transition-all duration-300 placeholder-laravel-muted/50;
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo"> <a href="/" 
-          style="text-decoration: none;"><span>Jonas</span></a>
-      </div>
-      <div class="links">
-        <div class="link"><a href="/">Home</a></div>
-        <div class="link"><a href="about.html">About</a></div>
-        <div class="link"><a href="projects.html">Projects</a></div>
-        <div class="link"><a href="services.html">Services</a></div>
-        <div class="link"><a href="beacon.html">Beacon</a></div>
-        <div class="link"><a href="https://labnotes.developerjonas.com">LabNotes</a></div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+<body class="bg-laravel-base text-laravel-text min-h-screen relative overflow-x-hidden flex flex-col selection:bg-laravel-red selection:text-white">
+
+    <!-- Subtle Background Grid -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-20">
+        <div class="absolute inset-0" style="background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px;"></div>
     </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="/" onclick="cancel()">Home</a>
-        <a href="about.html" onclick="cancel()">About</a>
-        <a href="projects.html" onclick="cancel()">Projects</a>
-        <a href="beacon.html" onclick="cancel()">Beacon</a>
-        <a href="https://labnotes.developerjonas.com" onclick="cancel()">LabNotes</a>
-        <a href="contact.html" onclick="cancel()">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
 
-  <section id="contact">
-    <h1>Contact <span>Me</span></h1>
-    <form action="mailto:hi@developerjonas.com" method="post" enctype="text/plain" novalidate>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="Name" required placeholder="Your full name" />
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass-panel shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 bg-laravel-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-laravel-red/20">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">Jonas<span class="text-laravel-red">.</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="beacon.html" class="nav-link">Beacon</a>
+                    <a href="https://labnotes.developerjonas.com" class="nav-link">LabNotes</a>
+                    <a href="contact.html" class="bg-laravel-red text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-laravel-red/20">Let's Talk</a>
+                </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="Email" required placeholder="you@example.com" />
+                <button onclick="toggleMenu()" class="md:hidden text-laravel-text hover:text-laravel-red focus:outline-none p-2">
+                    <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="Message" rows="6" placeholder="Write your message here..." required></textarea>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden glass-panel border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <a href="/" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Home</a>
+                <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">About</a>
+                <a href="projects.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Projects</a>
+                <a href="beacon.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-laravel-muted font-medium">Beacon</a>
+                <a href="contact.html" class="block px-4 py-3 mt-4 text-center rounded-lg bg-laravel-red text-white font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
 
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow pt-32 pb-20 px-4 sm:px-6 flex items-center justify-center">
+        <div class="max-w-2xl w-full">
+            
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-laravel-red/10 text-laravel-red text-xs font-bold uppercase tracking-widest border border-laravel-red/20 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-laravel-red animate-pulse"></span>
+                    High Priority Channel
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black mb-4">
+                    Do You Have a <br>
+                    <span class="text-laravel-red">Worthy Challenge?</span>
+                </h1>
+                <p class="text-laravel-muted text-lg">
+                    I selectively partner with visionaries. <br>
+                    If your project defies the ordinary, you have my attention.
+                </p>
+            </div>
 
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Jonas. All rights reserved.</p>
-      <div class="footer-social-links">
-        <a href="https://github.com/developerjonas" target="_blank" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/developerjonas" target="_blank" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://youtube.com/@DeveloperJonas" target="_blank" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="mailto:hi@developerjonas.com" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-      </div>
-    </div>
-  </footer>
+            <form action="#" method="post" class="glass-panel p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
+                <!-- Decorative red line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-laravel-red to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
-  <style>
-    footer {
-      background-color: #202020;
-      color: #bbbbbb;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 4rem;
-      box-shadow: inset 0 1px 0 #00BFA6;
-    }
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label for="name" class="text-sm font-bold text-laravel-muted uppercase tracking-wider">Identity</label>
+                            <input type="text" id="name" name="Name" required placeholder="Who are you?" class="input-field" />
+                        </div>
+                        <div class="space-y-2">
+                            <label for="email" class="text-sm font-bold text-laravel-muted uppercase tracking-wider">Coordinates</label>
+                            <input type="email" id="email" name="Email" required placeholder="How do I find you?" class="input-field" />
+                        </div>
+                    </div>
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
+                    <div class="space-y-2">
+                        <label for="subject" class="text-sm font-bold text-laravel-muted uppercase tracking-wider">Mission Objective</label>
+                        <select id="subject" name="Subject" class="input-field appearance-none cursor-pointer">
+                            <option value="" disabled selected>Select the complexity level...</option>
+                            <option value="collaboration">High-Level Collaboration</option>
+                            <option value="complex_problem">Solving a Complex Anomaly</option>
+                            <option value="business">Enterprise Architecture</option>
+                            <option value="other">Something Revolutionary</option>
+                        </select>
+                    </div>
 
-    .footer-container p {
-      margin: 0;
-      flex: 1 1 200px;
-    }
+                    <div class="space-y-2">
+                        <label for="message" class="text-sm font-bold text-laravel-muted uppercase tracking-wider">Briefing</label>
+                        <textarea id="message" name="Message" rows="5" placeholder="Detail the specifications. Be precise." required class="input-field resize-none"></textarea>
+                    </div>
 
-    .footer-social-links {
-      flex: 1 1 200px;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.5rem;
-    }
+                    <div class="flex items-center gap-3 p-4 bg-laravel-base/50 rounded-lg border border-white/5">
+                        <input type="checkbox" id="check" required class="w-5 h-5 rounded border-gray-600 text-laravel-red focus:ring-laravel-red bg-gray-700">
+                        <label for="check" class="text-xs text-laravel-muted">
+                            I confirm this inquiry is relevant, well-researched, and not a generic solicitation.
+                        </label>
+                    </div>
 
-    .footer-social-links a {
-      color: #bbbbbb;
-      transition: color 0.3s ease;
-    }
+                    <button type="submit" class="w-full py-4 bg-laravel-red hover:bg-red-600 text-white font-bold text-lg rounded-xl shadow-lg shadow-laravel-red/20 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Transmit Signal
+                    </button>
+                </div>
+            </form>
 
-    .footer-social-links a:hover {
-      color: #00BFA6;
-    }
+        </div>
+    </main>
 
-    @media (max-width: 600px) {
-      .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-laravel-base py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-laravel-muted text-sm">
+                &copy; 2025 Jonas. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-      .footer-container p,
-      .footer-social-links {
-        flex: unset;
-      }
-    }
-  </style>
-
-
-  <script>
-    function hamburg() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
-    }
-    function cancel() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
-    }
-  </script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        }
+    </script>
 </body>
-
 </html>
