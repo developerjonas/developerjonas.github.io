@@ -1,0 +1,166 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: transparent; }
+  .wrap { padding: 1.5rem 0; }
+  .phase-header { display: flex; align-items: center; gap: 10px; margin: 2rem 0 0.75rem; }
+  .phase-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .ph-pre { background: #EEEDFE; color: #3C3489; }
+  .ph-launch { background: #E1F5EE; color: #0F6E56; }
+  .ph-post { background: #FAEEDA; color: #854F0B; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+  .phase-sub { font-size: 12px; color: var(--text-secondary); margin-left: auto; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 0.5rem; }
+  .card { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .card-icon { font-size: 18px; color: var(--text-secondary); margin-bottom: 8px; }
+  .card-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.4; margin-bottom: 6px; }
+  .card-detail { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+  .metric-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 1rem 0; }
+  .metric { background: var(--surface-1); border-radius: var(--radius); padding: 12px 14px; }
+  .metric-num { font-size: 22px; font-weight: 500; color: var(--text-primary); }
+  .metric-label { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+  .north-star { background: var(--surface-2); border: 0.5px solid var(--border-accent); border-radius: 12px; padding: 16px 20px; margin-bottom: 1.5rem; }
+  .ns-eyebrow { font-size: 11px; color: var(--text-accent); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.05em; }
+  .ns-title { font-size: 18px; font-weight: 500; color: var(--text-primary); }
+  .ns-sub { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+  .channel-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 0.75rem 0; }
+  .channel { border: 0.5px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .ch-name { font-size: 13px; font-weight: 500; color: var(--text-primary); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .ch-detail { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 20px; }
+  .tag-free { background: #EAF3DE; color: #3B6D11; }
+  .section-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin: 1.5rem 0 0.5rem; letter-spacing: 0.04em; }
+  .tip { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; background: var(--surface-1); border-radius: 10px; margin-bottom: 8px; }
+  .tip i { color: var(--text-accent); font-size: 16px; margin-top: 1px; }
+  .tip-text { font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+  .tip-text strong { font-weight: 500; }
+</style>
+<div class="wrap">
+  <h2 class="sr-only">Inksheet zero-budget SaaS launch playbook, July 4 2026</h2>
+
+  <div class="north-star">
+    <div class="ns-eyebrow">north star goal</div>
+    <div class="ns-title">10 paying users before August 1</div>
+    <div class="ns-sub">Not 10,000 sign-ups. Not viral. 10 real founders paying $29/mo = proof it works.</div>
+  </div>
+
+  <div class="metric-row">
+    <div class="metric"><div class="metric-num">$0</div><div class="metric-label">budget</div></div>
+    <div class="metric"><div class="metric-num">4 days</div><div class="metric-label">until launch</div></div>
+    <div class="metric"><div class="metric-num">MVP</div><div class="metric-label">ready ✓</div></div>
+    <div class="metric"><div class="metric-num">$29/mo</div><div class="metric-label">Founder plan target</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="phase-header">
+    <span class="phase-badge ph-pre">Pre-launch · now → July 3</span>
+    <span class="phase-title">Warm the audience</span>
+    <span class="phase-sub">4 days</span>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-list-check" aria-hidden="true"></i></div>
+      <div class="card-label">day 1 — today</div>
+      <div class="card-title">List 30 targets manually</div>
+      <div class="card-detail">Find 30 founders actively raising on LinkedIn, X, or Reddit r/startups. Comment genuinely on their posts. No pitch yet.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-brand-x" aria-hidden="true"></i></div>
+      <div class="card-label">day 2</div>
+      <div class="card-title">Post the build story</div>
+      <div class="card-detail">Tweet/thread: "I built a DocSend alternative for $0 in 30 days. Launching July 4. Here's why and what it does differently." Tag @inksheetapp.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="card-label">day 3</div>
+      <div class="card-title">DM 10 warm leads</div>
+      <div class="card-detail">Send 10 personal DMs to founders you've already engaged with. Offer free early access. Ask: "Would this be useful for your raise?"</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-rocket" aria-hidden="true"></i></div>
+      <div class="card-label">day 4 — July 3</div>
+      <div class="card-title">Set up launch assets</div>
+      <div class="card-detail">Write Product Hunt listing draft. Prepare 3 screenshots. Write a 5-line cold email template. Get 5 friends to upvote on day one.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="phase-header">
+    <span class="phase-badge ph-launch">Launch · July 4–7</span>
+    <span class="phase-title">Go wide, go fast</span>
+    <span class="phase-sub">72 hours</span>
+  </div>
+  <div class="section-label">channels to hit (all free)</div>
+  <div class="channel-row">
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-brand-producthunt" aria-hidden="true"></i> Product Hunt <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">Launch at 12:01 AM PST. July 4 is historically lower competition — use it. Title: "Inksheet — Know the second an investor opens your deck"</div>
+    </div>
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-brand-reddit" aria-hidden="true"></i> Reddit <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">r/startups, r/Entrepreneur, r/SaaS. Post as a founder sharing a tool you built — not an ad. "I built this because DocSend costs $65/seat"</div>
+    </div>
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-brand-twitter" aria-hidden="true"></i> X / Twitter <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">Post launch thread. Tag founders who engage with pitch deck content. Use #buildinpublic and #IndieHacker to reach the right crowd.</div>
+    </div>
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">Post a personal story: "I was tired of sending pitch decks into the void." Founders actively raising scroll LinkedIn daily.</div>
+    </div>
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-message-circle" aria-hidden="true"></i> HN / IndieHackers <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">Post "Show HN: Inksheet – DocSend alternative with no per-seat pricing". IndieHackers milestone post for the #buildinpublic audience.</div>
+    </div>
+    <div class="channel">
+      <div class="ch-name"><i class="ti ti-users" aria-hidden="true"></i> Founder Slack groups <span class="tag tag-free">free</span></div>
+      <div class="ch-detail">OnDeck, YC alumni Slack, Founders Cafe. Ask: "Would anyone try this free? I want 5 users to break it." People love being first.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="phase-header">
+    <span class="phase-badge ph-post">Post-launch · July 8–31</span>
+    <span class="phase-title">Convert and learn</span>
+    <span class="phase-sub">3 weeks</span>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-phone-call" aria-hidden="true"></i></div>
+      <div class="card-label">week 2</div>
+      <div class="card-title">Do 10 customer calls</div>
+      <div class="card-detail">Every free user who shares a deck → DM them. Ask 3 questions: What were you doing before? What nearly stopped you from signing up? What's missing?</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></div>
+      <div class="card-label">week 2–3</div>
+      <div class="card-title">Convert free → paid</div>
+      <div class="card-detail">When a free user hits 3 active deals, send a personal email (not automated). Offer a 1-week trial of Founder. Follow up once.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div class="card-label">week 3</div>
+      <div class="card-title">Write the "what I learned" post</div>
+      <div class="card-detail">Publish a raw numbers post: signups, conversions, what broke. This gets 10x more reach than a product post and brings the next wave.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="ti ti-repeat" aria-hidden="true"></i></div>
+      <div class="card-label">ongoing</div>
+      <div class="card-title">Build in public weekly</div>
+      <div class="card-detail">Every Friday: 1 tweet with a real metric (users, decks shared, views tracked). Consistency beats virality for early-stage SaaS.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">lean principles to live by</div>
+  <div class="tip"><i class="ti ti-target" aria-hidden="true"></i><div class="tip-text"><strong>Traction before features.</strong> Every week ask: did we get a new paying user? If no, pause building and go talk to 5 people.</div></div>
+  <div class="tip"><i class="ti ti-messages" aria-hidden="true"></i><div class="tip-text"><strong>Manual before automated.</strong> Your first 10 deals should come from DMs, not funnels. Funnels come after you know what to say.</div></div>
+  <div class="tip"><i class="ti ti-trash" aria-hidden="true"></i><div class="tip-text"><strong>Kill features that nobody asks for twice.</strong> If 3 users don't mention the same thing, it's not a priority — even if it feels important.</div></div>
+  <div class="tip"><i class="ti ti-currency-dollar" aria-hidden="true"></i><div class="tip-text"><strong>Charge earlier than feels comfortable.</strong> Free users give feedback. Paying users give you signal about what actually matters.</div></div>
+</div>
