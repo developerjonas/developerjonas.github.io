@@ -1,0 +1,96 @@
+
+<style>
+.phase { margin-bottom: 24px; }
+.phase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.phase-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 20px; }
+.p1 { background: #E1F5EE; color: #0F6E56; }
+.p2 { background: #EEEDFE; color: #3C3489; }
+.p3 { background: #FAEEDA; color: #633806; }
+.p4 { background: #F1EFE8; color: #444441; }
+.phase-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.phase-meta { font-size: 12px; color: var(--text-secondary); margin-left: auto; }
+.features { display: flex; flex-direction: column; gap: 6px; }
+.feature { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-1); }
+.feature-name { font-size: 13px; color: var(--text-primary); flex: 1; }
+.feature-tier { font-size: 11px; color: var(--text-secondary); background: var(--surface-0); border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+.status { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; }
+.done { background: #E1F5EE; color: #0F6E56; }
+.ship { background: #EEEDFE; color: #3C3489; }
+.later { background: #F1EFE8; color: #5F5E5A; }
+.why { font-size: 11px; color: var(--text-muted); flex: 1.5; text-align: right; }
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+.legend { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+</style>
+
+<div class="legend">
+  <div class="legend-item"><span class="status done">✓</span> Built</div>
+  <div class="legend-item"><span class="status ship">→</span> Ship next</div>
+  <div class="legend-item"><span class="status later">·</span> Later</div>
+</div>
+
+<div class="phase">
+  <div class="phase-header">
+    <span class="phase-label p1">Phase 1 — Launch ready</span>
+    <span class="phase-title">Core value loop</span>
+    <span class="phase-meta">July 4th</span>
+  </div>
+  <div class="features">
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Upload pitch deck</span><span class="feature-tier">All tiers</span><span class="why">Without this, nothing works</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Shareable view link</span><span class="feature-tier">All tiers</span><span class="why">Core delivery mechanism</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">View tracking — who + when</span><span class="feature-tier">All tiers</span><span class="why">The main promise of Inksheet</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Instant open notification</span><span class="feature-tier">Founder+</span><span class="why">The dopamine hook that drives upgrades</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Passcode-protected links</span><span class="feature-tier">Founder+</span><span class="why">Promised on pricing page</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Link expiration date</span><span class="feature-tier">Founder+</span><span class="why">Promised on pricing page</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Paddle billing — monthly + annual</span><span class="feature-tier">Founder / Pro</span><span class="why">Revenue works</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Visitor deduplication</span><span class="feature-tier">All tiers</span><span class="why">Makes view count meaningful</span></div>
+    <div class="feature"><span class="status done">✓</span><span class="feature-name">Stalled deal badge</span><span class="feature-tier">All tiers</span><span class="why">Pipeline health signal</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="phase">
+  <div class="phase-header">
+    <span class="phase-label p2">Phase 2 — Retention drivers</span>
+    <span class="phase-title">Make users stay</span>
+    <span class="phase-meta">July 5 – August</span>
+  </div>
+  <div class="features">
+    <div class="feature"><span class="status ship">→</span><span class="feature-name">Page-by-page time tracking</span><span class="feature-tier">Founder+</span><span class="why">Most requested deck analytics feature</span></div>
+    <div class="feature"><span class="status ship">→</span><span class="feature-name">Subscription cancellation webhook</span><span class="feature-tier">Internal</span><span class="why">Users keep access forever without this</span></div>
+    <div class="feature"><span class="status ship">→</span><span class="feature-name">Weekly pipeline digest email</span><span class="feature-tier">Founder+</span><span class="why">Brings users back weekly without logging in</span></div>
+    <div class="feature"><span class="status ship">→</span><span class="feature-name">Billing portal (cancel / upgrade)</span><span class="feature-tier">Paid</span><span class="why">Users need self-serve account control</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="phase">
+  <div class="phase-header">
+    <span class="phase-label p3">Phase 3 — Upgrade drivers</span>
+    <span class="phase-title">Push Hobby → Founder → Pro</span>
+    <span class="phase-meta">August – October</span>
+  </div>
+  <div class="features">
+    <div class="feature"><span class="status later">·</span><span class="feature-name">AI follow-up drafter</span><span class="feature-tier">Founder+</span><span class="why">Biggest Pro differentiator, drives upgrades</span></div>
+    <div class="feature"><span class="status later">·</span><span class="feature-name">Video assets per deal</span><span class="feature-tier">Founder+</span><span class="why">Promised, unique vs DocSend</span></div>
+    <div class="feature"><span class="status later">·</span><span class="feature-name">Slide heatmap analytics</span><span class="feature-tier">Pro only</span><span class="why">Pro's strongest hook over Founder</span></div>
+    <div class="feature"><span class="status later">·</span><span class="feature-name">Post-send link editing</span><span class="feature-tier">Pro only</span><span class="why">Solves a real painful moment</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="phase">
+  <div class="phase-header">
+    <span class="phase-label p4">Phase 4 — Retention features</span>
+    <span class="phase-title">Polish and expand</span>
+    <span class="phase-meta">October – 2027</span>
+  </div>
+  <div class="features">
+    <div class="feature"><span class="status later">·</span><span class="feature-name">NDA e-sign before view</span><span class="feature-tier">Pro only</span><span class="why">Niche but strong Pro retention signal</span></div>
+    <div class="feature"><span class="status later">·</span><span class="feature-name">In-deck video recording</span><span class="feature-tier">Pro only</span><span class="why">Complex to build, low early demand</span></div>
+    <div class="feature"><span class="status later">·</span><span class="feature-name">Deal collaborators</span><span class="feature-tier">Pro only</span><span class="why">Only needed when teams use it</span></div>
+  </div>
+</div>
