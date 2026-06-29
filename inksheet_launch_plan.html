@@ -1,0 +1,283 @@
+
+<style>
+* { box-sizing: border-box; }
+.day { margin-bottom: 28px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.day-header { padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+.day-badge { font-size: 11px; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.d1 { background: #FAEEDA; color: #633806; }
+.d2 { background: #FAEEDA; color: #633806; }
+.d3 { background: #EEEDFE; color: #3C3489; }
+.d4 { background: #EEEDFE; color: #3C3489; }
+.d5 { background: #E1F5EE; color: #0F6E56; }
+.d6 { background: #E8593C; color: #fff; }
+.day-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.day-sub { font-size: 12px; color: var(--text-secondary); margin-left: auto; }
+.section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
+.section-label { font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.tasks { display: flex; flex-direction: column; gap: 5px; }
+.task { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+.task input[type=checkbox] { margin-top: 3px; flex-shrink: 0; accent-color: #1D9E75; cursor: pointer; }
+.task.test { color: var(--text-secondary); }
+.tag { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 500; margin-left: 4px; white-space: nowrap; flex-shrink: 0; }
+.tag-fix { background: #FCEBEB; color: #A32D2D; }
+.tag-test { background: #E6F1FB; color: #185FA5; }
+.tag-ship { background: #E1F5EE; color: #0F6E56; }
+.tag-code { background: #F1EFE8; color: #444441; }
+.tag-public { background: #FAEEDA; color: #633806; }
+.progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin: 0 16px 12px; }
+.progress-fill { height: 100%; border-radius: 2px; background: #1D9E75; transition: width .3s; }
+.day-progress { font-size: 11px; color: var(--text-muted); margin-left: 8px; }
+.tabs { display: flex; gap: 4px; margin-bottom: 20px; flex-wrap: wrap; }
+.tab { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); color: var(--text-secondary); background: var(--surface-1); transition: all .15s; }
+.tab.active { background: var(--text-primary); color: var(--surface-2); border-color: var(--text-primary); }
+.day-block { display: none; }
+.day-block.active { display: block; }
+</style>
+
+<h2 class="sr-only">Inksheet pre-launch plan — June 29 to July 4</h2>
+
+<div class="tabs">
+  <button class="tab active" onclick="show(0)">Jun 29</button>
+  <button class="tab" onclick="show(1)">Jun 30</button>
+  <button class="tab" onclick="show(2)">Jul 1</button>
+  <button class="tab" onclick="show(3)">Jul 2</button>
+  <button class="tab" onclick="show(4)">Jul 3</button>
+  <button class="tab" onclick="show(5)">Jul 4 🚀</button>
+</div>
+
+<div class="day-block active" id="d0">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d1">Day 1 — Jun 29</span>
+    <span class="day-title">Fix the public view + passcode</span>
+    <span class="day-sub">Critical path</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🔴 Fix first — public view is broken</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Fix passcode entry on public deal view — enter code → unlock → show deck <span class="tag tag-fix">bug</span></span></label>
+      <label class="task"><input type="checkbox"><span>Verify deck renders correctly in the public viewer (PDF pages load, no blank screens)</span></label>
+      <label class="task"><input type="checkbox"><span>Fix any broken layout on mobile for public view — investor will open on phone</span></label>
+      <label class="task"><input type="checkbox"><span>Confirm view event fires when investor opens the link (check DB activity table)</span></label>
+      <label class="task"><input type="checkbox"><span>Confirm expired link shows a proper "link expired" message, not a crash</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🧪 Test the core loop end to end</div>
+    <div class="tasks">
+      <label class="task test"><input type="checkbox"><span>Register a new account → upload a deck → create deal → get link → open link in incognito → check notification fires <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Set a passcode → open link → enter wrong code → enter right code → confirm deck loads <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Set expiry date to yesterday → open link → confirm expired message shows <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Check activity log in dashboard shows the view with correct timestamp and IP <span class="tag tag-test">test</span></span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">📋 Code cleanup (30 min only)</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Remove all console.log and debug statements from production code <span class="tag tag-code">code</span></span></label>
+      <label class="task"><input type="checkbox"><span>Remove hardcoded test emails, userIds, and fake sessions from any file <span class="tag tag-code">code</span></span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="day-block" id="d1">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d2">Day 2 — Jun 30</span>
+    <span class="day-title">Billing flow + cancellation webhook</span>
+    <span class="day-sub">Revenue integrity</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🔴 Cancellation webhook — must ship today</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Handle subscription.canceled in webhook route → downgrade user.tier to "hobby" <span class="tag tag-fix">bug</span></span></label>
+      <label class="task"><input type="checkbox"><span>Handle subscription.paused → same downgrade to "hobby"</span></label>
+      <label class="task"><input type="checkbox"><span>Add subscription.canceled and subscription.paused to Paddle webhook subscribed events in dashboard</span></label>
+      <label class="task"><input type="checkbox"><span>Fix verifyWebhookSignature to return success:true for all valid event types, not just created/updated</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🧪 Test billing end to end</div>
+    <div class="tasks">
+      <label class="task test"><input type="checkbox"><span>Complete a real Founder checkout → confirm user.tier = "founder" in DB <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Cancel subscription in Paddle dashboard → confirm user.tier = "hobby" within 60s <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Check Paddle webhook event log — confirm no 400 errors on cancellation events <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Try creating a 4th deal on hobby tier → confirm LIMIT_REACHED error shows cleanly <span class="tag tag-test">test</span></span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">⚙️ Billing portal</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Test getBillingPortalAction — settings page → "Manage billing" → opens Paddle portal</span></label>
+      <label class="task"><input type="checkbox"><span>Confirm paddleCustomerId is being saved to user.preferences on subscription.created webhook</span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="day-block" id="d2">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d3">Day 3 — Jul 1</span>
+    <span class="day-title">Dashboard polish + error states</span>
+    <span class="day-sub">First impression</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🎨 Dashboard — what a new user sees first</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Empty state on deals page — no deals yet → show a clear CTA to create first deal <span class="tag tag-public">UX</span></span></label>
+      <label class="task"><input type="checkbox"><span>Empty state on activity/analytics page — no views yet → helpful message, not a blank page</span></label>
+      <label class="task"><input type="checkbox"><span>Upgrade prompt when hobby user hits 3 deal limit — clear message with link to pricing</span></label>
+      <label class="task"><input type="checkbox"><span>Settings page — workspace name, company name save correctly and reflect immediately</span></label>
+      <label class="task"><input type="checkbox"><span>Make sure the tier badge (Hobby / Founder / Pro) shows correctly in the dashboard nav</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🧪 New user simulation</div>
+    <div class="tasks">
+      <label class="task test"><input type="checkbox"><span>Register brand new account → go through entire flow with fresh eyes → note every friction point <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Try uploading a large PDF (>10MB) → confirm error message is clear, not a crash <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Try uploading a non-PDF file → confirm rejection message is helpful <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Open dashboard on mobile — is it usable? Navigation accessible? <span class="tag tag-test">test</span></span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🔒 Auth edge cases</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Confirm forgot password flow works end to end</span></label>
+      <label class="task"><input type="checkbox"><span>Confirm email verification flow works if you have it</span></label>
+      <label class="task"><input type="checkbox"><span>Try accessing /dashboard without being logged in → redirects to /login cleanly</span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="day-block" id="d3">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d4">Day 4 — Jul 2</span>
+    <span class="day-title">Public pages + legal</span>
+    <span class="day-sub">Trust and conversion</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🌐 Public-facing pages</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Landing page — hero copy is sharp, CTA works, no broken links <span class="tag tag-public">public</span></span></label>
+      <label class="task"><input type="checkbox"><span>Pricing page — billing toggle works, checkout opens, all three tiers render correctly</span></label>
+      <label class="task"><input type="checkbox"><span>Features page — if it exists, check all content is accurate to what's actually built</span></label>
+      <label class="task"><input type="checkbox"><span>404 page — exists and looks intentional, not a Next.js default</span></label>
+      <label class="task"><input type="checkbox"><span>OG image / meta tags — share inksheet.app on Twitter and check the preview card looks right</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">📄 Legal — must have before launch</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Privacy Policy live at /privacy — required by Paddle and GDPR <span class="tag tag-fix">required</span></span></label>
+      <label class="task"><input type="checkbox"><span>Terms of Service live at /terms</span></label>
+      <label class="task"><input type="checkbox"><span>Refund Policy live at /refund — Paddle requires this for seller approval</span></label>
+      <label class="task"><input type="checkbox"><span>Footer links to all three pages work</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">📧 Support + comms</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>support@inksheet.app receives email — test it right now by sending one</span></label>
+      <label class="task"><input type="checkbox"><span>Set up a simple way to see support emails — Gmail, Notion, anything</span></label>
+      <label class="task"><input type="checkbox"><span>Write a one-paragraph welcome email to send manually to first 10 users</span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="day-block" id="d4">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d5">Day 5 — Jul 3</span>
+    <span class="day-title">Final stress test + launch content</span>
+    <span class="day-sub">Ready to ship</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🔥 Full stress test</div>
+    <div class="tasks">
+      <label class="task test"><input type="checkbox"><span>Do the full flow 3 times with 3 different email accounts — register, upload, share, view, check notification <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Simulate an investor opening the deck on mobile (iPhone Safari) — does it load? <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Upgrade from Hobby → Founder → confirm features unlock immediately <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Check Vercel logs for any recurring errors or warnings <span class="tag tag-test">test</span></span></label>
+      <label class="task test"><input type="checkbox"><span>Check Neon DB — confirm no slow queries or connection errors under light load <span class="tag tag-test">test</span></span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">✍️ Write launch content today (post tomorrow)</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Write Reddit launch post for r/startups and r/SaaS — problem first, solution second, link last <span class="tag tag-public">content</span></span></label>
+      <label class="task"><input type="checkbox"><span>Write 3 tweets — launch announcement, the story behind it, one feature highlight</span></label>
+      <label class="task"><input type="checkbox"><span>Write Indie Hackers milestone post — "I'm launching tomorrow, here's what I built and why"</span></label>
+      <label class="task"><input type="checkbox"><span>Prepare a list of 10 Reddit threads / founder profiles to DM on launch day</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">⚙️ Final config check</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>All Vercel env vars confirmed — PADDLE, R2, DATABASE_URL, AUTH secrets</span></label>
+      <label class="task"><input type="checkbox"><span>Paddle webhook endpoint confirmed active and receiving events</span></label>
+      <label class="task"><input type="checkbox"><span>R2 bucket — upload and delete a test file, confirm it works</span></label>
+      <label class="task"><input type="checkbox"><span>Remove the [Paddle Init] debug console.log from usePaddle hook</span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="day-block" id="d5">
+<div class="day">
+  <div class="day-header">
+    <span class="day-badge d6">Day 6 — Jul 4 🚀</span>
+    <span class="day-title">Launch day</span>
+    <span class="day-sub">Ship it</span>
+  </div>
+  <div class="section">
+    <div class="section-label">🌅 Morning (before posting)</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Do one final end-to-end test — fresh account, full flow <span class="tag tag-test">test</span></span></label>
+      <label class="task"><input type="checkbox"><span>Check Vercel deployment is the latest commit with no errors</span></label>
+      <label class="task"><input type="checkbox"><span>Check inksheet.app loads fast — open in incognito, time the load</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🚀 Post in this order</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>1. Post on X / Twitter first — your build in public audience <span class="tag tag-ship">ship</span></span></label>
+      <label class="task"><input type="checkbox"><span>2. Post on Indie Hackers — most supportive early community</span></label>
+      <label class="task"><input type="checkbox"><span>3. Post on Reddit r/startups — highest traffic, needs the best copy</span></label>
+      <label class="task"><input type="checkbox"><span>4. Post on Reddit r/SaaS — second post, slightly different angle</span></label>
+      <label class="task"><input type="checkbox"><span>5. Send 10 personal DMs to founders you identified yesterday</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">📊 Stay on top of it all day</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>Reply to every comment within 1 hour all day — Reddit karma matters early</span></label>
+      <label class="task"><input type="checkbox"><span>Check support@inksheet.app every 2 hours</span></label>
+      <label class="task"><input type="checkbox"><span>Fix any critical bug that appears within the hour — you are the support team</span></label>
+      <label class="task"><input type="checkbox"><span>Post an end-of-day update on X — signups, MRR, what broke, what worked</span></label>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🎯 Definition of a successful launch day</div>
+    <div class="tasks">
+      <label class="task"><input type="checkbox"><span>10+ signups (free or paid)</span></label>
+      <label class="task"><input type="checkbox"><span>1 paying user</span></label>
+      <label class="task"><input type="checkbox"><span>0 critical crashes</span></label>
+      <label class="task"><input type="checkbox"><span>At least 1 person gives you real feedback</span></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function show(i) {
+  document.querySelectorAll('.day-block').forEach((d,j) => d.classList.toggle('active', j===i));
+  document.querySelectorAll('.tab').forEach((t,j) => t.classList.toggle('active', j===i));
+}
+</script>
